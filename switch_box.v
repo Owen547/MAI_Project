@@ -1,0 +1,135 @@
+// `timescale 1ns / 1ps
+
+// module switch_box #(parameter WIDTH = 1)(
+//     input config_in,
+//     input config_clk,
+//     input config_en,
+//     output config_out,
+
+//     inout [WIDTH - 1:0] l,
+//     inout [WIDTH - 1:0] r,
+//     inout [WIDTH - 1:0] t,
+//     inout [WIDTH - 1:0] b
+    
+//     );
+
+//     localparam NUM_MUX = WIDTH * 4;
+    
+//     wire [NUM_MUX:0]config_bus;
+//     assign config_bus[0] = config_in;
+//     assign config_out = config_bus[NUM_MUX];
+    
+//     genvar index;
+//     generate
+//     for (index=0; index < WIDTH; index=index+1) begin
+//         wire [3:0] left   = { b[index], r[index], t[index], 1'dz };
+//         wire [3:0] top    = { l[index], b[index], r[index], 1'dz };
+//         wire [3:0] right  = { t[index], l[index], b[index], 1'dz };
+//         wire [3:0] bottom = { r[index], t[index], l[index], 1'dz };
+//         prog_mux #(2, 4) mux_left (
+//             .data_in(left),
+//             .config_in(config_bus[index]),
+//             .config_clk(config_clk),
+//             .config_en(config_en),
+//             .data_out(l[index]),
+//             .config_out(config_bus[index + 1]));
+//         prog_mux #(2, 4) mux_top (
+//             .data_in(top),
+//             .config_in(config_bus[index + WIDTH * 1]),
+//             .config_clk(config_clk),
+//             .config_en(config_en),
+//             .data_out(t[index]),
+//             .config_out(config_bus[index + WIDTH * 1 + 1]));
+//         prog_mux #(2, 4) mux_right (
+//             .data_in(right),
+//             .config_in(config_bus[index + WIDTH * 2]),
+//             .config_clk(config_clk),
+//             .config_en(config_en),
+//             .data_out(r[index]),
+//             .config_out(config_bus[index + WIDTH * 2 + 1]));
+//         prog_mux #(2, 4) mux_bottom (
+//             .data_in(bottom),
+//             .config_in(config_bus[index + WIDTH * 3]),
+//             .config_clk(config_clk),
+//             .config_en(config_en),
+//             .data_out(b[index]),
+//             .config_out(config_bus[index + WIDTH * 3 + 1]));
+//     end
+//     endgenerate
+    
+// endmodule
+
+`timescale 1ns / 1ps
+
+module switch_box #(
+
+    parameter WIDTH = 2
+
+    )
+
+    (
+
+    input config_in,
+    input config_clk,
+    input config_en,
+    output config_out,
+
+    input [WIDTH - 1:0] l_in,
+    output [WIDTH - 1:0] l_out,
+
+    input [WIDTH - 1:0] t_in,
+    output [WIDTH - 1:0] t_out,
+
+    input [WIDTH - 1:0] r_in,
+    output [WIDTH - 1:0] r_out,
+
+    input [WIDTH - 1:0] b_in,
+    output [WIDTH - 1:0] b_out
+    
+    );
+
+    localparam NUM_MUX = WIDTH * 4;
+    
+    wire [NUM_MUX:0]config_bus;
+    assign config_bus[0] = config_in;
+    assign config_out = config_bus[NUM_MUX];
+    
+    genvar index;
+    generate
+    for (index=0; index < WIDTH; index=index+1) begin
+        wire [3:0] left   = { b_in[index], r_in[index], t_in[index], 1'b0 };
+        wire [3:0] top    = { l_in[index], b_in[index], r_in[index], 1'b0 };
+        wire [3:0] right  = { t_in[index], l_in[index], b_in[index], 1'b0 };
+        wire [3:0] bottom = { r_in[index], t_in[index], l_in[index], 1'b0 };
+        prog_mux #(2, 4) mux_left (
+            .data_in(left),
+            .config_in(config_bus[index]),
+            .config_clk(config_clk),
+            .config_en(config_en),
+            .data_out(l_out[index]),
+            .config_out(config_bus[index + 1]));
+        prog_mux #(2, 4) mux_top (
+            .data_in(top),
+            .config_in(config_bus[index + WIDTH * 1]),
+            .config_clk(config_clk),
+            .config_en(config_en),
+            .data_out(t_out[index]),
+            .config_out(config_bus[index + WIDTH * 1 + 1]));
+        prog_mux #(2, 4) mux_right (
+            .data_in(right),
+            .config_in(config_bus[index + WIDTH * 2]),
+            .config_clk(config_clk),
+            .config_en(config_en),
+            .data_out(r_out[index]),
+            .config_out(config_bus[index + WIDTH * 2 + 1]));
+        prog_mux #(2, 4) mux_bottom (
+            .data_in(bottom),
+            .config_in(config_bus[index + WIDTH * 3]),
+            .config_clk(config_clk),
+            .config_en(config_en),
+            .data_out(b_out[index]),
+            .config_out(config_bus[index + WIDTH * 3 + 1]));
+    end
+    endgenerate
+    
+endmodule
