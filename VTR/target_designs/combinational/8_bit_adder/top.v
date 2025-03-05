@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module adder8(
+module top(
     output cout, //MSB, determines if answer is positive or negative
     output [7:0] s,
     input [7:0] a,
