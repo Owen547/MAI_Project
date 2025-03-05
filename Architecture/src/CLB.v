@@ -4,7 +4,7 @@ module CLB
 #(
     parameter NUM_BLE = 3, 
     parameter NUM_INPUTS = 12
-)// these should add to a power of two so that indexing is an integer number of bits... one less for ground bus for unnattached ooutputs of connector
+)// these should add to a power of two so that indexing is an integer number of bits... one less for ground bus for unnattached outputs of connector
 ( 
     input config_in,
     input config_clk,

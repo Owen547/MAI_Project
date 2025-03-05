@@ -1,53 +1,65 @@
 <architecture>
 
-    <!-- ODIN specific declarations (I think) begin -->
-    <models>
-        <!-- may need to make an odin specific model of the CLB/IO block? unsure -->
-    </models>
+  <!-- ODIN specific declarations (I think) begin -->
 
-    <tiles>
+      <!-- ODIN II specific config begins 
+      Describes the types of user-specified netlist blocks (in blif, this corresponds to 
+      ".model [type_of_block]") that this architecture supports.
 
-        <tile name="io" capacity="8">
-          <equivalent_sites>
-              <site pb_type="io" pin_mapping="direct"/>
-          </equivalent_sites>
-          <input name="outpad" num_pins="1"/>
-          <output name="inpad" num_pins="1"/>
-          <clock name="clock" num_pins="1"/>
-          <fc in_type="frac" in_val="0.15" out_type="frac" out_val="0.10"/>
-          <pinlocations pattern="custom">
-            <loc side="left">io.outpad io.inpad io.clock</loc>
-            <loc side="top">io.outpad io.inpad io.clock</loc>
-            <loc side="right">io.outpad io.inpad io.clock</loc>
-            <loc side="bottom">io.outpad io.inpad io.clock</loc>
-          </pinlocations>
-        </tile>
+      Note: Basic LUTs, I/Os, and flip-flops are not included here as there are 
+      already special structures in blif (.names, .input, .output, and .latch) 
+      that describe them. -->
 
-        <tile name="clb">
-          <equivalent_sites>
-              <site pb_type="clb" pin_mapping="direct"/>
-          </equivalent_sites>
-          <input name="I" num_pins="33" equivalent="full"/>
-          <output name="O" num_pins="10" equivalent="instance"/>
-          <clock name="clk" num_pins="1"/>
-          <fc in_type="frac" in_val="0.15" out_type="frac" out_val="0.10"/>
-          <pinlocations pattern="spread"/>
-        </tile> 
+  <models>
+      <!-- may need to make an odin specific model of the CLB/IO block? unsure -->
+      <!-- Doesn't look like its necessary as they standard accepted models or whatever -->
+  </models>
 
-    </tiles>
+  <tiles>
 
-    <!-- ODIN specific declarations end -->
+    <tile name="io" capacity="8">
+      <equivalent_sites>
+          <site pb_type="io" pin_mapping="direct"/>
+      </equivalent_sites>
+      <input name="outpad" num_pins="1"/>
+      <output name="inpad" num_pins="1"/>
+      <clock name="clock" num_pins="1"/>
+      <fc in_type="frac" in_val="0.15" out_type="frac" out_val="0.10"/>
+      <pinlocations pattern="custom">
+        <loc side="left">io.outpad io.inpad io.clock</loc>
+        <loc side="top">io.outpad io.inpad io.clock</loc>
+        <loc side="right">io.outpad io.inpad io.clock</loc>
+        <loc side="bottom">io.outpad io.inpad io.clock</loc>
+      </pinlocations>
+    </tile>
+
+    <tile name="clb">
+      <equivalent_sites>
+          <site pb_type="clb" pin_mapping="direct"/>
+      </equivalent_sites>
+      <input name="I" num_pins="12" equivalent="full"/>
+      <output name="O" num_pins="3" equivalent="instance"/>
+      <clock name="clk" num_pins="1"/>
+      <fc in_type="frac" in_val="0.15" out_type="frac" out_val="0.10"/>
+      <pinlocations pattern="spread"/>
+    </tile> 
+
+  </tiles>
+
+  <!-- ODIN II specific config ends -->
+  <!-- Physical descriptions begin -->
 
     <layout>
     <!-- need to edit this to take input for height and width -->
-        <fixed_layout name="mesh" width="x+1" height="y+1"> 
+        <fixed_layout name="mesh" width="8" height="8"> 
             <!-- Do I need to define an IO that occurs adjacent to edge connectors? -->
-            <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
+            <!-- <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
             <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/>
             <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
-            <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/>
+            <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/> -->
+            <perimeter type="io" priority="100"/>
             <!-- Fill the remaining device with CLB blocks -->
-            <fill type="CLB" priority="1"/>
+            <fill type="CLB" priority="10"/>
             <!-- All other non specified locations will default to EMPTY. Could use region instead of fill for the CLBs? -->
         </fixed_layout>
 
@@ -65,13 +77,13 @@
             <y distr="uniform" peak="1.000000"/>
         </chan_width_distr>
         <switch_block type="subset" fs="3"/>
-        <connection_block input_switch_name="connector"/>
+        <connection_block input_switch_name="ipin_cblock"/>
 
     </device>
 
     <switchlist>
 
-        <switch type="mux" name="0" R="0.000000" Cin="0.000000e+00" Cout="0.000000e+00" Tdel="6.837e-11" mux_trans_size="2.630740" buf_size="27.645901"/>
+        <switch type="mux" name="mux_something" R="0.000000" Cin="0.000000e+00" Cout="0.000000e+00" Tdel="6.837e-11" mux_trans_size="2.630740" buf_size="27.645901"/>
         <!--switch ipin_cblock resistance set to yeild for 4x minimum drive strength buffer-->
         <switch type="mux" name="ipin_cblock" R="1516.380005" Cout="0." Cin="0.000000e+00" Tdel="7.247000e-11" mux_trans_size="1.222260" buf_size="auto"/>
 
@@ -79,14 +91,19 @@
 
     <segmentlist>
 
-        <!-- This is for declaring wire segments? -->
-        <!-- <segment freq="1.000000" length="4" type="unidir" Rmetal="0.000000" Cmetal="0.000000e+00">
-            <mux name="0"/>
-            <sb type="pattern">1 1 1 1 1</sb>
-            <cb type="pattern">1 1 1 1</cb>
-        </segment> -->
+    <segment freq="1.000000" length="longline" type="unidir" Rmetal="101" Cmetal="22.5e-15">
+      <mux name="mux_something"/>
+      <sb type="pattern">1 1 </sb>
+      <cb type="pattern">1 1 </cb>
+    </segment>
 
     </segmentlist>
+
+    <directlist>
+      <!--  -->
+      <!-- <direct name="adder_carry" from_pin="clb.cout" to_pin="clb.cin" x_offset="0" y_offset="-1" z_offset="0"/> -->
+
+    </directlist>
 
     <complexblocklist>
 
@@ -124,18 +141,22 @@
     </pb_type>
 
     <pb_type name="clb">
+
       <input name="I" num_pins="12" equivalent="full"/>
       <output name="O" num_pins="3" equivalent="instance"/>
       <clock name="clk" equivalent="false"/>
 
       <pb_type name="ble" num_pb="3">
+
         <input name="in" num_pins="6"/>
         <output name="out" num_pins="1"/>
         <clock name="clk"/>
 
         <pb_type name="lut_6" blif_model=".names" num_pb="1" class="lut">
+
           <input name="in" num_pins="6" port_class="lut_in"/>
           <output name="out" num_pins="1" port_class="lut_out"/>
+
           <delay_matrix type="max" in_port="lut_6.in" out_port="lut_6.out">
             2.690e-10
             2.690e-10
@@ -144,23 +165,30 @@
             2.690e-10
             2.690e-10
           </delay_matrix>
+
         </pb_type>
 
         <pb_type name="ff" blif_model=".latch" num_pb="1" class="flipflop">
+
           <input name="D" num_pins="1" port_class="D"/>
           <output name="Q" num_pins="1" port_class="Q"/>
           <clock name="clk" port_class="clock"/>
+
         </pb_type>
 
         <interconnect>
+
           <direct input="lut_6.out" output="ff.D"/>
-          <direct input="ble.in" output="lut_6.in"/>
+          <direct input="ble.in[5:0]" output="lut_6.in.in[5:0]"/>
           <mux input="ff.Q lut_6.out" output="ble.out"/>
           <direct input="ble.clk" output="ff.clk"/>
+
         </interconnect>
+
       </pb_type>
 
       <interconnect>
+        <!-- This mmight need to be changed if BLE outputs go at the end of CLB CX inputs-->
         <complete input="{clb.I ble[2:0].out}" output="ble[2:0].in"/>
         <complete input="clb.clk" output="ble[2:0].clk"/>
         <direct input="ble[2:0].out" output="clb.O"/>
@@ -171,7 +199,16 @@
       <fc_in type="frac">0.150000</fc_in>
       <fc_out type="frac">0.125000</fc_out>
 
-      <pinlocations pattern="spread"/>
+      <pinlocations pattern="custom"/>
+
+        <loc side="left">clb.I[2:0] clb.O[2:0] clb.clock</loc>
+        <loc side="top">clb.I[5:3] clb.O[2:0]</loc>
+        <loc side="right">clb.I[8:6] clb.O[2:0]</loc>
+        <loc side="bottom">clb.I[11:9] clb.O[2:0]</loc>
+      
+      </pinlocations>
+
+      <switchblock_locations pattern=external>
 
     </pb_type>
     
