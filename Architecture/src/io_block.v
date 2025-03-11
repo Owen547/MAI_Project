@@ -6,8 +6,8 @@ module io_block #(WIDTH = 8) (
     input config_en,
     output config_out,
 
-    input [WIDTH-1:0] data_in, cx_in,
-    output [WIDTH-1:0] data_out, cx_out
+    input [(WIDTH/2) - 1:0] data_in, cx_in,
+    output [(WIDTH/2) - 1:0] data_out, cx_out
 
     );
 
@@ -28,7 +28,7 @@ module io_block #(WIDTH = 8) (
         .config_bits(config_bits)
     );
 
-    for (index=0; index < WIDTH; index=index+1) begin
+    for (index=0; index < (WIDTH/2); index=index+1) begin
 
         io io (
 

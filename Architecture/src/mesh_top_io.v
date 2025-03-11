@@ -2,19 +2,19 @@
 
 module mesh_top_io #(
         
-    parameter MESH_SIZE_X = 7,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the architecture isn't applicable/code doesnt work.
-    parameter MESH_SIZE_Y = 4,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 2,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_Y = 12,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
         
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
     parameter CLB_TRACK_INPUTS = CLB_NUM_INPUTS/4,
-    parameter CX_LOG_INPUTS = 4, 
-    parameter CX_INPUTS = 16, 
+    parameter CX_INPUTS = 16,
+    parameter CX_LOG_INPUTS = $clog2(CX_INPUTS),  
     parameter CX_OUTPUTS = 16,
     parameter SWBX_WIDTH = 5,
-    parameter DATA_IN_WIDTH = 5,
-    parameter DATA_OUT_WIDTH = 5
-    parameter IO_WIDTH = DATA_IN_WIDTH + DATA_OUT_WIDTH
+    parameter DATA_IN_WIDTH = 3,
+    parameter DATA_OUT_WIDTH = 3,
+    parameter IO_WIDTH = DATA_IN_WIDTH + DATA_OUT_WIDTH //probably should be even seeing as I'm currently dividing the IO block into 2 for I and O.
 
     )
 
@@ -25,7 +25,7 @@ module mesh_top_io #(
     input config_en,
     input clk,
     input [((MESH_SIZE_X + MESH_SIZE_Y) * 2 * DATA_IN_WIDTH) - 1:0] data_in,
-    output [((MESH_SIZE_X + MESH_SIZE_Y) * 2 * DATA_OUT_WIDTH) - 1::0] data_out,
+    output [((MESH_SIZE_X + MESH_SIZE_Y) * 2 * DATA_OUT_WIDTH) - 1:0] data_out,
     output config_out
         
     );
@@ -48,7 +48,7 @@ module mesh_top_io #(
     generate
 
         localparam swbx_interval_x = 4 * SWBX_WIDTH;
-        localparam swbx_interval_y = MESH_SIZE_X * 4 * SWBX_WIDTH;
+        localparam swbx_interval_y = (MESH_SIZE_X+1) * 4 * SWBX_WIDTH;
         localparam swbx_config_interval_x = 2;
         localparam swbx_config_interval_y = ((MESH_SIZE_X * 2) + 1) + ((MESH_SIZE_X * 2) + 3);
 
@@ -104,10 +104,10 @@ module mesh_top_io #(
                     .NUM_BLE(CLB_NUM_BLE), 
                     .NUM_INPUTS(CLB_NUM_INPUTS)
                 ) CLB ( 
-                    .config_in(config_bus[]),
+                    .config_in(config_bus[clb_config_offset + (x_index * clb_config_interval_x) + (y_index * clb_config_interval_y)]),
                     .config_clk(config_clk),
                     .config_en(config_en),
-                    .config_out(config_bus[]),
+                    .config_out(config_bus[clb_config_offset + (x_index * clb_config_interval_x) + (y_index * clb_config_interval_y) + 1]),
 
                     .data_in({
                     CLB_inputs[(1 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS],  
@@ -123,6 +123,9 @@ module mesh_top_io #(
             end
 
         end
+
+        // unlike CLBs and SWBXs, IO and CXs have unique scenarios, mostly on edge cases, where they need to be declared with different buses as input/output. 
+        // This si why there is so many different if statements etc.
 
 
         localparam io_config_offset_middle = MESH_SIZE_X + ((MESH_SIZE_X * 2) + 1);
@@ -226,30 +229,29 @@ module mesh_top_io #(
         end
 
 
-
         localparam top_cx_config_offset = MESH_SIZE_X + 1;
         localparam top_cx_config_interval = 2; // can only be in x, is specific for top row only
 
         localparam left_io_cx_config_offset_clb_row = MESH_SIZE_X + ((MESH_SIZE_X * 2) + 1) + 1;
         localparam middle_cx_config_interval_y = ((MESH_SIZE_X * 2) + 3) + ((MESH_SIZE_X * 2) + 1);
         localparam cx_swbx_row_config_offset = (MESH_SIZE_X * 2) + 3;
+        localparam middle_cx_config_interval_x = 2;
 
         localparam cx_bottom_io_config_offset = MESH_SIZE_X + ((MESH_SIZE_X * 2) + 1) + ((MESH_SIZE_Y - 1) * (((MESH_SIZE_X * 2 ) + 1) + ((MESH_SIZE_X * 2) + 3))) + ((MESH_SIZE_X * 2) + 3) + 1;
         localparam cx_bottom_config_interval = 2; // can only be in x, is specific for top row only
+        
 
-        y_index = 0;
+        for (y_index=0; y_index<((MESH_SIZE_Y * 2) + 1); y_index=y_index+1) begin : cx_rows
 
-        while (y_index<((MESH_SIZE_Y * 2) + 1)) begin : cx_rows
+            if (y_index == 0) begin
 
-            if (y_index == 0) begin : top_edge_cx
-
-                for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_top_edge_cols
+                for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_cols
 
                 connector_box #(
                     .LOG_INPUTS(CX_LOG_INPUTS),
                     .INPUTS(CX_INPUTS),
                     .OUTPUTS(CX_OUTPUTS)    
-                ) connection_box_top_io (
+                ) connection_box (
                     .config_in(config_bus[top_cx_config_offset + (x_index * top_cx_config_interval)]),
                     .config_clk(config_clk),
                     .config_en(config_en),
@@ -272,23 +274,20 @@ module mesh_top_io #(
 
                 end
 
-                y_index = y_index + 1;
-
             end
 
-            else if ((y_index > 0) && (y_index < (MESH_SIZE_Y * 2))) : begin : middle_cx_rows
+            else if ((y_index > 0) && (y_index < (MESH_SIZE_Y * 2))) begin
 
-                if ((y_index % 2) == 1) begin : cx_middle_clb_row
+                if ((y_index % 2) == 1) begin 
 
-                    for (x_index=0; x_index<(MESH_SIZE_X + 1); x_index = x_index+1) begin : cx_middle_clb_row_cols
-
+                    for (x_index=0; x_index<(MESH_SIZE_X + 1); x_index = x_index+1) begin : cx_cols
                         if (x_index == 0) begin : cx_left_middle
                              
                             connector_box #(
                                 .LOG_INPUTS(CX_LOG_INPUTS),
                                 .INPUTS(CX_INPUTS),
                                 .OUTPUTS(CX_OUTPUTS)    
-                            ) connection_box_middle_left_io(
+                            ) connection_box(
                                 .config_in(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y)]),
                                 .config_clk(config_clk),
                                 .config_en(config_en),
@@ -304,24 +303,24 @@ module mesh_top_io #(
                                 .data_out({ 
                                             cx_io[io_data_out_offset_middle + (((y_index - 1) / 2) * io_data_out_interval_y_middle) - 1 -: DATA_OUT_WIDTH],
                                             SWBX_inputs[(4 * SWBX_WIDTH) + (((y_index - 1) / 2) * swbx_interval_y) - 1 -: SWBX_WIDTH],
-                                            CLB_inputs[(1 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) - 1 : CLB_TRACK_INPUTS],
+                                            CLB_inputs[(1 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) - 1 -: CLB_TRACK_INPUTS],
                                             SWBX_inputs[(2 * SWBX_WIDTH) + ((((y_index - 1) / 2) + 1) * swbx_interval_y) - 1 -: SWBX_WIDTH]
                                         })
                             );  
 
                         end
 
-                        else if ((x_index > 0) && (x_index < MESH_SIZE_X)) begin : cx_middle_middle
+                        else if ((x_index > 0) && (x_index < MESH_SIZE_X)) begin
 
                             connector_box #(
                                 .LOG_INPUTS(CX_LOG_INPUTS),
                                 .INPUTS(CX_INPUTS),
                                 .OUTPUTS(CX_OUTPUTS)    
-                            ) connection_box_middle_middle(
-                                .config_in(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y)]),
+                            ) connection_box (
+                                .config_in(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x)]),
                                 .config_clk(config_clk),
                                 .config_en(config_en),
-                                .config_out(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y) + 1]),
+                                .config_out(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x) + 1]),
 
                                 .data_in({  
                                             CLB_outputs[CLB_NUM_BLE + (((y_index - 1) / 2) * clb_output_interval_y) + ((x_index - 1) * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],
@@ -331,26 +330,26 @@ module mesh_top_io #(
                                         }),
 
                                 .data_out({ 
-                                            CLB_inputs[(3 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + ((x_index-1) * 4 * CLB_TRACK_INPUTS) - 1 : CLB_TRACK_INPUTS],
+                                            CLB_inputs[(3 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + ((x_index-1) * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
                                             SWBX_inputs[(4 * SWBX_WIDTH) + (((y_index - 1) / 2) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
-                                            CLB_inputs[(1 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 : CLB_TRACK_INPUTS],
+                                            CLB_inputs[(1 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
                                             SWBX_inputs[(2 * SWBX_WIDTH) + ((((y_index - 1) / 2) + 1) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH]
                                         })
                             );  
 
                         end
 
-                        else if (x_index == MESH_SIZE_X) begin : cx_midde_right_io
+                        else if (x_index == MESH_SIZE_X) begin
 
                             connector_box #(
                                 .LOG_INPUTS(CX_LOG_INPUTS),
                                 .INPUTS(CX_INPUTS),
                                 .OUTPUTS(CX_OUTPUTS)    
-                            ) connection_box_middle_right_io(
-                                .config_in(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y)]),
+                            ) connection_box (
+                                .config_in(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x)]),
                                 .config_clk(config_clk),
                                 .config_en(config_en),
-                                .config_out(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y) + 1]),
+                                .config_out(config_bus[left_io_cx_config_offset_clb_row + (((y_index - 1) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x) + 1]),
 
                                 .data_in({  
                                             CLB_outputs[CLB_NUM_BLE + (((y_index - 1) / 2) * clb_output_interval_y) + ((x_index - 1) * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],
@@ -360,7 +359,7 @@ module mesh_top_io #(
                                         }),
 
                                 .data_out({ 
-                                            CLB_inputs[(3 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + ((x_index-1) * 4 * CLB_TRACK_INPUTS) - 1 : CLB_TRACK_INPUTS],
+                                            CLB_inputs[(3 * CLB_TRACK_INPUTS) + (((y_index - 1) / 2) * clb_input_interval_y) + ((x_index-1) * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
                                             SWBX_inputs[(4 * SWBX_WIDTH) + (((y_index - 1) / 2) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
                                             cx_io[io_data_out_offset_middle + (((y_index - 1) /2) * io_data_out_interval_y_middle) + (1 * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH],
                                             SWBX_inputs[(2 * SWBX_WIDTH) + ((((y_index - 1) / 2) + 1) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH]
@@ -373,52 +372,50 @@ module mesh_top_io #(
 
                 end
 
-                else if ((y_index % 2) == 0) begin : cx_middle_swbx_row
+                else if ((y_index % 2) == 0) begin
 
-                    for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_swbx_row_cols
+                    for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_cols
                     
                         connector_box #(
                             .LOG_INPUTS(CX_LOG_INPUTS),
                             .INPUTS(CX_INPUTS),
                             .OUTPUTS(CX_OUTPUTS)    
-                        ) connection_box_middle_swbx_row (
-                            .config_in(config_bus[left_io_cx_config_offset_clb_row + cx_swbx_row_config_offset + (((y_index - 2) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y)]),
+                        ) connection_box (
+                            .config_in(config_bus[left_io_cx_config_offset_clb_row + cx_swbx_row_config_offset + (((y_index - 2) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x)]),
                             .config_clk(config_clk),
                             .config_en(config_en),
-                            .config_out(config_bus[left_io_cx_config_offset_clb_row + cx_swbx_row_config_offset + (((y_index - 2) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_y) + 1]),
+                            .config_out(config_bus[left_io_cx_config_offset_clb_row + cx_swbx_row_config_offset + (((y_index - 2) / 2) * middle_cx_config_interval_y) + (x_index * middle_cx_config_interval_x) + 1]),
 
                             .data_in({  
-                                        SWBX_outputs[(3 * SWBX_WIDTH) + ((y_index / 2) * swbx_interval_y) + ((x_index + 1) * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
+                                        SWBX_outputs[(3 * SWBX_WIDTH) + ((y_index / 2) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
                                         CLB_outputs[CLB_NUM_BLE + (((y_index / 2) - 1) * clb_output_interval_y) + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],  
                                         SWBX_outputs[(1 * SWBX_WIDTH) + ((((y_index - 1) / 2) + 1) * swbx_interval_y) + ((x_index+1) * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
                                         CLB_outputs[CLB_NUM_BLE + ((y_index / 2) * clb_output_interval_y) + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE]
                                     }),
 
                             .data_out({ 
-                                        SWBX_inputs[(3 * SWBX_WIDTH) + ((y_index / 2) * swbx_interval_y) + ((x_index + 1) * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
-                                        CLB_inputs[(4 * CLB_TRACK_INPUTS) + (((y_index / 2) - 1) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 : CLB_TRACK_INPUTS],
+                                        SWBX_inputs[(3 * SWBX_WIDTH) + ((y_index / 2) * swbx_interval_y) + (x_index * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
+                                        CLB_inputs[(4 * CLB_TRACK_INPUTS) + (((y_index / 2) - 1) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
                                         SWBX_inputs[(1 * SWBX_WIDTH) + ((((y_index - 1) / 2) + 1) * swbx_interval_y) + ((x_index+1) * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
-                                        CLB_inputs[(2 * CLB_TRACK_INPUTS) + ((y_index / 2) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 : CLB_TRACK_INPUTS]
+                                        CLB_inputs[(2 * CLB_TRACK_INPUTS) + ((y_index / 2) * clb_input_interval_y) + (x_index * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS]
                                     })
                         );  
 
                     end
 
                 end
-            
-                y_index = y_index + 1;
 
             end
 
-            else if (y == MESH_SIZE_Y * 2) begin : bottom_edge_cx
+            else if (y_index == MESH_SIZE_Y * 2) begin
 
-                for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_bottom_edge_cols
+                for (x_index=0; x_index<MESH_SIZE_X; x_index=x_index+1) begin : cx_cols
 
                     connector_box #(
                         .LOG_INPUTS(CX_LOG_INPUTS),
                         .INPUTS(CX_INPUTS),
                         .OUTPUTS(CX_OUTPUTS)    
-                    ) connection_box_bottom_io (
+                    ) connection_box (
                         .config_in(config_bus[cx_bottom_io_config_offset + (x_index * cx_bottom_config_interval)]),
                         .config_clk(config_clk),
                         .config_en(config_en),
@@ -426,22 +423,20 @@ module mesh_top_io #(
 
                         .data_in({  
                                     SWBX_outputs[(3 * SWBX_WIDTH ) + ((y_index / 2) * swbx_interval_y) + (x_index * SWBX_WIDTH * 4) - 1 -: SWBX_WIDTH],
-                                    CLB_outputs[CLB_NUM_BLE + ((y_index / 2) * clb_output_interval_y) + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],
+                                    CLB_outputs[CLB_NUM_BLE + (((y_index / 2) - 1) * clb_output_interval_y) + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],
                                     SWBX_outputs[(5 * SWBX_WIDTH ) + ((y_index / 2) * swbx_interval_y)  + (x_index * SWBX_WIDTH * 4) - 1 -: SWBX_WIDTH],
                                     io_cx[bottom_io_data_in_offset + (x_index * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH]
                                 }),
 
                         .data_out({ 
                                     SWBX_inputs[(3 * SWBX_WIDTH ) + ((y_index / 2) * swbx_interval_y) + (x_index * SWBX_WIDTH * 4) - 1 -: SWBX_WIDTH],
-                                    CLB_inputs[(4 * CLB_TRACK_INPUTS) + ((y_index / 2) * clb_input_interval_y) + (x_index * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
+                                    CLB_inputs[(4 * CLB_TRACK_INPUTS) + (((y_index / 2) - 1) * clb_input_interval_y) + (x_index * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS],
                                     SWBX_inputs[(5 * SWBX_WIDTH ) + ((y_index / 2) * swbx_interval_y)  + (x_index * SWBX_WIDTH * 4) - 1 -: SWBX_WIDTH],
                                     cx_io[bottom_io_data_out_offset + (x_index * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH]
                                 })
                     ); 
 
                 end
-
-                y_index = y_index + 1;
 
             end
 
