@@ -45,6 +45,9 @@ module mesh_top_V2 #(
    localparam CLB_input_interval = MESH_SIZE_X * 4 * CLB_TRACK_INPUTS; // vertical interval between CLB input vlaues
    localparam CLB_output_interval = MESH_SIZE_X * CLB_NUM_BLE; // vertical interval between CLB output vlaues
 
+
+   genvar y_index, x_index;
+
    // make some paramterised loop to assign the hanging swbx input/outputs wires that are connected to the cx i/o to data_in/data_out.
    // Might have to create an IO block that connects to the hanging swbx input/outputs for VTR...
    // 
@@ -52,7 +55,16 @@ module mesh_top_V2 #(
    //
    //
 
-   genvar y_index, x_index;
+   
+   
+
+
+
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+ 
 
    generate
 
