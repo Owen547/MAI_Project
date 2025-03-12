@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module CLB 
+module CLB
 #(
     parameter NUM_BLE = 3, 
     parameter NUM_INPUTS = 12

@@ -2,8 +2,8 @@
 
 module connector_box 
 #(
-    parameter LOG_INPUTS = 4, 
-    parameter INPUTS = 16, 
+    parameter INPUTS = 16,
+    parameter LOG_INPUTS = $clog2(INPUTS),  
     parameter OUTPUTS = 16
 )
 (
@@ -23,7 +23,9 @@ module connector_box
     genvar index;
 
     generate
+
     for (index=0; index < OUTPUTS; index=index+1) begin
+
         prog_mux #(
             .SEL(LOG_INPUTS), 
             .INPUTS(INPUTS)
@@ -36,7 +38,9 @@ module connector_box
             .data_out(data_out[index]),
             .config_out(config_bus[index + 1])
         );
+
     end
+
     endgenerate
     
 endmodule
