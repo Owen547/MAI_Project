@@ -8,12 +8,15 @@ module mesh_top_io #(
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
     parameter CLB_TRACK_INPUTS = CLB_NUM_INPUTS/4,
-    parameter CX_INPUTS = 16,
-    parameter CX_LOG_INPUTS = $clog2(CX_INPUTS),  
-    parameter CX_OUTPUTS = 16,
+
     parameter SWBX_WIDTH = 5,
-    parameter DATA_IN_WIDTH = 3,
-    parameter DATA_OUT_WIDTH = 3,
+
+    parameter CX_INPUTS = (SWBX_WIDTH * 2) + (2 * CLB_NUM_BLE),
+    parameter CX_LOG_INPUTS = $clog2(CX_INPUTS),  
+    parameter CX_OUTPUTS = (2 * SWBX_WIDTH) + (2 * CLB_TRACK_INPUTS),
+
+    parameter DATA_IN_WIDTH = CLB_TRACK_INPUTS,
+    parameter DATA_OUT_WIDTH = CLB_NUM_BLE,
     parameter IO_WIDTH = (DATA_IN_WIDTH + DATA_OUT_WIDTH) / 2 //probably should be even seeing as I'm currently dividing the IO block into 2 for I and O.
 
     )

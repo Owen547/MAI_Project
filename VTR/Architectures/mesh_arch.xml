@@ -45,7 +45,7 @@
 
         </equivalent_sites>
 
-        <input name="I" num_pins="16" equivalent="full"/>
+        <input name="I" num_pins="12" equivalent="full"/>
 
         <output name="O" num_pins="3" equivalent="instance"/>
 
@@ -55,10 +55,10 @@
 
         <pinlocations pattern="custom">
 
-          <loc side="left">clb.I[3:0] clb.O[2:0] clb.clk</loc>
-          <loc side="top">clb.I[7:4] clb.O[2:0]</loc>
-          <loc side="right">clb.I[11:8] clb.O[2:0]</loc>
-          <loc side="bottom">clb.I[15:12] clb.O[2:0]</loc>
+          <loc side="left">clb.I[2:0] clb.O[2:0] clb.clk</loc>
+          <loc side="top">clb.I[5:3] clb.O[2:0]</loc>
+          <loc side="right">clb.I[8:6] clb.O[2:0]</loc>
+          <loc side="bottom">clb.I[11:9] clb.O[2:0]</loc>
 
         </pinlocations> 
 
@@ -165,7 +165,7 @@
 
     <pb_type name="clb">
 
-      <input name="I" num_pins="16" equivalent="full"/><!-- NOTE: Logically Equivalent -->
+      <input name="I" num_pins="12" equivalent="full"/><!-- NOTE: Logically Equivalent -->
 
       <output name="O" num_pins="3" equivalent="instance"/><!-- NOTE: Logically Equivalent -->
 
@@ -275,10 +275,10 @@
 
       <pinlocations pattern="custom">
 
-        <loc side="left">clb.I[3:0] clb.O[2:0] clb.clk</loc>
-        <loc side="top">clb.I[7:4] clb.O[2:0]</loc>
-        <loc side="right">clb.I[11:8] clb.O[2:0]</loc>
-        <loc side="bottom">clb.I[15:12] clb.O[2:0]</loc>
+        <loc side="left">clb.I[2:0] clb.O[2:0] clb.clk</loc>
+        <loc side="top">clb.I[5:3] clb.O[2:0]</loc>
+        <loc side="right">clb.I[8:6] clb.O[2:0]</loc>
+        <loc side="bottom">clb.I[11:9] clb.O[2:0]</loc>
 
       </pinlocations> 
 

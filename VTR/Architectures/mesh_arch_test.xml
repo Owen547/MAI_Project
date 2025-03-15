@@ -45,9 +45,9 @@
 
         </equivalent_sites>
 
-        <input name="I" num_pins="32" equivalent="full"/>
+        <input name="I" num_pins="12" equivalent="full"/>
 
-        <output name="O" num_pins="1" equivalent="instance"/>
+        <output name="O" num_pins="3" equivalent="instance"/>
 
         <clock name="clk" num_pins="1"/>
 
@@ -55,11 +55,10 @@
 
         <pinlocations pattern="custom">
 
-                <loc side="left">clb.I[7:0] clb.O[0:0] clb.clk</loc>
-                <loc side="top">clb.I[15:8] clb.O[0:0]</loc>
-                <loc side="right">clb.I[23:16] clb.O[0:0]</loc>
-                <loc side="bottom">clb.I[31:24] clb.O[0:0]</loc>
-
+          <loc side="left">clb.I[2:0] clb.O[2:0] clb.clk</loc>
+          <loc side="top">clb.I[5:3] clb.O[2:0]</loc>
+          <loc side="right">clb.I[8:6] clb.O[2:0]</loc>
+          <loc side="bottom">clb.I[11:9] clb.O[2:0]</loc>
 
         </pinlocations> 
 
@@ -74,7 +73,7 @@
 
   <layout>
   <!-- need to edit this to take input for height and width -->
-      <auto_layout aspect_ratio="1.00"> 
+      <fixed_layout name="mesh" width="8" height="8"> 
           <!-- Do I need to define an IO that occurs adjacent to edge connectors? -->
           <!-- <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
           <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/>
@@ -85,7 +84,7 @@
           <!-- Fill the remaining device with CLB blocks -->
           <fill type="clb" priority="10"/>
           <!-- All other non specified locations will default to EMPTY. Could use region instead of fill for the CLBs? -->
-      </auto_layout>
+      </fixed_layout>
 
   </layout>
 
@@ -166,15 +165,15 @@
 
     <pb_type name="clb">
 
-      <input name="I" num_pins="32" equivalent="full"/><!-- NOTE: Logically Equivalent -->
+      <input name="I" num_pins="12" equivalent="full"/><!-- NOTE: Logically Equivalent -->
 
-      <output name="O" num_pins="1" equivalent="instance"/><!-- NOTE: Logically Equivalent -->
+      <output name="O" num_pins="3" equivalent="instance"/><!-- NOTE: Logically Equivalent -->
 
       <clock name="clk" num_pins="1"/>
 
       <!-- Describe basic logic element -->
 
-      <pb_type name="ble" num_pb="5">
+      <pb_type name="ble" num_pb="3">
 
         <input name="in" num_pins="6"/>
 
@@ -218,9 +217,9 @@
 
             <interconnect>
 
-              <direct name="direct1" input="soft_logic.in[5:0]" output="lut6.in[5:0]"/>
+              <direct name="direct1" input="soft_logic.in[5:0]" output="lut6[0:0].in[5:0]"/>
 
-              <direct name="direct2" input="lut6.out" output="soft_logic.out"/>
+              <direct name="direct2" input="lut6[0:0].out" output="soft_logic.out[0:0]"/>
 
             </interconnect>
 
@@ -260,27 +259,26 @@
 
       <interconnect>
 
-        <complete name="crossbar" input="clb.I ble[0:0].out" output="ble[0:0].in">
+        <complete name="crossbar" input="clb.I ble[2:0].out" output="ble[2:0].in">
 
-          <delay_constant max="8.044000e-11" in_port="clb.I" out_port="ble[0:0].in"/>
+          <delay_constant max="8.044000e-11" in_port="clb.I" out_port="ble[2:0].in"/>
 
-          <delay_constant max="7.354000e-11" in_port="ble[0:0].out" out_port="ble[0:0].in"/>
+          <delay_constant max="7.354000e-11" in_port="ble[2:0].out" out_port="ble[2:0].in"/>
 
         </complete>
 
-        <complete name="clks" input="clb.clk" output="ble[0:0].clk"/>
+        <complete name="clks" input="clb.clk" output="ble[2:0].clk"/>
 
-        <direct name="clbouts" input="ble[0:0].out" output="clb.O"/>
+        <direct name="clbouts" input="ble[2:0].out" output="clb.O"/>
 
       </interconnect>
 
       <pinlocations pattern="custom">
 
-            <loc side="left">clb.I[7:0] clb.O[0:0] clb.clk</loc>
-            <loc side="top">clb.I[15:8] clb.O[0:0]</loc>
-            <loc side="right">clb.I[23:16] clb.O[0:0]</loc>
-            <loc side="bottom">clb.I[31:24] clb.O[0:0]</loc>
-
+        <loc side="left">clb.I[2:0] clb.O[2:0] clb.clk</loc>
+        <loc side="top">clb.I[5:3] clb.O[2:0]</loc>
+        <loc side="right">clb.I[8:6] clb.O[2:0]</loc>
+        <loc side="bottom">clb.I[11:9] clb.O[2:0]</loc>
 
       </pinlocations> 
 
