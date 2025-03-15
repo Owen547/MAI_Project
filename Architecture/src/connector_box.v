@@ -2,9 +2,9 @@
 
 module connector_box 
 #(
-    parameter INPUTS = 16,
+    parameter INPUTS = 16, //this should be CLB outputs plus SWBX_WIDTH
     parameter LOG_INPUTS = $clog2(INPUTS),  
-    parameter OUTPUTS = 16
+    parameter OUTPUTS = 16 //this should be CLB_track inputs plus SWBX WIDTH
 )
 (
     input config_in,
