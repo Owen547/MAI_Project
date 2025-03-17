@@ -1,6 +1,6 @@
 import re
 
-target_folder = "/home/owen/College/VTR_runs/arch_runs/chan_width/"
+target_folder = "/home/owen/College/VTR_runs/arch_runs/test_run/"
 
 bitstream_file = "bitsream.txt"
 
@@ -31,6 +31,7 @@ def parse_place_file(file_path, logfile):
             
             # Use regex to match and extract the block information
             match = re.match(r"^(\S*)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)", line)
+
             if match:
                 name = match.group(1)
                 x = int(match.group(2))
@@ -45,6 +46,8 @@ def parse_place_file(file_path, logfile):
                     "y": y,
                     "subblk": subblk
                 })
+
+            else:  logfile.write("ERROR: Regex failed to match in top.place\n")
 
     logfile.write(f"INFO: printing placement data scraped from top.place...\n")  # Write each dictionary on a new line
     for block in blocks:
@@ -74,6 +77,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
             block['type'] = "CLB" # label block as CLB
             block['inputs'] = [""] * 12
+            block['luts'] = [""] * 3
 
 
     logfile.write(f"INFO: printing blocks with IO bits...\n")  # Write each dictionary on a new line
@@ -123,7 +127,7 @@ def expand_inputs (lut_config, input, logfile):
             
 
 def extract_lut_configs (file_path, logfile) : 
-
+    
     luts = []
 
     with open(file_path, 'r') as file:
@@ -184,46 +188,56 @@ def extract_lut_configs (file_path, logfile) :
         # logfile.write(f"\n\n")  # Write each dictionary on a new line
 
 
-def extract_connector_configs(file_path, connectors, blocks, logfile):
+def extract_connector_configs(file_path, MESH_SIZE_X, MESH_SIZE_Y, connectors, blocks, logfile) :
+
+    # initialise a list to swap from VTR trscks to CX input/outputs
+
+    chanx_track_to_input = [0, 8, 1, 9, 2, 10, 3, 11, 4, 12] # Connector box: equivalence between VTR tracks and verilog design inputs
+    cx_pin_to_output = [8, 9, 10, 13, 14, 15, 0, 1, 2, 5, 6, 7] # takes a clb input pin, and gives the output index its equivalent to in the verilog
+    chany_track_to_input = [3, 11, 4, 12, 5, 13, 6, 14, 7, 15]
 
     #add CLB inputs in their order to the blocks data structure, I can later consolidate the lut_configs and CLB block descriptions to get CLB cx configs
 
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r') as file :
 
-        last_line = ""
+        last_line = ''
 
         expecting_routing = 0
 
-        for line in file:
+        for line in file :
 
-            if line.startswith("Routing:"):
+            if line.startswith("Routing") :
 
                 expecting_routing = 1
             
-            else if expecting_routing: 
+            elif (expecting_routing) :
 
-                if line .startswith("Net") :
+                if (line.startswith("Net")) :
                     
                     match = re.match(r"Net \d+ \((.*)\)", line)
 
                     name = match.group(1)
 
+                    # logfile.write("DEBUG: Entering routing for net " + name + "\n")
+
                 else:
 
-                    if "IPIN" in line:
+                    if "IPIN" in line : #cx outputs, to clb or io
 
                         match = re.match(r"Node:\s+\d+\s+(\S+)\s+\((\d+),(\d+),\S+\)\s+Track: (\d+)", last_line)
 
                         chan = match.group(1)
-                        cx_x = match.group(2)
-                        cx_y = match.group(3)
-                        track = match.group(4)
+                        cx_x = int(match.group(2))
+                        cx_y = int(match.group(3))
+                        track = int(match.group(4))
 
-                        match = re.match(r"Node:\s+\d+\s+\S+\s+\((\d+),(\d+),\S+\)\s+(\S+): (\d+)", last_line)
+                        # logfile.write("DEBUG: IPIN found in current line. Expecting cx output. CX chan, cx_x, cx_y, track: " + chan  + ", " + cx_x + ", " + cx_y + ", " + track + "\n")
 
-                        x = match.group(1)
-                        y = match.group(2)
-                        pin_number = match.group(4)
+                        match = re.match(r"Node:\s+\d+\s+\S+\s+\((\d+),(\d+),\S+\)\s+(\S+): (\d+)", line)
+
+                        x = int(match.group(1))
+                        y = int(match.group(2))
+                        pin_number = int(match.group(4))
 
                         if (match.group(3) == "Pin") :
 
@@ -233,13 +247,15 @@ def extract_connector_configs(file_path, connectors, blocks, logfile):
 
                                         block['inputs'][pin_number] = name
 
-                            for connector in conectors:
+                                        break
+
+                            for connector in connectors:
 
                                 if (connector["x"] == cx_x) and (connector["y"] == cx_y and connector["chan"] == chan):
 
                                     output_index = 4 * (cx_pin_to_output[pin_number])
 
-                                    if (channel == "CHANX") :
+                                    if (chan == "CHANX") :
                                         
                                         input_select = format((chanx_track_to_input[track]), f'04b')
 
@@ -249,57 +265,192 @@ def extract_connector_configs(file_path, connectors, blocks, logfile):
 
                                         input_select = format((chany_track_to_input[track]), f'04b')
 
-                                        connector["config"][output_index-1:output_index-4] = input_select   
+                                        connector["config"][output_index-1:output_index-4] = input_select  
+
+                                    break 
                         
-                        else if (match.group(3) == "Pad") :
+                        elif (match.group(3) == "Pad") :
                             
-                            if (connector["x"] == 0):
+                            for block in blocks:
+
+                                if (block["name"] == "out:" + name) and (block["x"] == x) and (block["y"] == y) :
+
+                                    output_index = block["subblk"][0] * 4 #offset the index to the left outputs
+
+                                    break
+
+                            if (int(cx_x) == 0):
                                 
-                                output_index = pad_to_output[pin_number]
-                                input_index = format((chany_track_to_input[track]), f'04b')
+                                input_sel = format((chany_track_to_input[track]), f'04b') 
                                 
-                                connector["config"][output_index - 1 : output_index - 4] = input_select  
+                                connector["config"][output_index - 1 : output_index - 4] = input_sel  
 
-                            else if (connector["x"] == MESH_SIZE_X - 2):
+                            elif (int(cx_x) == MESH_SIZE_X - 2):
 
-                                output_index = 0 +  
-                                input_index = format((chany_track_to_input[track]), f'04b')
+                                output_index = output_index + (8 * 4) #offset the index to the right outputs
                                 
-                                connector["config"][output_index + 3 : output_index] = input_select  
+                                input_sel = format((chany_track_to_input[track]), f'04b') 
+                                
+                                connector["config"][output_index - 1 : output_index - 4] = input_sel  
 
-                            else if (connector["y"] == MESH_SIZE_Y - 2):
+                            elif (int(cx_y) == MESH_SIZE_Y - 2):
 
-                            else if (connector["y"] == 0):
+                                output_index = output_index + (5 * 4) #offset the index to the top outputs
+                                
+                                input_sel = format((chanx_track_to_input[track]), f'04b') 
+                                
+                                connector["config"][output_index - 1 : output_index - 4] = input_sel  
 
-                            else logfile.write("ERROR: expected IO/edge location of connector, coordinates did not support this :(")
+                            elif (int(cx_y) == 0):
 
+                                output_index = output_index + (13 * 4) #offset the index to the bottom outputs
+                                
+                                input_sel = format((chanx_track_to_input[track]), f'04b') 
+                                
+                                connector["config"][output_index - 1 : output_index - 4] = input_sel 
 
+                            else :
+                            
+                                logfile.write("ERROR: expected IO/edge location of connector, coordinates did not support this :(\n")
 
                         else :
 
-                            logfile.write("ERROR: expected pin or pad, found neither")
+                            logfile.write("ERROR: expected pin or pad, found neither\n")
 
 
+                    elif "OPIN" in last_line : #CX Inputs.. from io or clb
 
+                        match = re.match(r"Node:\s+\d+\s+(\S+)\s+\((\d+),(\d+),\S+\)\s+Track: (\d+)", line)
 
+                        chan = match.group(1)
+                        cx_x = int(match.group(2))
+                        cx_y = int(match.group(3))
+                        track = int(match.group(4))
 
+                        # logfile.write("DEBUG: OPIN found in current line. Expecting cx output. CX chan, cx_x, cx_y, track: " + chan  + ", " + cx_x + ", " + cx_y + ", " + track + "\n")
 
-                    else if "OPIN" in line and ("CHANX" or "CHANY" in last_line):
+                        # logfile.write("DEBUG: line: " + line + "\nlast_line: " + last_line)
 
+                        match = re.match(r"Node:\s+\d+\s+\S+\s+\((\d+),(\d+),\S+\)\s+(\S+): (\d+)", last_line)
 
+                        x = int(match.group(1))
+                        y = int(match.group(2))
+                        pin_number = int(match.group(4))  
 
+                        if (match.group(3) == "Pin") :
 
+                            for block in blocks:
 
+                                if (block["x"] == x) and (block["y"] == y) :
 
-        last_line = line
+                                        block['luts'][pin_number - 12] = name 
+
+                                        break                           
+
+                            input_offset = pin_number - 12 
+
+                            for connector in connectors:
+
+                                if (connector["x"] == cx_x) and (connector["y"] == cx_y and connector["chan"] == chan):
+
+                                    if (chan == "CHANX") :
+                                        
+                                        if (cx_y < y) :
+
+                                            input_sel = format((5 + input_offset), f'04b')
+
+                                        else :
+
+                                            input_sel = format((13 + input_offset), f'04b')
+
+                                        output_index = chanx_track_to_input[track]
+
+                                        connector["config"][output_index-1:output_index-4] = input_sel
+                                    
+                                                        
+                                    else : # i.e. its a CHANY cx
+
+                                        if (cx_x < x) :
+
+                                            input_sel = format((0 + input_offset), f'04b')
+
+                                        else :
+
+                                            input_sel = format((8 + input_offset), f'04b')  
+
+                                        output_index = chany_track_to_input[track]
+
+                                        connector["config"][output_index-1:output_index-4] = input_sel
+
+                                    break
+                        
+
+                        elif (match.group(3) == "Pad") :
+
+                            block_found = 0
+
+                            for block in blocks:
+
+                                if (block["x"] == int(x)) and (block["y"] == int(y) and (block["name"] == name)) :
+
+                                        input_offset = block["subblk"][0]
+
+                                        block_found = 1 
+
+                                        break
+
+                            if not block_found:
+
+                                logfile.write("ERROR: Didn't find the block\nname, x, y, pin number, pin/pad: " + name + ", " + x + ", " + y + ", " + pin_number + ", " + match.group(3) + "\n")
+
+                            for connector in connectors:
+
+                                if (connector["x"] == cx_x) and (connector["y"] == cx_y and connector["chan"] == chan):
+
+                                    if (int(cx_x) == 0) or (int(cx_x) == MESH_SIZE_X - 2) :
+
+                                        if (int(x) < int(cx_x)) : 
+                                            
+                                            input_sel = format((0 + input_offset), f'04b')
+
+                                        else :
+
+                                            input_sel = format((8 + input_offset), f'04b')  
+
+                                        output_index = chany_track_to_input[track]
+
+                                        connector["config"][output_index-1:output_index-4] = input_sel
+
+                                    elif (int(cx_x) > 0) and (int(cx_x) < (MESH_SIZE_X - 2)) :
+
+                                        if (int(x) < int(cx_y)) : 
+
+                                            input_sel = format((5 + input_offset), f'04b')
+
+                                        else :
+
+                                            input_sel = format((13 + input_offset), f'04b')
+
+                                        output_index = chanx_track_to_input[track]
+
+                                        connector["config"][output_index-1:output_index-4] = input_sel
+
+                                    else:
+
+                                        logfile.write("ERROR: couldn't find anything within the coordinates specified for cx input config extraction\n")
+                                        
+                                    break
+                        else :
+
+                            logfile.write("ERROR: expected pin or pad, found neither\n")
+
+            last_line = line
 
     return connectors, blocks
 
 # def extract_switch_configs(file_path, logfile):
 
 #     return
-
-
 
 
 # Main function to run the script
@@ -312,14 +463,6 @@ def main():
 
         # Parse the place file
         blocks, MESH_SIZE_X, MESH_SIZE_Y = parse_place_file(target_folder + "top.place", logfile)
-
-        # initialise a list to swap from VTR trscks to CX input/outputs
-
-        chanx_track_to_input = [0, 8, 1, 9, 2, 10, 3, 11, 4, 12] # Connector box: equivalence between VTR tracks and verilog design inputs
-        cx_pin_to_output = [8, 9, 10, 13, 14, 15, 0, 1, 2 5, 6, 7] # takes a clb input pin, and gives the output index its equivalent to in the verilog
-        chany_track_to_input = [3, 11, 4, 12, 5, 13, 6, 14, 7, 15]
-
-        pad_to_output = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         #initialise the connectors data structure
         connectors = []
@@ -361,8 +504,19 @@ def main():
         # now have luts and IO bits, still need to extract: which CLBs have which lUTS, switchbox settings and connection box settings
         # once I know which order the inputs enter the CLBs, from cx settings, I can get cx settings from lut_configs.
         
-        connectors, blocks = extract_connector_configs(target_folder + "top.route", connectors, blocks, logfile) # returns cx configs. also adds clb inputs in order to the blocks data structure
+        connectors, blocks = extract_connector_configs(target_folder + "top.route", MESH_SIZE_X, MESH_SIZE_Y, connectors, blocks, logfile) # returns cx configs. also adds clb inputs in order to the blocks data structure
         
+        logfile.write(f"INFO: printing blocks...\n")  # Write each dictionary on a new line
+        for block in blocks:
+            logfile.write(f"{block}\n")  # Write each dictionary on a new line
+        logfile.write(f"\n\n")  # Write each dictionary on a new line
+
+        logfile.write("INFO: printing connectors... \n\n")
+        for connector in connectors:
+            logfile.write(f"{connector}\n")
+        logfile.write("\n\n")
+
+
 
 
 # Run the script
