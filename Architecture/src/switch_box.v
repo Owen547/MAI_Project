@@ -39,8 +39,8 @@ module switch_box #(
         
     for (index=0; index < WIDTH; index=index+1) begin
         wire [3:0] left   = { b_in[index], r_in[index], t_in[index], 1'b0 };
-        wire [3:0] top    = { l_in[index], b_in[index], r_in[index], 1'b0 };
-        wire [3:0] right  = { t_in[index], l_in[index], b_in[index], 1'b0 };
+        wire [3:0] top    = { b_in[index], r_in[index], l_in[index], 1'b0 };
+        wire [3:0] right  = { b_in[index], t_in[index], l_in[index], 1'b0 };
         wire [3:0] bottom = { r_in[index], t_in[index], l_in[index], 1'b0 };
         prog_mux #(2, 4) mux_left (
             .data_in(left),

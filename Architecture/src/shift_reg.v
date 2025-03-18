@@ -2,7 +2,7 @@
 
 module shift_reg
     #(
-    parameter CONFIG_WIDTH = 65 // if this is declared below 3 could cause issues due to concatenation format for bit shifting.
+    parameter CONFIG_WIDTH = 65 //this wont work for a bit width of 1.. special case in io..
     )
 
     (

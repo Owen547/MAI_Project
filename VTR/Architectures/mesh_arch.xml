@@ -72,13 +72,9 @@
   <!-- Physical descriptions begin -->
 
   <layout>
-  <!-- need to edit this to take input for height and width -->
+
       <fixed_layout name="mesh" width="8" height="8"> 
-          <!-- Do I need to define an IO that occurs adjacent to edge connectors? -->
-          <!-- <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
-          <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/>
-          <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
-          <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/> -->
+
           <corners type="EMPTY" priority="101"/>
           <perimeter type="io" priority="100"/>
           <!-- Fill the remaining device with CLB blocks -->
