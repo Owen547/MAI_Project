@@ -60,26 +60,112 @@ def parse_place_file(file_path, logfile):
 
 def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
-    for block in blocks:
+    io_locations = []
 
-        if (block['y'] == (MESH_SIZE_Y - 1)) or (block['y'] == (0)) or (block['x'] == (MESH_SIZE_X - 1)) or (block['x'] == 0) :
+    for y in range(MESH_SIZE_Y-1, -1, -1):
 
-            if block['name'].startswith("out"):
+        for x in range(0, MESH_SIZE_X):
 
-                block['type'] = "IO" # label block as IO
-                block['bitstream'] = "01" # enable output, drive input low
+            if (x == 0 and 0 < y < MESH_SIZE_Y-1) or (x == MESH_SIZE_X - 1 and 0 < y < MESH_SIZE_Y-1) or (y == 0 and 0 < x < MESH_SIZE_X-1) or ((y == MESH_SIZE_Y -1  and 0 < x < MESH_SIZE_X-1)): 
 
-            else : 
+                for subblk in range(0, 3):
 
-                block['type'] = "IO" # label block as IO
-                block['bitstream'] = "10" #enable input, drive output low
+                    io_locations.append({
+                            "x": x,
+                            "y": y,
+                            "subblk": subblk
+                    })
 
-        else: 
+    logfile.write(f"\nINFO: Printing io_locations... \n")
+    for location in io_locations:
+        logfile.write(f"{location}\n")  # Write each dictionary on a new line
+    logfile.write(f"\n\n")  # Write each dictionary on a new line
 
-            block['type'] = "CLB" # label block as CLB
-            block['inputs'] = [""] * 16
-            block['luts'] = [""] * 3
-            block["cx_config"] = [0] * (18 * 4)
+
+    with open ("./io_verilog.txt", "w") as io_file:
+
+        for block in blocks:
+
+            if (block['y'] == (MESH_SIZE_Y - 1)) or (block['y'] == (0)) or (block['x'] == (MESH_SIZE_X - 1)) or (block['x'] == 0) :
+
+                if block['name'].startswith("out"):
+
+                    block['type'] = "IO" # label block as IO
+                    block['bitstream'] = "01" # enable output, drive input low
+
+                    if ("~") in block['name']: 
+
+                        match = re.match(r"out:(\S+)~(\d+)", block['name'])
+                        
+                        data_out_index = 0
+
+                        for io_location in io_locations :
+
+                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+
+                                io_file.write(f"assign {match.group(1)}[{match.group(2)}] = data_out[{data_out_index}];\n")
+                            
+                            else:
+
+                                data_out_index = data_out_index + 1
+                    else:
+
+                        match = re.match(r"out:(\S+)", block['name'])
+                        
+                        data_out_index = 0
+
+                        for io_location in io_locations :
+
+                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+
+                                io_file.write(f"assign {match.group(1)} = data_out[{data_out_index}];\n")
+                            
+                            else:
+
+                                data_out_index = data_out_index + 1
+
+                else : 
+
+                    block['type'] = "IO" # label block as IO
+                    block['bitstream'] = "10" #enable input, drive output low
+
+                    if ("~") in block['name']: 
+
+                        match = re.match(r"(\S+)~(\d+)", block['name'])
+                        
+                        data_in_index = 0
+
+                        for io_location in io_locations :
+
+                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+
+                                io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)}[{match.group(2)}];\n")
+                            
+                            else:
+
+                                data_in_index = data_in_index + 1
+                    else :
+
+                        match = re.match(r"(\S+)", block['name'])
+                        
+                        data_in_index = 0
+
+                        for io_location in io_locations :
+
+                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+
+                                io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)};\n")
+                            
+                            else:
+
+                                data_in_index = data_in_index + 1
+
+            else: 
+
+                block['type'] = "CLB" # label block as CLB
+                block['inputs'] = [""] * 16
+                block['luts'] = [""] * 3
+                block["cx_config"] = [0] * (18 * 4)
 
 
     logfile.write(f"INFO: printing blocks with IO bits...\n")  # Write each dictionary on a new line
@@ -161,7 +247,7 @@ def extract_lut_configs (file_path, logfile) :
 
             if line.startswith(".names"):
                 
-                lut_config = [0] * 64
+                lut_config = [0] * 65
                 expecting_config = 1
 
                 match = re.match(r".names\s+(.+) (\S+)", line)
@@ -469,6 +555,7 @@ def extract_connector_configs(file_path, MESH_SIZE_X, MESH_SIZE_Y, connectors, b
                     if "IPIN" in line : #cx outputs, to clb or io
 
                         connectors, blocks = extract_cx_output(name, MESH_SIZE_X, MESH_SIZE_Y, line, last_line, connectors, blocks, logfile)
+                        
                         # logfile.write("skipping..\n")
 
                     elif "OPIN" in last_line : #CX Inputs.. from io or clb
@@ -567,7 +654,7 @@ def extract_switch_configs(file_path, switches, logfile):
 
                                 for switch in switches :
 
-                                    if (switch["x"] == last_cx_x + 1) and (switch["y"] == last_cx_y) :
+                                    if (switch["x"] == last_cx_x) and (switch["y"] == last_cx_y) :
 
                                         break
 
@@ -604,7 +691,7 @@ def extract_switch_configs(file_path, switches, logfile):
 
                                 for switch in switches :
 
-                                    if (switch["x"] == (last_cx_x)) and (switch["y"] == last_cx_y) :
+                                    if (switch["x"] == (last_cx_x - 1)) and (switch["y"] == last_cx_y) :
 
                                         break
 
@@ -644,7 +731,7 @@ def extract_switch_configs(file_path, switches, logfile):
 
                                 for switch in switches :
 
-                                    if (switch["x"] == (last_cx_x)) and (switch["y"] == (last_cx_y + 1)) :
+                                    if (switch["x"] == (last_cx_x)) and (switch["y"] == (last_cx_y)) :
 
                                         break
 
@@ -681,7 +768,7 @@ def extract_switch_configs(file_path, switches, logfile):
 
                                 for switch in switches :
 
-                                    if (switch["x"] == (last_cx_x)) and (switch["y"] == last_cx_y) :
+                                    if (switch["x"] == (last_cx_x)) and (switch["y"] == (last_cx_y - 1)) :
 
                                         break
 
@@ -740,7 +827,7 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
 
                             break
 
-                output_index = output_offset * 4 + 4
+                output_index = (output_offset*4) + 4
 
                 input_sel = 0
 
@@ -756,7 +843,7 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
 
                             output_index = output_index + 4
 
-                output_offset = ((output_offset + 6) * 4) + 4
+                output_offset = output_offset + 6
 
     return blocks
 
@@ -767,7 +854,10 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
         #top io
 
+
         for x_index in range (1, MESH_SIZE_X-1) :
+
+            # file.write("\n IO block... \n")
 
             for subblock in range(0, 3):
 
@@ -785,15 +875,15 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                     file.write("00") 
 
-        # file.write("\n")
+            # file.write("\n IO block finished... \n")
 
         # loop through the normal rows
 
         for y_index in range(MESH_SIZE_Y - 2, -1, -1) :
 
-            for x_index in range (0, MESH_SIZE_X) : # switch row
+            for x_index in range (0, MESH_SIZE_X - 1) : # switch row
 
-                # file.write("\nDEBUG: Printing SWBX...\n")
+                # file.write("\n SWBX block... \n")
 
                 for switch in switches:
 
@@ -807,9 +897,11 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                         file.write(result)
 
-                # file.write("\nDEBUG: Finished printing SWBX...\n")
+                # file.write("\n Finished SWBX block... \n")
 
                 if (x_index < MESH_SIZE_X - 2) :
+                    
+                    # file.write("\n CX block... \n")
 
                     for connector in connectors :
 
@@ -823,16 +915,16 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                             file.write(result)
 
-            # file.write("\n")
+                    # file.write("\n Finished CX block... \n")
 
             if (y_index > 0 ) : #clb row
 
-                file.write("\n")
 
-
-                for x_index in range (0, MESH_SIZE_X - 1) :
+                for x_index in range (0, MESH_SIZE_X) :
 
                     if (x_index == 0): #left io
+                        
+                        # file.write("\n IO block... \n")
 
                         for subblock in range(0, 3):
 
@@ -850,6 +942,10 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                 file.write("00")   
 
+                        # file.write("\n FinishedIO block... \n")
+
+                        # file.write("\n CX block... \n")
+
                         for connector in connectors :
 
                             if (connector["x"] == x_index) and (connector["y"] == y_index) and (connector["chan"] == "CHANY") :
@@ -862,12 +958,13 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                     file.write(result)
                         
-                                
+                        # file.write("\n Finished CX block... \n")
+
                     elif (x_index < MESH_SIZE_X - 1) : #middle cols
 
                         block_found = 0
 
-                        # file.write("\nDEBUG: Printing CLB...\n")
+                        # file.write("\n CLB block... \n")
 
                         for block in blocks:
 
@@ -905,15 +1002,17 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                 block_found = 1
 
+                                break
+
                         if not block_found:
 
                             for i in range (0, 267) :
 
                                 file.write("0")
 
-                        # file.write("\nDEBUG: Finished printing CLB...\n")
-                                                    
-                        # file.write("\nDEBUG: Printing CX...\n")
+                        # file.write("\nFinished CLB block... \n")
+
+                        # file.write("\n CX block... \n")
 
                         for connector in connectors :
 
@@ -927,21 +1026,11 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                     file.write(result)
 
-                        # file.write("\nDEBUG: Finished printing CLB...\n")
+                        # file.write("\nFinished CX block... \n")
                                 
                     else : #right io, middle rows
 
-                        for connector in connectors :
-
-                            if (connector["x"] == x_index) and (connector["y"] == y_index) and (connector["chan"] == "CHANY") :
-
-                                    result = ""
-
-                                    for item in connector["config"] :
-                                        
-                                        result = result + str(item)
-
-                                    file.write(result)
+                        # file.write("\nIO block... \n")
 
                         for subblock in range(0, 3):
 
@@ -959,13 +1048,13 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                 file.write("00") 
 
-                file.write("\n")
+                        # file.write("\nFinished IO block... \n")
 
         #bottom io
 
-        for x_index in range (1, MESH_SIZE_X-6) :
+        for x_index in range (1, MESH_SIZE_X - 1) :
 
-            # file.write("\nDEBUG: Printing IO...\n")
+            # file.write("\nIO block... \n")
 
             for subblock in range(0, 3):
 
@@ -983,7 +1072,7 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                     file.write("00")   
 
-            # file.write("\nDEBUG: Finished printing IO...\n")
+            # file.write("\nFinished IO block... \n")
               
     
 
@@ -1032,11 +1121,7 @@ def main():
                     "y": y,
                     "config": [0] * 40
                 })
-
                 
-
-
-
 
         # initialise connectors with swbx in to swbx out
         connectors = initialise_connector_configs(connectors, logfile)
@@ -1066,7 +1151,7 @@ def main():
             logfile.write(f"{switch}\n")
         logfile.write("\n\n")
 
-        logfile.write(f"INFO: printing blocks...\n") 
+        logfile.write(f"INFO: printing blocks...\n\n") 
         for block in blocks:
             logfile.write(f"{block}\n")
         logfile.write(f"\n\n")  

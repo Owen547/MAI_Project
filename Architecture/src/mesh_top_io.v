@@ -2,8 +2,8 @@
 
 module mesh_top_io #(
         
-    parameter MESH_SIZE_X = 2,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
-    parameter MESH_SIZE_Y = 2,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 6,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_Y = 6,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
         
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
@@ -46,7 +46,7 @@ module mesh_top_io #(
     wire [(DATA_OUT_WIDTH) * (MESH_SIZE_X * 2) * (MESH_SIZE_Y * 2) - 1:0] cx_io;
 
 
-    genvar y_index, x_index, io_count;
+    genvar y_index, x_index;
 
     generate
 

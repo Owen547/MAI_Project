@@ -2,8 +2,8 @@
 
 module SWITCH_BOX_tb #(
 
-    parameter WIDTH = 2,
-    parameter CONFIG_WIDTH = 2**(WIDTH)*WIDTH*4
+    parameter WIDTH = 5,
+    parameter CONFIG_WIDTH = 40
 
     )
 
@@ -25,7 +25,9 @@ module SWITCH_BOX_tb #(
     reg [WIDTH - 1:0] r_in;
     reg [WIDTH - 1:0] t_in;
     reg [WIDTH - 1:0] b_in;
-
+    
+    reg [39: 0] config_bits;
+    
     task initialise_config_signals ();
     begin
         config_en = 0;
@@ -102,15 +104,16 @@ module SWITCH_BOX_tb #(
 
 
     initial begin
+        config_bits = 40'b0000110000110000000011110000000000000000;
         l_in = 2'b00;
         t_in = 2'b00;
         r_in = 2'b00;
         b_in = 2'b00;
         initialise_config_signals();
-        configure_switch_box(32'b01010101010101010101010101010101); // should connect each port to its direct opposite e.g. l_in[0] with r_out[0], b_in[1] with t_out[1]
+        configure_switch_box(config_bits); // should connect each port to its direct opposite e.g. l_in[0] with r_out[0], b_in[1] with t_out[1]
         cycle_data_in();
-        configure_switch_box(32'b11111111111111111111111111111111); //now try config for l_in[0] to t_out[0] and b_in[0] to l_out[0]
-        cycle_data_in();
+//        configure_switch_box(32'b11111111111111111111111111111111); //now try config for l_in[0] to t_out[0] and b_in[0] to l_out[0]
+//        cycle_data_in();
         $finish;
     end
     
