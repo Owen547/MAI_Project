@@ -104,11 +104,11 @@ module SWITCH_BOX_tb #(
 
 
     initial begin
-        config_bits = 40'b0000110000110000000011110000000000000000;
-        l_in = 2'b00;
-        t_in = 2'b00;
-        r_in = 2'b00;
-        b_in = 2'b00;
+        config_bits = 40'b0001000010000000000100000001000000010000;
+        l_in = 2'b01;
+        t_in = 2'b10;
+        r_in = 2'b11;
+        b_in = 2'b01;
         initialise_config_signals();
         configure_switch_box(config_bits); // should connect each port to its direct opposite e.g. l_in[0] with r_out[0], b_in[1] with t_out[1]
         cycle_data_in();

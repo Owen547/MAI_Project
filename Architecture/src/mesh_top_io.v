@@ -2,8 +2,8 @@
 
 module mesh_top_io #(
         
-    parameter MESH_SIZE_X = 6,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
-    parameter MESH_SIZE_Y = 6,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
         
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
