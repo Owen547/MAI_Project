@@ -89,7 +89,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
                 if block['name'].startswith("out"):
 
                     block['type'] = "IO" # label block as IO
-                    block['bitstream'] = "01" # enable output, drive input low
+                    block['bitstream'] = "10" # enable output, drive input low
 
                     if ("~") in block['name']: 
 
@@ -125,7 +125,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
                 else : 
 
                     block['type'] = "IO" # label block as IO
-                    block['bitstream'] = "10" #enable input, drive output low
+                    block['bitstream'] = "01" #enable input, drive output low
 
                     if ("~") in block['name']: 
 
@@ -321,6 +321,7 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
         #top io
 
+        # file.write("\n IO block... \n")
 
         for x_index in range (1, MESH_SIZE_X-1) :
 
@@ -334,15 +335,23 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                     if (block["x"] == x_index) and (block["y"] == MESH_SIZE_Y - 1) and (block["subblk"][0] == subblock) :
 
-                        file.write(block["bitstream"])
+                        result = block["bitstream"]
 
+                        reversed_result = result [:: -1]
+
+                        file.write(reversed_result)
+
+                        # file.write("00") 
+            
                         block_found  = 1
+
+                        break
 
                 if not block_found :
 
                     file.write("00") 
 
-            # file.write("\n IO block finished... \n")
+        # file.write("\n IO block finished... \n")
 
         # loop through the normal rows
 
@@ -361,8 +370,15 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                         for item in switch["config"] :
                             
                             result = result + str(item)
-                        
-                        file.write(result)
+
+                        for i in range(0, 20):
+
+                            reversed_result = result [i*2:i*2+2] [::-1]
+
+                            file.write(reversed_result)
+
+                        # for i in range(0, 40) :
+                        #     file.write("0")
 
                 # file.write("\n Finished SWBX block... \n")
 
@@ -380,7 +396,13 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                 
                                 result = result + str(item)
 
-                            file.write(result)
+                            for i in range(0, 16):
+
+                                reversed_result = result [i*4:i*4+4] [::-1]
+
+                                file.write(reversed_result)
+                            # for i in range(0, 64) :
+                            #     file.write("0")
 
                     # file.write("\n Finished CX block... \n")
 
@@ -401,9 +423,15 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                 if (block["x"] == x_index) and (block["y"] == y_index) and (block["subblk"][0] == subblock) :
 
-                                    file.write(block["bitstream"])
+                                    result = block["bitstream"]
+
+                                    reversed_result = result [:: -1]
+
+                                    file.write(reversed_result)
+                                    # file.write("00")   
 
                                     block_found  = 1
+
 
                             if not block_found :
 
@@ -423,7 +451,14 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                         
                                         result = result + str(item)
 
-                                    file.write(result)
+                                    for i in range(0, 16):
+
+                                        reversed_result = result [i*4:i*4+4] [::-1]
+
+                                        file.write(reversed_result)
+
+                                    # for i in range(0, 64) :
+                                    #     file.write("0")
                         
                         # file.write("\n Finished CX block... \n")
 
@@ -443,7 +478,11 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                     
                                     result = result + str(item)
 
-                                file.write(result)
+                                for i in range(0, 18):
+
+                                    reversed_result = result [i*4:i*4+4] [::-1]
+
+                                    file.write(reversed_result)
                                 
                                 for lut_name in block["luts"] : #get all the ble names in a CLB
                                     
@@ -459,7 +498,9 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                                     
                                                     result = result + str(item)
 
-                                                file.write(result)
+                                                reversed_result = result [::-1]
+
+                                                file.write(reversed_result)
 
                                     else :
 
@@ -491,7 +532,14 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                         
                                         result = result + str(item)
 
-                                    file.write(result)
+                                    for i in range(0, 16):
+
+                                        reversed_result = result [i*4:i*4+4] [::-1]
+
+                                        file.write(reversed_result)
+
+                                    # for i in range(0, 64) :
+                                    #     file.write("0")
 
                         # file.write("\nFinished CX block... \n")
                                 
@@ -507,7 +555,13 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                                 if (block["x"] == x_index) and (block["y"] == y_index) and (block["subblk"][0] == subblock) :
 
-                                    file.write(block["bitstream"])
+                                    result = block["bitstream"]
+
+                                    reversed_result = result [::-1]
+
+                                    file.write(reversed_result)
+
+                                    # file.write("00") 
 
                                     block_found  = 1
 
@@ -531,9 +585,17 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
                     if (block["x"] == x_index) and (block["y"] == 0) and (block["subblk"][0] == subblock) :
 
-                        file.write(block["bitstream"])
+                        result = block["bitstream"]
+
+                        reversed_result = result [::-1]
+
+                        file.write(reversed_result)
+
+                        # file.write("00") 
 
                         block_found  = 1
+
+                        break
 
                 if not block_found :
 

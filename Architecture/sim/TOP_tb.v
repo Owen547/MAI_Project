@@ -167,23 +167,24 @@ assign data_in[33] = a[0];
 assign data_in[34] = cin;
 assign s[0] = data_out[35];
 
-wire [2:0] example1, example2;
-
-wire [5:0] catcher;
-
-assign example1 = 3'b000;
-assign example2 = 3'b111;
-
-assign catcher = {example1, example2};
-
     initial begin
-    
-        initialise_config_signals();
-        configure_top_module(config_bits);
-        cin = 0;
         a = 8'b11111111;
         b = 8'b11111011;
+        cin = 0;
+        initialise_config_signals();
+        configure_top_module(config_bits);
+        #25;
+        a = 8'b00000000;
+        b = 8'b00000000;
+        #25;
+        a = 8'b00000000;
+        b = 8'b00000000;
         #20;
+        a = 8'b00000001;
+        b = 8'b00000100;
+        #20;
+        a = 8'b00000100;
+        b = 8'b00000001;
         $finish;
         
     end

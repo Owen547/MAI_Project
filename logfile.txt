@@ -75,38 +75,38 @@ INFO: Printing io_locations...
 
 
 INFO: printing blocks with IO bits...
-{'name': 'a~7', 'type': 'IO', 'x': 1, 'y': 4, 'subblk': (0, 0), 'bitstream': '10'}
-{'name': 'b~6', 'type': 'IO', 'x': 1, 'y': 4, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'out:s~7', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (0, 0), 'bitstream': '01'}
-{'name': 'out:cout', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (1, 0), 'bitstream': '01'}
-{'name': 'a~4', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (2, 0), 'bitstream': '10'}
-{'name': 'b~4', 'type': 'IO', 'x': 3, 'y': 4, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'out:s~3', 'type': 'IO', 'x': 0, 'y': 3, 'subblk': (1, 0), 'bitstream': '01'}
-{'name': 'b~7', 'type': 'IO', 'x': 0, 'y': 3, 'subblk': (2, 0), 'bitstream': '10'}
+{'name': 'a~7', 'type': 'IO', 'x': 1, 'y': 4, 'subblk': (0, 0), 'bitstream': '01'}
+{'name': 'b~6', 'type': 'IO', 'x': 1, 'y': 4, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'out:s~7', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (0, 0), 'bitstream': '10'}
+{'name': 'out:cout', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (1, 0), 'bitstream': '10'}
+{'name': 'a~4', 'type': 'IO', 'x': 2, 'y': 4, 'subblk': (2, 0), 'bitstream': '01'}
+{'name': 'b~4', 'type': 'IO', 'x': 3, 'y': 4, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'out:s~3', 'type': 'IO', 'x': 0, 'y': 3, 'subblk': (1, 0), 'bitstream': '10'}
+{'name': 'b~7', 'type': 'IO', 'x': 0, 'y': 3, 'subblk': (2, 0), 'bitstream': '01'}
 {'name': 's~7', 'type': 'CLB', 'x': 2, 'y': 3, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
 {'name': 'new_n29', 'type': 'CLB', 'x': 3, 'y': 3, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-{'name': 'a~6', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (0, 0), 'bitstream': '10'}
-{'name': 'a~5', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'out:s~6', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (2, 0), 'bitstream': '01'}
+{'name': 'a~6', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (0, 0), 'bitstream': '01'}
+{'name': 'a~5', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'out:s~6', 'type': 'IO', 'x': 4, 'y': 3, 'subblk': (2, 0), 'bitstream': '10'}
 {'name': 's~5', 'type': 'CLB', 'x': 3, 'y': 2, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-{'name': 'out:s~5', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (0, 0), 'bitstream': '01'}
-{'name': 'b~5', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'out:s~4', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (2, 0), 'bitstream': '01'}
-{'name': 'out:s~2', 'type': 'IO', 'x': 0, 'y': 1, 'subblk': (0, 0), 'bitstream': '01'}
-{'name': 'a~3', 'type': 'IO', 'x': 0, 'y': 1, 'subblk': (2, 0), 'bitstream': '10'}
+{'name': 'out:s~5', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (0, 0), 'bitstream': '10'}
+{'name': 'b~5', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'out:s~4', 'type': 'IO', 'x': 4, 'y': 2, 'subblk': (2, 0), 'bitstream': '10'}
+{'name': 'out:s~2', 'type': 'IO', 'x': 0, 'y': 1, 'subblk': (0, 0), 'bitstream': '10'}
+{'name': 'a~3', 'type': 'IO', 'x': 0, 'y': 1, 'subblk': (2, 0), 'bitstream': '01'}
 {'name': 's~3', 'type': 'CLB', 'x': 1, 'y': 1, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
 {'name': 'new_n30', 'type': 'CLB', 'x': 2, 'y': 1, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
 {'name': 's~1', 'type': 'CLB', 'x': 3, 'y': 1, 'subblk': (0, 0), 'inputs': ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'luts': ['', '', ''], 'cx_config': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-{'name': 'out:s~1', 'type': 'IO', 'x': 4, 'y': 1, 'subblk': (2, 0), 'bitstream': '01'}
-{'name': 'b~2', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (0, 0), 'bitstream': '10'}
-{'name': 'b~3', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'a~2', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (2, 0), 'bitstream': '10'}
-{'name': 'a~1', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (0, 0), 'bitstream': '10'}
-{'name': 'b~1', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'b~0', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (2, 0), 'bitstream': '10'}
-{'name': 'a~0', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (0, 0), 'bitstream': '10'}
-{'name': 'cin', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (1, 0), 'bitstream': '10'}
-{'name': 'out:s~0', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (2, 0), 'bitstream': '01'}
+{'name': 'out:s~1', 'type': 'IO', 'x': 4, 'y': 1, 'subblk': (2, 0), 'bitstream': '10'}
+{'name': 'b~2', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (0, 0), 'bitstream': '01'}
+{'name': 'b~3', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'a~2', 'type': 'IO', 'x': 1, 'y': 0, 'subblk': (2, 0), 'bitstream': '01'}
+{'name': 'a~1', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (0, 0), 'bitstream': '01'}
+{'name': 'b~1', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'b~0', 'type': 'IO', 'x': 2, 'y': 0, 'subblk': (2, 0), 'bitstream': '01'}
+{'name': 'a~0', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (0, 0), 'bitstream': '01'}
+{'name': 'cin', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (1, 0), 'bitstream': '01'}
+{'name': 'out:s~0', 'type': 'IO', 'x': 3, 'y': 0, 'subblk': (2, 0), 'bitstream': '10'}
 
 
 INFO: printing extracted LUT configurations ..

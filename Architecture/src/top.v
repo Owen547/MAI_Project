@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
-module temp_top #(
+module top #(
         
-    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 2,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
     parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
         
     parameter CLB_NUM_BLE = 3,
@@ -88,15 +88,15 @@ module temp_top #(
         end
 
 
-        localparam clb_input_interval_y = MESH_SIZE_X * 4 * CLB_TRACK_INPUTS;
-        localparam clb_input_interval_x = 4 * CLB_TRACK_INPUTS;
+        localparam clb_input_interval_y = MESH_SIZE_X * 4 * CLB_TRACK_INPUTS; //input interval between vertically adjacent CLB's
+        localparam clb_input_interval_x = 4 * CLB_TRACK_INPUTS; //input interval between horizontally adjacent CLB's
 
-        localparam clb_output_interval_x = CLB_NUM_BLE ;
-        localparam clb_output_interval_y = MESH_SIZE_X * CLB_NUM_BLE;
+        localparam clb_output_interval_x = CLB_NUM_BLE ; //output interval between vertically adjacent CLB's
+        localparam clb_output_interval_y = MESH_SIZE_X * CLB_NUM_BLE; //output interval between vertically adjacent CLB's
 
-        localparam clb_config_offset = MESH_SIZE_X + (MESH_SIZE_X * 2) + 3;
-        localparam clb_config_interval_x = 2;
-        localparam clb_config_interval_y = ((MESH_SIZE_X * 2) + 3) + ((MESH_SIZE_X * 2) + 1);
+        localparam clb_config_offset = MESH_SIZE_X + (MESH_SIZE_X * 2) + 3; // the config bus offset for the first CLB, i.e. the config bus index that enters the top left CLB
+        localparam clb_config_interval_x = 2; //config interval between two horixontally adjacent CLB's
+        localparam clb_config_interval_y = ((MESH_SIZE_X * 2) + 3) + ((MESH_SIZE_X * 2) + 1); //config bus index interval between two vertically adjacent CLB's
 
 
         for (y_index=0; y_index<MESH_SIZE_Y; y_index=y_index+1) begin : clb_rows
@@ -113,12 +113,14 @@ module temp_top #(
                     .config_out(config_bus[clb_config_offset + (x_index * clb_config_interval_x) + (y_index * clb_config_interval_y) + 1]),
 
                     .data_in({
+                    //data in must be specified with left inputs in first position, or specified last in the concatenation. This is the design convention
                     CLB_inputs[(1 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS],  
                     CLB_inputs[(2 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS], 
                     CLB_inputs[(3 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS], 
                     CLB_inputs[(4 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS]
                     }),
                     .clk(clk),
+                    // BLE outputs are specified here
                     .data_out(CLB_outputs[(1*CLB_NUM_BLE) + (y_index * clb_output_interval_y) + (x_index * clb_output_interval_x)- 1 -: CLB_NUM_BLE])
                 );
 
@@ -127,8 +129,9 @@ module temp_top #(
 
         end
 
-        // unlike CLBs and SWBXs, IO and CXs have unique scenarios, mostly on edge cases, where they need to be declared with different buses as input/output. 
-        // This is why there is so many different if statements etc.
+        // unlike CLBs and SWBXs, IO and CXs have unique scenarios, on edge cases, where they need to be declared with different buses as input/output. 
+        // This is due to IO occuring only on the edges and connecting to the adjacent connector box inside the design.
+        // This is the reasoning for the different instantiations that are below.
 
         localparam io_config_offset_middle = MESH_SIZE_X + ((MESH_SIZE_X * 2) + 1);
         localparam io_config_interval_y_middle = ((MESH_SIZE_X * 2) + 3) + ((MESH_SIZE_X * 2) + 1);
@@ -195,7 +198,7 @@ module temp_top #(
                     .config_in(config_bus[io_config_offset_middle + ((y_index - 1) * io_config_interval_y_middle) + right_io_config_offset]),
                     .config_clk(config_clk),
                     .config_en(config_en),
-                    .config_out(config_bus[io_config_offset_middle + ((y_index - 1)* io_config_interval_y_middle) + right_io_config_offset + 1]),
+                    .config_out(config_bus[io_config_offset_middle + ((y_index - 1) * io_config_interval_y_middle) + right_io_config_offset + 1]),
 
                     .data_in(data_in[io_data_in_offset_middle + ((y_index - 1) * io_data_in_interval_y_middle) + (1 * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH]), 
                     .cx_io(cx_io[io_data_out_offset_middle + ((y_index - 1) * io_data_out_interval_y_middle) + (1 * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH]),
@@ -281,14 +284,14 @@ module temp_top #(
                         SWBX_outputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) - 1 -: SWBX_WIDTH],
                         CLB_outputs[CLB_NUM_BLE + (y_index * clb_output_interval_y) - 1 -: CLB_NUM_BLE],
                         SWBX_outputs[(4 * SWBX_WIDTH ) + (y_index * swbx_interval_y) - 1 -: SWBX_WIDTH],
-                        io_cx[(MESH_SIZE_X + 1 * DATA_IN_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_IN_WIDTH]
+                        io_cx[((MESH_SIZE_X + 1) * DATA_IN_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_IN_WIDTH]
                     }),
 
             .data_out({ 
                         SWBX_inputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) - 1 -: SWBX_WIDTH],
                         CLB_inputs[(1 * CLB_TRACK_INPUTS) + (y_index *clb_input_interval_y) - 1 -: CLB_TRACK_INPUTS],
                         SWBX_inputs[(4 * SWBX_WIDTH ) + (y_index * swbx_interval_y) - 1 -: SWBX_WIDTH],
-                        cx_io[(MESH_SIZE_X + 1 * DATA_OUT_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_OUT_WIDTH]
+                        cx_io[((MESH_SIZE_X + 1) * DATA_OUT_WIDTH) + (y_index * DATA_OUT_WIDTH * 2) - 1 -: DATA_OUT_WIDTH]
                     })
         ); 
 
@@ -310,14 +313,14 @@ module temp_top #(
 
             .data_in({  
                         SWBX_outputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) + (MESH_SIZE_X * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
-                        io_cx[(MESH_SIZE_X + 2 * DATA_IN_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_IN_WIDTH],
+                        io_cx[((MESH_SIZE_X + 2) * DATA_IN_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_IN_WIDTH],
                         SWBX_outputs[(4 * SWBX_WIDTH ) + (y_index * swbx_interval_y) + (MESH_SIZE_X * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
                         CLB_outputs[CLB_NUM_BLE + (y_index * clb_output_interval_y) + ((MESH_SIZE_X - 1) * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE]
                     }),
 
             .data_out({ 
                         SWBX_inputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) + (MESH_SIZE_X * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
-                        cx_io[(MESH_SIZE_X + 2 * DATA_OUT_WIDTH) + (y_index * DATA_IN_WIDTH * 2) - 1 -: DATA_OUT_WIDTH],
+                        cx_io[((MESH_SIZE_X + 2) * DATA_OUT_WIDTH) + (y_index * DATA_OUT_WIDTH * 2) - 1 -: DATA_OUT_WIDTH],
                         SWBX_inputs[(4 * SWBX_WIDTH ) + (y_index * swbx_interval_y) + (MESH_SIZE_X * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
                         CLB_inputs[(3 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + ((MESH_SIZE_X - 1) * 4 * CLB_TRACK_INPUTS) - 1 -: CLB_TRACK_INPUTS]
                     })
@@ -347,7 +350,7 @@ module temp_top #(
                     }),
 
             .data_out({ 
-                        cx_io[DATA_OUT_WIDTH + (x_index * DATA_OUT_WIDTH) + (2 * MESH_SIZE_Y * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH],
+                        cx_io[DATA_OUT_WIDTH + (x_index * DATA_OUT_WIDTH) + (MESH_SIZE_X * DATA_IN_WIDTH) + (2 * MESH_SIZE_Y * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH],
                         SWBX_inputs[(5 * SWBX_WIDTH ) + (x_index * SWBX_WIDTH * 4) + (MESH_SIZE_Y * swbx_interval_y)  - 1 -: SWBX_WIDTH],
                         CLB_inputs[(4 * CLB_TRACK_INPUTS) + (x_index * 4 * CLB_TRACK_INPUTS)+ ((MESH_SIZE_Y- 1) * clb_input_interval_y) - 1 -: CLB_TRACK_INPUTS],
                         SWBX_inputs[(3 * SWBX_WIDTH ) + (x_index * SWBX_WIDTH * 4) + (MESH_SIZE_Y * swbx_interval_y) - 1 -: SWBX_WIDTH]
