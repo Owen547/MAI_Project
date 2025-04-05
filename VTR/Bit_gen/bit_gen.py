@@ -253,10 +253,6 @@ def extract_lut_configs (file_path, logfile) :
                 inputs = match.group(1)
                 name = match.group(2)
 
-                # if name == "s~0" :
-
-                #     print("here it is!")
-
                 # Store the block information as a dictionary
                 luts.append({
                     "name": name,

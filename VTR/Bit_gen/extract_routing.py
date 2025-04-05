@@ -421,11 +421,7 @@ def extract_routing_configs(file_path, blocks, connectors, switches, logfile) :
 
                     name = match.group(1)
 
-                    if name == "b~0":
-
-                        print ("Found IT!")
-
-                    visited_nodes = []
+                    visited_nodes = [] #not sure if this is necessary, might be handled by source/last cx functionality 
 
                 elif ("OPIN" in last_line): #determine the source connector, then set connector output
 
