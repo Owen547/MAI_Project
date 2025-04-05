@@ -17,7 +17,7 @@ def get_cx_source_input_index (last_line, source_cx, blocks, name):
             if (block["x"] == x) and (block["y"] == y) :
 
                     block['luts'][pin_number - 12] = name 
-                    block['inputs'][1 + pin_number] = name
+                    block['inputs'][pin_number] = name
 
                     break   
 
@@ -39,11 +39,11 @@ def get_cx_source_input_index (last_line, source_cx, blocks, name):
 
             if (source_cx[1] < x): #cx is left of CLB
 
-                source_input_index = pin_number - 12
+                source_input_index = pin_number - 12 + 8
 
             else: #cx is right of CLB
 
-                source_input_index = pin_number - 12 + 8
+                source_input_index = pin_number - 12
 
 
     else : #its a IO block pad
@@ -294,7 +294,7 @@ def extract_switch_configs(current_cx, last_cx, switches, logfile):
 
             #left output
 
-            elif (last_cx_x == cx_x + 1) and (last_cx_y == cx_y) :
+            elif (last_cx_x == cx_x + 1) and (last_cx_y == cx_y) and (chan == "CHANX") :
 
                 output_index =  int((((last_track-1)/2) * 2 * 4) + 2)
                 input_sel = format(2, f'02b')
@@ -302,7 +302,7 @@ def extract_switch_configs(current_cx, last_cx, switches, logfile):
 
             #bottom output
 
-            elif (last_cx_y == cx_y) and (last_cx_x == cx_x + 1) :
+            elif (last_cx_y == cx_y) and (last_cx_x == cx_x + 1) and (chan == "CHANY") :
     
                 output_index =  int((((last_track-1)/2) * 2 * 4) + 8)
                 input_sel = format(3, f'02b')
@@ -373,7 +373,7 @@ def extract_switch_configs(current_cx, last_cx, switches, logfile):
 
             #left output
 
-            elif (last_cx_y == cx_y + 1) and (last_cx_x == cx_x):
+            elif (last_cx_y == cx_y + 1) and (last_cx_x == cx_x) and (chan == "CHANX"):
 
                 output_index =  int((((last_track-1)/2) * 2 * 4) + 2)
                 input_sel = format(1, f'02b')
@@ -381,7 +381,7 @@ def extract_switch_configs(current_cx, last_cx, switches, logfile):
 
             #bottom output
 
-            elif (last_cx_y == cx_y + 1) and (last_cx_x == cx_x) :
+            elif (last_cx_y == cx_y + 1) and (last_cx_x == cx_x) and (chan =="CHANY") :
     
                 output_index =  int((((last_track-1)/2) * 2 * 4) + 8)
                 input_sel = format(2, f'02b')
@@ -420,6 +420,10 @@ def extract_routing_configs(file_path, blocks, connectors, switches, logfile) :
                     match = re.match(r"Net \d+ \((.*)\)", line)
 
                     name = match.group(1)
+
+                    if name == "b~0":
+
+                        print ("Found IT!")
 
                     visited_nodes = []
 

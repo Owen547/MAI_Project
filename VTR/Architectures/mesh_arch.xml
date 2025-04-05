@@ -73,7 +73,7 @@
 
   <layout>
 
-      <fixed_layout name="mesh" width="4" height="5"> 
+      <fixed_layout name="mesh" width="5" height="5"> 
 
           <corners type="EMPTY" priority="101"/>
           <perimeter type="io" priority="100"/>

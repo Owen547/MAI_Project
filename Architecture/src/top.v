@@ -113,11 +113,11 @@ module top #(
                     .config_out(config_bus[clb_config_offset + (x_index * clb_config_interval_x) + (y_index * clb_config_interval_y) + 1]),
 
                     .data_in({
-                    //data in must be specified with left inputs in first position, or specified last in the concatenation. This is the design convention
-                    CLB_inputs[(1 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS],  
-                    CLB_inputs[(2 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS], 
+                    //data in must be specified with left inputs in first position (0th -> xth bit), or specified last in the concatenation. This is the design convention
+                    CLB_inputs[(4 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS],
                     CLB_inputs[(3 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS], 
-                    CLB_inputs[(4 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS]
+                    CLB_inputs[(2 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS],
+                    CLB_inputs[(1 * CLB_TRACK_INPUTS) + (y_index * clb_input_interval_y) + (x_index * clb_input_interval_x) - 1 -: CLB_TRACK_INPUTS]  
                     }),
                     .clk(clk),
                     // BLE outputs are specified here

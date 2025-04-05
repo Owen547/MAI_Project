@@ -176,11 +176,12 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
 def expand_inputs (lut_config, input, logfile):
 
+    input = input[:: -1]
     for i in range (1, (6 - (len(input)) + 1)):
 
         # logfile.write("DEBUG: missing values in string is " + str(6 - (len(input))) + "\n")
 
-        input = input + '-'
+        input = '-' + input
 
     dont_cares = 0
     
@@ -207,7 +208,7 @@ def expand_inputs (lut_config, input, logfile):
             input_list[indexes[i]] = str(binary_value[i]) 
             input = ''.join(input_list)
 
-        lut_config[int(input, 2)] = 1
+        lut_config[int(input, 2) + 1] = 1 # + 1 to index to account for ff enable bit at front
 
     return lut_config
             
@@ -252,6 +253,10 @@ def extract_lut_configs (file_path, logfile) :
                 inputs = match.group(1)
                 name = match.group(2)
 
+                # if name == "s~0" :
+
+                #     print("here it is!")
+
                 # Store the block information as a dictionary
                 luts.append({
                     "name": name,
@@ -268,7 +273,7 @@ def extract_lut_configs (file_path, logfile) :
             for i in range(0, 2**6):
                 # Format the number as binary with leading zeros
                 binary_value = format(i, f'06b')  
-                logfile.write(f"{binary_value} {lut["config"][i]}\n")  # Write each dictionary on a new line
+                logfile.write(f"{binary_value} {lut["config"][i+1]}\n")  # Write each dictionary on a new line
             logfile.write(f"\n\n")
 
         # logfile.write(f"\n\n")  # Write each dictionary on a new line
@@ -285,6 +290,8 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
             output_offset = 0
 
             for lut_name in block["luts"] : #get all the ble names in a CLB
+
+                output_index = (output_offset*4) + 4
                                 
                 if (lut_name != '') : #for non open bles
                     
@@ -293,8 +300,17 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
                         if (lut["name"] == lut_name) :
 
                             break
+                else :
+                        for i in range (0, 6):
 
-                output_index = (output_offset*4) + 4
+                            input_sel = format(0, f'04b')
+                    
+                            block["cx_config"][output_index-4:output_index] = input_sel
+
+                            output_index = output_index + 4
+                    
+                        continue
+
 
                 input_sel = 0
 
@@ -309,6 +325,8 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
                             block["cx_config"][output_index-4:output_index] = input_sel
 
                             output_index = output_index + 4
+
+                            break
 
                 output_offset = output_offset + 6
 
@@ -498,9 +516,9 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
                                                     
                                                     result = result + str(item)
 
-                                                reversed_result = result [::-1]
+                                                # reversed_result = result [::-1]
 
-                                                file.write(reversed_result)
+                                                file.write(result)
 
                                     else :
 
@@ -607,6 +625,72 @@ def write_bitstream(file_path, MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connector
 
     return
 
+def initialise_connector_configs (connectors, logfile):
+
+    for connector in connectors:
+
+        if connector["chan"] == "CHANX" : #CHANX cx
+
+            #left outputs
+
+            for i  in range(0, 5):
+
+                output_index = i
+
+                input_index = i + 8
+
+                input_sel = format(input_index, f'04b')
+
+                output_index = (output_index * 4) + 4
+
+                connector["config"][(output_index-4):(output_index)] = input_sel   
+            
+            #right outputs
+
+            for i  in range(8, 13):
+
+                output_index = i
+
+                input_index = i - 8
+
+                input_sel = format(input_index, f'04b')
+
+                output_index = (output_index * 4) + 4
+
+                connector["config"][(output_index-4):(output_index)] = input_sel  
+
+        else : #CHANY cx
+             
+            #top outputs
+
+            for i  in range(3, 8):
+
+                output_index = i
+
+                input_index = i + 8
+
+                input_sel = format(input_index, f'04b')
+
+                output_index = (output_index * 4) + 4
+
+                connector["config"][(output_index-4):(output_index)] = input_sel   
+
+            #bottom outputs
+
+            for i  in range(11, 16):
+
+                output_index = i
+
+                input_index = i - 8
+
+                input_sel = format(input_index, f'04b')
+
+                output_index = (output_index * 4) + 4
+
+                connector["config"][(output_index-4):(output_index)] = input_sel   
+
+    return connectors
+
 
 # Main function to run the script
 
@@ -652,8 +736,8 @@ def main():
                 })
                 
 
-        # # initialise connectors with swbx in to swbx out
-        # connectors = initialise_connector_configs(connectors, logfile)
+        # # initialise connectors with inputs from swbx to opposite side outputs.. this should get overwritten at some point if its supposed to be different
+        connectors = initialise_connector_configs(connectors, logfile)
 
         #order them by grid location top left to bottom right
         blocks = sorted(blocks, key=lambda block: (-block['y'], block['x'], block['subblk'])) 
