@@ -24,13 +24,12 @@
         </equivalent_sites>
         <input name="outpad" num_pins="1"/>
         <output name="inpad" num_pins="1"/>
-        <clock name="clock" num_pins="1"/>
         <fc in_type="frac" in_val="1" out_type="frac" out_val="1"/>
         <pinlocations pattern="custom">
-          <loc side="left">io_block.outpad io_block.inpad io_block.clock</loc>
-          <loc side="top">io_block.outpad io_block.inpad io_block.clock</loc>
-          <loc side="right">io_block.outpad io_block.inpad io_block.clock</loc>
-          <loc side="bottom">io_block.outpad io_block.inpad io_block.clock</loc>
+          <loc side="left">io_block.outpad io_block.inpad</loc>
+          <loc side="top">io_block.outpad io_block.inpad</loc>
+          <loc side="right">io_block.outpad io_block.inpad</loc>
+          <loc side="bottom">io_block.outpad io_block.inpad</loc>
         </pinlocations>
       </sub_tile>
     </tile>
@@ -72,13 +71,9 @@
   <!-- Physical descriptions begin -->
 
   <layout>
-  <!-- need to edit this to take input for height and width -->
-      <fixed_layout name="mesh" width="8" height="8"> 
-          <!-- Do I need to define an IO that occurs adjacent to edge connectors? -->
-          <!-- <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
-          <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/>
-          <col type="IO_left" priority="1" startx="1" repeatx="expr" starty="H-1" incry="expr"/>
-          <row type="IO_top" priority="int" starty="expr" repeaty="expr" startx="expr"/> -->
+
+      <fixed_layout name="mesh" width="5" height="5"> 
+
           <corners type="EMPTY" priority="101"/>
           <perimeter type="io" priority="100"/>
           <!-- Fill the remaining device with CLB blocks -->
@@ -135,7 +130,6 @@
     <pb_type name="io">
       <input name="outpad" num_pins="1"/>
       <output name="inpad" num_pins="1"/>
-      <clock name="clock" num_pins="1"/>
       <!-- IOs can operate as either inputs or outputs -->
       <mode name="inpad">
         <pb_type name="inpad" blif_model=".input" num_pb="1">

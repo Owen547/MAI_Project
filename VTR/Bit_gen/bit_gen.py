@@ -82,89 +82,69 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
     with open ("./io_verilog.txt", "w") as io_file:
 
-        for block in blocks:
+        data_out_index = 0
+        data_in_index = 0
 
-            if (block['y'] == (MESH_SIZE_Y - 1)) or (block['y'] == (0)) or (block['x'] == (MESH_SIZE_X - 1)) or (block['x'] == 0) :
+        for io_location in io_locations :
 
-                if block['name'].startswith("out"):
+            output_location_found = 0
 
-                    block['type'] = "IO" # label block as IO
-                    block['bitstream'] = "10" # enable output, drive input low
+            for block in blocks:
 
-                    if ("~") in block['name']: 
+                if (block['y'] == (MESH_SIZE_Y - 1)) or (block['y'] == (0)) or (block['x'] == (MESH_SIZE_X - 1)) or (block['x'] == 0) :
 
-                        match = re.match(r"out:(\S+)~(\d+)", block['name'])
-                        
-                        data_out_index = 0
+                    if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
 
-                        for io_location in io_locations :
+                        if block['name'].startswith("out"):
 
-                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+                            block['type'] = "IO" # label block as IO
+                            block['bitstream'] = "10" # enable output, drive input low
 
-                                io_file.write(f"assign {match.group(1)}[{match.group(2)}] = data_out[{data_out_index}];\n")
-                            
+                            if ("~") in block['name']: 
+
+                                match = re.match(r"out:(\S+)~(\d+)", block['name'])
+
+                                io_file.write(f"assign expected_dataout[{data_out_index}] = expected_{match.group(1)}[{match.group(2)}];\n")
+
+                                output_location_found = 1
+
                             else:
 
-                                data_out_index = data_out_index + 1
-                    else:
+                                match = re.match(r"out:(\S+)", block['name'])
+                                
+                                io_file.write(f"assign expected_dataout[{data_out_index}] = expected_{match.group(1)};\n")
 
-                        match = re.match(r"out:(\S+)", block['name'])
-                        
-                        data_out_index = 0
+                                output_location_found = 1
 
-                        for io_location in io_locations :
+                        else : 
 
-                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+                            block['type'] = "IO" # label block as IO
+                            block['bitstream'] = "01" #enable input, drive output low
 
-                                io_file.write(f"assign {match.group(1)} = data_out[{data_out_index}];\n")
-                            
-                            else:
+                            if ("~") in block['name']: 
 
-                                data_out_index = data_out_index + 1
-
-                else : 
-
-                    block['type'] = "IO" # label block as IO
-                    block['bitstream'] = "01" #enable input, drive output low
-
-                    if ("~") in block['name']: 
-
-                        match = re.match(r"(\S+)~(\d+)", block['name'])
-                        
-                        data_in_index = 0
-
-                        for io_location in io_locations :
-
-                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+                                match = re.match(r"(\S+)~(\d+)", block['name'])
 
                                 io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)}[{match.group(2)}];\n")
-                            
-                            else:
+                                    
+                            else :
 
-                                data_in_index = data_in_index + 1
-                    else :
-
-                        match = re.match(r"(\S+)", block['name'])
-                        
-                        data_in_index = 0
-
-                        for io_location in io_locations :
-
-                            if io_location["x"] == block["x"] and io_location["y"] == block["y"] and io_location["subblk"] == block["subblk"][0] :
+                                match = re.match(r"(\S+)", block['name'])
 
                                 io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)};\n")
-                            
-                            else:
+                else: 
 
-                                data_in_index = data_in_index + 1
+                    block['type'] = "CLB" # label block as CLB
+                    block['inputs'] = [""] * 16
+                    block['luts'] = [""] * 3
+                    block["cx_config"] = [0] * (18 * 4)
 
-            else: 
+            if not(output_location_found):
+                
+                io_file.write(f"assign expected_dataout[{data_out_index}] = 0;\n")
 
-                block['type'] = "CLB" # label block as CLB
-                block['inputs'] = [""] * 16
-                block['luts'] = [""] * 3
-                block["cx_config"] = [0] * (18 * 4)
-
+            data_in_index = data_in_index + 1
+            data_out_index = data_out_index + 1
 
     logfile.write(f"INFO: printing blocks with IO bits...\n")  # Write each dictionary on a new line
     for block in blocks:

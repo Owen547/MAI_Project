@@ -14,15 +14,15 @@ always @(state)
                		S0:
                  	   	out = 3'b000;
               	 	S1:
-               		     	out = 3'b001;
+						out = 3'b001;
                		S2:
-				out = 3'b010;
+						out = 3'b010;
                		S3:
-                    		out = 3'b011;
-			S4:
-				out = 3'b100;
+						out = 3'b011;
+					S4:
+						out = 3'b100;
                		default:
-                    		out = 3'b000;
+						out = 3'b000;
 		endcase
 	end
 
