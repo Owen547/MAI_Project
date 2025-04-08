@@ -20,7 +20,7 @@ module TOP_SCOREBOARD #(
     
     initial begin
     
-        logfile_pointer = $fopen("/home/owen/College/MAI_Project/sim_runs/8_bit_adder/log.txt", "w");
+        logfile_pointer = $fopen("/home/owen/College/MAI_Project/Vivado/sim_runs/8_bit_adder/log.txt", "w");
         
         if (logfile_pointer) begin
             $display("Succeeded in opening log file!");
