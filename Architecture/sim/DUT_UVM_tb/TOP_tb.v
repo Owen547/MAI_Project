@@ -74,6 +74,8 @@ module TOP_tb #(
     .sim_done(sim_done),
     .dataout(data_out),
     .config_out(config_out),
+    .clk(clk),
+    .config_clk(config_clk),
     
     .expected_dataout(expected_dataout),
     .expected_config_out(expected_config_out)

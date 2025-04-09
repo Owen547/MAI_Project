@@ -4,7 +4,7 @@
 # --route_chan_width 100 
 
 #combinational 8 bit adder
-echo starting combinational run 
+echo -n "Starting combinational run...              "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 ~/College/MAI_Project/VTR/target_designs/combinational/8_bit_adder/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch.xml \
@@ -16,7 +16,7 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 # --disp on
 
 # sequential FSM
-echo starting sequential run 
+echo -n "Starting sequential run...                 "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch.xml \
@@ -25,14 +25,11 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
---disp on
-# --absorb_buffer_luts off \
-# --const_gen_inference none \
-# --sweep_constant_primary_outputs off \
+# --disp on
 
 
 #run the test arch description on combinational
-echo starting combinational test run 
+echo -n "Starting combinational test run...         "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 ~/College/MAI_Project/VTR/target_designs/combinational/8_bit_adder/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch_test.xml \
@@ -43,7 +40,8 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 --route_chan_width 10 \
 # --disp on
 
-#run the test arch description on sequential
+#run the test arch description on sequential 8 bit adder
+echo -n "Starting sequential test run...            "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch_test.xml \
@@ -52,11 +50,10 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
---disp on
 # --disp on
 
 #run the example arch on a sequential design
-echo starting example sequential test run 
+echo -n "Starting example sequential test run...    " 
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/example_arch.xml \
@@ -65,5 +62,5 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 100 \
---disp on
+# --disp on
 

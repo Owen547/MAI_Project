@@ -21,25 +21,19 @@
 
 
 module full_adder(
-    output reg cout,
-    output reg s,
+    output cout,
+    output s,
     input a,
     input b,
-    input cin,
-    input clk,
-    input reset
+    input cin
+
     );
 
     wire [1:0] intermediate;
 
-    always @(posedge clk, reset) begin
-
-            s = intermediate[0];
-            cout = intermediate[1];
-
-    end
-
     assign intermediate = a + b + cin;
 
-
+    assign s = intermediate[0];
+    assign cout = intermediate[1];
+    
 endmodule
