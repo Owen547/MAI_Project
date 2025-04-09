@@ -43,7 +43,8 @@ module TOP_STIM_GEN #(
     .s(expected_s),
     .a(a),
     .b(b),
-    .cin(cin)
+    .cin(cin),
+    .clk(clk)
     );
              
     task initialise_signals ();
@@ -143,8 +144,8 @@ module TOP_STIM_GEN #(
             #5;
             clk <= ~clk;
         end
-    end    
-
+    end 
+       
     assign data_in[0] = a[4];
     assign expected_dataout[0] = 0;
     assign data_in[1] = a[5];

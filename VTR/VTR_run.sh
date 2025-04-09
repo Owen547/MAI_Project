@@ -18,13 +18,18 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 # sequential FSM
 echo starting sequential run 
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
-~/College/MAI_Project/VTR/target_designs/sequential/FSM/top.v \
+~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch.xml \
+-include ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
 -temp_dir ~/College/VTR_runs/sequential_run \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
 --disp on
+# --absorb_buffer_luts off \
+# --const_gen_inference none \
+# --sweep_constant_primary_outputs off \
+
 
 #run the test arch description on combinational
 echo starting combinational test run 
@@ -39,24 +44,26 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 # --disp on
 
 #run the test arch description on sequential
-echo starting sequential test run 
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
-~/College/MAI_Project/VTR/target_designs/sequential/FSM/top.v \
+~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch_test.xml \
+-include ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
 -temp_dir ~/College/VTR_runs/sequential_test_run \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
+--disp on
 # --disp on
 
 #run the example arch on a sequential design
 echo starting example sequential test run 
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
-~/College/MAI_Project/VTR/target_designs/sequential/FSM/top.v \
+~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/example_arch.xml \
+-include ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
 -temp_dir ~/College/VTR_runs/example_sequential_run \
 -top_module top \
 -lut_size 6 \
---route_chan_width 10 \
+--route_chan_width 100 \
 --disp on
 

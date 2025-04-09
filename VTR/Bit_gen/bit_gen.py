@@ -1,9 +1,8 @@
 import re
+import argparse
+import os
+import sys
 from extract_routing import *
-
-target_folder = "/home/owen/College/VTR_runs/arch_runs/test_run/"
-
-bitstream_file = "bitsream.txt"
 
 # read the mesh size from one of the files
 
@@ -32,10 +31,14 @@ def parse_place_file(file_path, logfile):
             match = re.match(r"^(\S*)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)", line)
 
             if match:
+
                 name = match.group(1)
                 x = int(match.group(2))
                 y = int(match.group(3))
                 subblk = (int(match.group(4)), int(match.group(5)))
+
+                if (name == "clk") :
+                    continue #skip the clock io block because using a global clock, and prevents io_verilog line assigning clock to datain
                 
                 # Store the block information as a dictionary
                 blocks.append({
@@ -154,7 +157,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
     return blocks
 
 
-def expand_inputs (lut_config, input, logfile):
+def expand_inputs (lut_config, input, name, clocked_bles, logfile):
 
     input = input[:: -1]
     for i in range (1, (6 - (len(input)) + 1)):
@@ -190,12 +193,19 @@ def expand_inputs (lut_config, input, logfile):
 
         lut_config[int(input, 2) + 1] = 1 # + 1 to index to account for ff enable bit at front
 
+    for ble in clocked_bles:
+
+        if (ble["ble_name"] == name) :
+
+            lut_config[0] = 1
+
     return lut_config
             
 
 def extract_lut_configs (file_path, logfile) : 
     
     luts = []
+    clocked_bles = []
 
     with open(file_path, 'r') as file:
        
@@ -213,7 +223,7 @@ def extract_lut_configs (file_path, logfile) :
 
                     # logfile.write("DEBUG: Attempting to expand " + input_binary + "\n")
                     
-                    lut_config = expand_inputs(lut_config, input_binary, logfile)
+                    lut_config = expand_inputs(lut_config, input_binary, name, clocked_bles, logfile)
 
                 else :
 
@@ -232,6 +242,13 @@ def extract_lut_configs (file_path, logfile) :
                 match = re.match(r".names\s+(.+) (\S+)", line)
                 inputs = match.group(1)
                 name = match.group(2)
+                
+                #check if the ble name is set earlier in .latch
+                for ble in clocked_bles:
+
+                    if (ble["lut_name"] == name):
+                        
+                        name = ble["ble_name"]
 
                 # Store the block information as a dictionary
                 luts.append({
@@ -239,6 +256,17 @@ def extract_lut_configs (file_path, logfile) :
                     "inputs": inputs,
                     "config": ""
                 })
+
+            if line.startswith(".latch"):
+
+                match = re.match(r".latch\s+(\S+)\s+(\S+)", line)
+                lut_name = match.group(1)
+                ble_name = match.group(2)
+                clocked_bles.append({
+                    "lut_name": lut_name,
+                    "ble_name": ble_name
+                })
+
 
         logfile.write(f"INFO: printing extracted LUT configurations ..\n")  # Write each dictionary on a new line
 
@@ -253,6 +281,9 @@ def extract_lut_configs (file_path, logfile) :
             logfile.write(f"\n\n")
 
         # logfile.write(f"\n\n")  # Write each dictionary on a new line
+        logfile.write(f"Clocked_bles list {clocked_bles}")  # Write each dictionary on a new line
+    
+
 
     return luts
 
@@ -671,6 +702,29 @@ def initialise_connector_configs (connectors, logfile):
 # Main function to run the script
 
 def main():
+
+    parser = argparse.ArgumentParser(description="Choose between sequence and combination modes.")
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("-seq", action="store_true", help="Generate bitstream from sequential folder")
+    group.add_argument("-comb", action="store_true", help="Generate bitstream from combinational folder")
+    group.add_argument("-user", metavar="DIR", type=str, help="Generate bitstream from user specified directory")
+
+    args = parser.parse_args()
+
+    if args.seq:
+        target_folder = "/home/owen/College/VTR_runs/sequential_run/"
+    elif args.comb:
+        target_folder = "/home/owen/College/VTR_runs/combinational_run/"
+    elif args.user:
+        if not os.path.isdir(args.user):
+            print(f"Error: '{args.user}' is not a valid directory.")
+            sys.exit(1)
+        else:
+            target_folder = args.user
+            print(f"User directory provided: {args.user}")
+
+
+    bitstream_file = "bitsream.txt"
 
     with open ("logfile.txt", "w+") as logfile: 
 

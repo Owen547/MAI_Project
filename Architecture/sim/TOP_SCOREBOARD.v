@@ -9,6 +9,7 @@ module TOP_SCOREBOARD #(
     )
     
     (
+        
     input sim_done,
     
     input [DATA_OUT_WIRE_WIDTH-1:0] expected_dataout, dataout,
@@ -20,7 +21,7 @@ module TOP_SCOREBOARD #(
     
     initial begin
     
-        logfile_pointer = $fopen("/home/owen/College/MAI_Project/Vivado/sim_runs/8_bit_adder/log.txt", "w");
+        logfile_pointer = $fopen("/home/owen/College/MAI_Project/Vivado/comb_sim_runs/8_bit_adder/log.txt", "w");
         
         if (logfile_pointer) begin
             $display("Succeeded in opening log file!");

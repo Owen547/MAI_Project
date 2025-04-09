@@ -19,7 +19,7 @@ module adder_top(
 
         for (index = 0; index < 8; index = index + 1) begin
             
-            full_adder FA(.a(a[index]), .b(b[index]), .s(s[index]), .cin(carry[index]), .cout(carry[index+1]));
+            full_adder FA(.a(a[index]), .b(b[index]), .s(s[index]), .cin(carry[index]), .cout(carry[index+1]), .clk(clk));
 
         end 
 
