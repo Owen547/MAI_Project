@@ -10,6 +10,8 @@ module prog_mux
     input config_in,
     input config_clk,
     input config_en,
+    input sys_reset,
+
     output config_out,
 
     input [INPUTS-1:0] data_in,
@@ -24,6 +26,7 @@ module prog_mux
     ) 
     config_mem (
         .config_in(config_in),
+        .sys_reset(sys_reset),
         .config_en(config_en),
         .config_clk(config_clk),
         .config_out(config_out),

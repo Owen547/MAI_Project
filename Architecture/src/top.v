@@ -2,7 +2,7 @@
 
 module top #(
         
-    parameter MESH_SIZE_X = 2,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
     parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
         
     parameter CLB_NUM_BLE = 3,
@@ -12,7 +12,7 @@ module top #(
     parameter SWBX_WIDTH = 5,
 
     parameter CX_INPUTS = (SWBX_WIDTH * 2) + (2 * CLB_NUM_BLE),
-    parameter CX_LOG_INPUTS = $clog2(CX_INPUTS),  
+    parameter CX_LOG_INPUTS = $clog2(CX_INPUTS),
     parameter CX_OUTPUTS = (2 * SWBX_WIDTH) + (2 * CLB_TRACK_INPUTS),
 
     parameter DATA_IN_WIDTH = CLB_TRACK_INPUTS,
@@ -27,6 +27,7 @@ module top #(
     input config_clk,
     input config_en,
     input clk,
+    input sys_reset,
     input [((MESH_SIZE_X + MESH_SIZE_Y) * 2 * DATA_IN_WIDTH) - 1:0] data_in,
     output [((MESH_SIZE_X + MESH_SIZE_Y) * 2 * DATA_OUT_WIDTH) - 1:0] data_out,
     output config_out
@@ -69,6 +70,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[swbx_config_offset + (y_index * swbx_config_interval_y) + (x_index * swbx_config_interval_x) + 1]),
+                    .sys_reset(sys_reset),
 
                     .l_in(SWBX_inputs[(1 * SWBX_WIDTH) + (y_index * swbx_interval_y) + (x_index * swbx_interval_x) - 1 -: SWBX_WIDTH]),
                     .l_out(SWBX_outputs[(1 * SWBX_WIDTH) + (y_index * swbx_interval_y) + (x_index * swbx_interval_x) - 1 -: SWBX_WIDTH]),
@@ -111,6 +113,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[clb_config_offset + (x_index * clb_config_interval_x) + (y_index * clb_config_interval_y) + 1]),
+                    .sys_reset(sys_reset),
 
                     .data_in({
                     //data in must be specified with left inputs in first position (0th -> xth bit), or specified last in the concatenation. This is the design convention
@@ -163,6 +166,7 @@ module top #(
                         .config_clk(config_clk),
                         .config_en(config_en),
                         .config_out(config_bus[x_index + 1]),
+                        .sys_reset(sys_reset),
 
                         .data_in(data_in[DATA_IN_WIDTH + (x_index * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH]), 
                         .cx_io(cx_io[DATA_OUT_WIDTH + (x_index * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH]),
@@ -184,6 +188,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[io_config_offset_middle + ((y_index - 1) * io_config_interval_y_middle) + 1]),
+                    .sys_reset(sys_reset),
 
                     .data_in(data_in[io_data_in_offset_middle + ((y_index - 1) * io_data_in_interval_y_middle) - 1 -: DATA_IN_WIDTH]), 
                     .cx_io(cx_io[io_data_out_offset_middle + ((y_index - 1) * io_data_out_interval_y_middle) - 1 -: DATA_OUT_WIDTH]),
@@ -199,6 +204,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[io_config_offset_middle + ((y_index - 1) * io_config_interval_y_middle) + right_io_config_offset + 1]),
+                    .sys_reset(sys_reset),
 
                     .data_in(data_in[io_data_in_offset_middle + ((y_index - 1) * io_data_in_interval_y_middle) + (1 * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH]), 
                     .cx_io(cx_io[io_data_out_offset_middle + ((y_index - 1) * io_data_out_interval_y_middle) + (1 * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH]),
@@ -220,6 +226,7 @@ module top #(
                         .config_clk(config_clk),
                         .config_en(config_en),
                         .config_out(config_bus[bottom_io_config_offset + x_index + 1]),
+                        .sys_reset(sys_reset),
 
                         .data_in(data_in[bottom_io_data_in_offset + (x_index * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH]), 
                         .cx_io(cx_io[bottom_io_data_out_offset + (x_index * DATA_OUT_WIDTH) - 1 -: DATA_OUT_WIDTH]),
@@ -246,6 +253,7 @@ module top #(
             .config_clk(config_clk),
             .config_en(config_en),
             .config_out(config_bus[top_cx_config_offset + (x_index * 2) + 1]),
+            .sys_reset(sys_reset),
 
             .data_in({  
                         CLB_outputs[CLB_NUM_BLE + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],
@@ -279,6 +287,7 @@ module top #(
             .config_clk(config_clk),
             .config_en(config_en),
             .config_out(config_bus[top_left_cx_config_offset + (y_index * config_interval_y) + 1]),
+            .sys_reset(sys_reset),
 
             .data_in({  
                         SWBX_outputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) - 1 -: SWBX_WIDTH],
@@ -310,6 +319,7 @@ module top #(
             .config_clk(config_clk),
             .config_en(config_en),
             .config_out(config_bus[top_right_cx_config_offset + (y_index * config_interval_y) + 1]),
+            .sys_reset(sys_reset),
 
             .data_in({  
                         SWBX_outputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) + (MESH_SIZE_X * 4 * SWBX_WIDTH) - 1 -: SWBX_WIDTH],
@@ -341,6 +351,7 @@ module top #(
             .config_clk(config_clk),
             .config_en(config_en),
             .config_out(config_bus[bottom_cx_config_offset + (x_index * 2) + 1]),
+            .sys_reset(sys_reset),
 
             .data_in({  
                         io_cx[DATA_IN_WIDTH + (x_index * DATA_IN_WIDTH) + (MESH_SIZE_X * DATA_IN_WIDTH) + (2 * MESH_SIZE_Y * DATA_IN_WIDTH) - 1 -: DATA_IN_WIDTH],
@@ -372,6 +383,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[top_left_cx_config_offset + (x_index * 2) + (y_index * config_interval_y) + 1]),
+                    .sys_reset(sys_reset),
 
                     .data_in({  
                                 SWBX_outputs[(2 * SWBX_WIDTH ) + ((y_index+1) * swbx_interval_y) + (x_index * SWBX_WIDTH * 4) - 1 -: SWBX_WIDTH],
@@ -407,6 +419,7 @@ module top #(
                     .config_clk(config_clk),
                     .config_en(config_en),
                     .config_out(config_bus[swbx_row_cx_config_offset + (x_index * 2) + (y_index  * config_interval_y) + 1]),
+                    .sys_reset(sys_reset),
 
                     .data_in({  
                                 CLB_outputs[CLB_NUM_BLE + ((y_index + 1) * clb_output_interval_y) + (x_index * CLB_NUM_BLE) - 1 -: CLB_NUM_BLE],

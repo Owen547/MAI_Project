@@ -25,7 +25,7 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
-# --disp on
+--disp on
 
 
 #run the test arch description on combinational

@@ -4,6 +4,7 @@ module io_block #(WIDTH = 6) (
     input config_in,
     input config_clk,
     input config_en,
+    input sys_reset,
     output config_out,
 
     input [WIDTH - 1:0] data_in, cx_io, // cx_io is data from connector into io
@@ -23,6 +24,7 @@ module io_block #(WIDTH = 6) (
         .config_en(config_en),
         .config_clk(config_clk),
         .config_out(config_out),
+        .sys_reset(sys_reset),
         .config_bits(config_bits)
     );
 

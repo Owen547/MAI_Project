@@ -10,6 +10,7 @@ module connector_box
     input config_in,
     input config_clk,
     input config_en,
+    input sys_reset,
     output config_out,
 
     input [INPUTS-1:0] data_in,
@@ -33,6 +34,7 @@ module connector_box
         programmable_mux (
             .data_in(data_in),
             .config_in(config_bus[index]),
+            .sys_reset(sys_reset),
             .config_clk(config_clk),
             .config_en(config_en),
             .data_out(data_out[index]),

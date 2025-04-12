@@ -9,6 +9,7 @@ module CLB
     input config_in,
     input config_clk,
     input config_en,
+    input sys_reset,
     output config_out,
 
     input [NUM_INPUTS - 1:0] data_in,
@@ -35,6 +36,7 @@ module CLB
             .config_in(config_in),
             .config_clk(config_clk),
             .config_en(config_en),
+            .sys_reset(sys_reset),
             .data_in({ble_outputs, data_in, 1'b0}),
             .config_out(config_bus[1]),
             .data_out(ble_inputs)
@@ -47,6 +49,7 @@ module CLB
             .config_in(config_bus[index + 1]),
             .config_clk(config_clk),
             .config_en(config_en),
+            .sys_reset(sys_reset),
             .clk(clk),
             .data_in(ble_inputs[index * 6 + 5 -: 6]),
             .config_out(config_bus[index + 2]),
