@@ -82,7 +82,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
         logfile.write(f"{location}\n")  # Write each dictionary on a new line
     logfile.write(f"\n\n")  # Write each dictionary on a new line
 
-
+    signals = []
     with open ("./io_verilog.txt", "w") as io_file:
 
         data_out_index = 0
@@ -106,6 +106,27 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
                             if ("~") in block['name']: 
 
                                 match = re.match(r"out:(\S+)~(\d+)", block['name'])
+                                
+                                signal_found = 0
+
+                                for signal in signals:
+
+                                    if signal["name"] == "expected_" + match.group(1):
+
+                                        signal_found = 1
+
+                                        if signal["width"] < match.group(2) :
+                                            
+                                            signal["width"] = match.group(2)
+
+                                        break
+
+                                if not signal_found: 
+
+                                    signals.append({
+                                        "name": "expected_" + match.group(1),
+                                        "width": match.group(2)
+                                    })
 
                                 io_file.write(f"assign expected_dataout[{data_out_index}] = expected_{match.group(1)}[{match.group(2)}];\n")
 
@@ -114,6 +135,23 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
                             else:
 
                                 match = re.match(r"out:(\S+)", block['name'])
+
+                                signal_found = 0
+
+                                for signal in signals:
+
+                                    if signal["name"] == "expected_" + match.group(1):
+
+                                        signal_found = 1
+
+                                        break
+
+                                if not signal_found: 
+                                    
+                                    signals.append({
+                                        "name": "expected_" + match.group(1),
+                                        "width": 0
+                                    })
                                 
                                 io_file.write(f"assign expected_dataout[{data_out_index}] = expected_{match.group(1)};\n")
 
@@ -128,13 +166,51 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
                                 match = re.match(r"(\S+)~(\d+)", block['name'])
 
-                                io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)}[{match.group(2)}];\n")
-                                    
+                                signal_found = 0
+
+                                for signal in signals:
+
+                                    if signal["name"] == match.group(1):
+
+                                        signal_found = 1
+
+                                        if signal["width"] < match.group(2):
+                                            
+                                            signal["width"] = match.group(2)
+
+                                        break
+
+                                if not signal_found: 
+
+                                    signals.append({
+                                        "name": match.group(1),
+                                        "width": match.group(2)
+                                    })
+
+                                io_file.write(f"assign {match.group(1)}[{match.group(2)}] = data_in[{data_in_index}];\n")
+    
                             else :
 
                                 match = re.match(r"(\S+)", block['name'])
 
-                                io_file.write(f"assign data_in[{data_in_index}] = {match.group(1)};\n")
+                                signal_found = 0
+
+                                for signal in signals:
+
+                                    if signal["name"] == match.group(1):
+
+                                        signal_found = 1
+                                        
+                                        break
+
+                                if not signal_found: 
+
+                                    signals.append({
+                                        "name": match.group(1),
+                                        "width": 0
+                                    })
+
+                                io_file.write(f"assign {match.group(1)} = data_in[{data_in_index}];\n")
                 else: 
 
                     block['type'] = "CLB" # label block as CLB
@@ -148,6 +224,12 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
             data_in_index = data_in_index + 1
             data_out_index = data_out_index + 1
+
+
+        for signal in signals:
+
+            io_file.write(f"wire [{str(signal["width"])}:0] {signal["name"]};\n")
+        
 
     logfile.write(f"INFO: printing blocks with IO bits...\n")  # Write each dictionary on a new line
     for block in blocks:
@@ -766,7 +848,7 @@ def main():
                 })
                 
 
-        # # initialise connectors with inputs from swbx to opposite side outputs.. this should get overwritten at some point if its supposed to be different
+        # # initialise connectors with inputs from swbx to opposite side outputs.. this should get overwritten in extract_cx if its supposed to be different
         connectors = initialise_connector_configs(connectors, logfile)
 
         #order them by grid location top left to bottom right

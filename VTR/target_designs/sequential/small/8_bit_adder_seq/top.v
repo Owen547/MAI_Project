@@ -6,8 +6,7 @@ module adder_top(
     input [7:0] a,
     input [7:0] b,
     input cin, // if 1, subtract, if 0, add. This is XOR'ed with b
-    input clk,
-    input reset
+    input clk
     );
     
       
@@ -26,17 +25,11 @@ module adder_top(
 
     endgenerate
 
-    always @(posedge clk, posedge reset) begin
-
-            if (reset) begin 
-                s <= 0;
-                cout <= 0;
-            end
-
-            else if (clk) begin
-                s <= intermediate;
-                cout <= carry[8];
-            end
+    always @(posedge clk) begin
+    
+        s <= intermediate;
+        cout <= carry[8];
+        
     end
     
 

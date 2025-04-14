@@ -36,7 +36,7 @@ module shift_reg
         end
         
         else begin
-        config_mem <= config_shift;
+            config_mem <= config_shift;
         end
         
     end

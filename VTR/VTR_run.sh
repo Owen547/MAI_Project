@@ -43,14 +43,14 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 #run the test arch description on sequential 8 bit adder
 echo -n "Starting sequential test run...            "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
-~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
+/home/owen/College/MAI_Project/VTR/target_designs/sequential/small/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch_test.xml \
--include ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
+-include /home/owen/College/MAI_Project/VTR/target_designs/sequential/small/8_bit_adder_seq/full_adder.v \
 -temp_dir ~/College/VTR_runs/sequential_test_run \
 -top_module top \
 -lut_size 6 \
 --route_chan_width 10 \
-# --disp on
+--disp on
 
 #run the example arch on a sequential design
 echo -n "Starting example sequential test run...    " 
