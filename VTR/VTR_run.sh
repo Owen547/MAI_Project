@@ -15,12 +15,12 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 --route_chan_width 10 \
 # --disp on
 
-# sequential FSM
+# sequential 8 bit adder
 echo -n "Starting sequential run...                 "
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
-~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
+/home/owen/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/top.v \
 ~/College/MAI_Project/VTR/Architectures/mesh_arch.xml \
--include ~/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
+-include /home/owen/College/MAI_Project/VTR/target_designs/sequential/8_bit_adder_seq/full_adder.v \
 -temp_dir ~/College/VTR_runs/sequential_run \
 -top_module top \
 -lut_size 6 \

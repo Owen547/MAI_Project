@@ -2,8 +2,8 @@
 
 module TOP_tb #(
 
-    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
-    parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis. Also minimum is 2, anything less and the "island-style" architecture isn't applicable/code doesnt work.
+    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis.
+    parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis.
         
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
@@ -36,11 +36,13 @@ module TOP_tb #(
 
     ();
 
-    wire config_in, config_clk, config_en, clk, config_out, expected_config_out, sim_done;
+    wire config_in, config_clk, config_en, clk, config_out, expected_config_out, sys_reset, sim_done, clock_finished, clock_result;
 
     wire [DATA_OUT_WIRE_WIDTH - 1:0] data_out, expected_dataout;
     wire [DATA_IN_WIRE_WIDTH - 1:0] data_in;
    
+    wire integer current_clock;
+    
     TOP_STIM_GEN # (
     
     .DATA_IN_WIRE_WIDTH(DATA_IN_WIRE_WIDTH),
@@ -55,11 +57,15 @@ module TOP_tb #(
 
     .clk(clk),
     .data_in(data_in),
+    .sys_reset(sys_reset),
     
     .expected_dataout(expected_dataout),
     .expected_config_out(expected_config_out),
     
-    .sim_done(sim_done)
+    .sim_done(sim_done),
+    .current_clock(current_clock),
+    .clock_result(clock_result),
+    .clock_finished(clock_finished)
     
     );
     
@@ -76,10 +82,13 @@ module TOP_tb #(
     .config_out(config_out),
     .clk(clk),
     .config_clk(config_clk),
+    .sys_reset(sys_reset),
     
     .expected_dataout(expected_dataout),
-    .expected_config_out(expected_config_out)
-
+    .expected_config_out(expected_config_out),
+    .current_clock(current_clock),
+    .clock_result(clock_result),
+    .clock_finished(clock_finished)
     );
     
     top #(
@@ -103,6 +112,7 @@ module TOP_tb #(
     .config_clk(config_clk),
     .config_en(config_en),
     .config_out(config_out),
+    .sys_reset(sys_reset),
     
     .clk(clk),
     .data_in(data_in),

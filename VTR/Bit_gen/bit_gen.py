@@ -239,7 +239,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
     return blocks
 
 
-def expand_inputs (lut_config, input, name, clocked_bles, logfile):
+def expand_inputs (lut_config, input, name, clocked_bles, output_binary, logfile):
 
     input = input[:: -1]
     for i in range (1, (6 - (len(input)) + 1)):
@@ -273,13 +273,15 @@ def expand_inputs (lut_config, input, name, clocked_bles, logfile):
             input_list[indexes[i]] = str(binary_value[i]) 
             input = ''.join(input_list)
 
-        lut_config[int(input, 2) + 1] = 1 # + 1 to index to account for ff enable bit at front
+        lut_config[int(input, 2) + 1] = output_binary # + 1 to index to account for ff enable bit at front
 
     for ble in clocked_bles:
 
         if (ble["ble_name"] == name) :
 
             lut_config[0] = 1
+
+            break
 
     return lut_config
             
@@ -303,9 +305,17 @@ def extract_lut_configs (file_path, logfile) :
                     input_binary = match.group(1)
                     output_binary = match.group(2)
 
+                    if ((output_binary == "0") and not lut_config_oned):
+
+                        for i in range (1, 65):
+
+                            lut_config [i] = 1
+                        
+                        lut_config_oned = 1
+
                     # logfile.write("DEBUG: Attempting to expand " + input_binary + "\n")
                     
-                    lut_config = expand_inputs(lut_config, input_binary, name, clocked_bles, logfile)
+                    lut_config = expand_inputs(lut_config, input_binary, name, clocked_bles, output_binary, logfile)
 
                 else :
 
@@ -317,6 +327,8 @@ def extract_lut_configs (file_path, logfile) :
                             expecting_config = 0
 
             if line.startswith(".names"):
+
+                lut_config_oned = 0
                 
                 lut_config = [0] * 65
                 expecting_config = 1
@@ -397,6 +409,8 @@ def extract_clb_internal_cx_config(luts, blocks, logfile):
                             block["cx_config"][output_index-4:output_index] = input_sel
 
                             output_index = output_index + 4
+
+                        output_offset = output_offset + 6
                     
                         continue
 
@@ -781,32 +795,83 @@ def initialise_connector_configs (connectors, logfile):
     return connectors
 
 
+def check_for_unrouted_luts(blocks, luts):
+
+    for lut in luts:
+
+        found_lut = 0
+
+        for block in blocks:
+
+            if (block["type"] == "CLB") :
+
+                if lut["name"] in block["luts"] :
+
+                    found_lut = 1
+
+                    break
+        
+        lut_added_to_block = 0
+
+        if not found_lut :
+
+            for lut_to_compare in luts:
+
+                if lut_added_to_block:
+
+                    break
+
+                if lut["name"] in lut_to_compare["inputs"] :
+
+                    for block in blocks:
+                        if lut_added_to_block:
+
+                            break
+                        
+                        if (block["type"] == "CLB") :  
+
+                            if lut_to_compare["name"] in block["luts"]:
+
+                                for i in range(0, 3):
+
+                                    if (block["luts"][i] == ''):
+
+                                        block["luts"][i] = lut["name"]
+                                        block["inputs"][12 + i] = lut["name"]
+                                        lut_added_to_block = 1
+
+                                        break
+    return blocks, luts
+
+
+
+        
 # Main function to run the script
 
 def main():
 
-    parser = argparse.ArgumentParser(description="Choose between sequence and combination modes.")
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("-seq", action="store_true", help="Generate bitstream from sequential folder")
-    group.add_argument("-comb", action="store_true", help="Generate bitstream from combinational folder")
-    group.add_argument("-user", metavar="DIR", type=str, help="Generate bitstream from user specified directory")
+    # parser = argparse.ArgumentParser(description="Choose between sequence and combination modes.")
+    # group = parser.add_mutually_exclusive_group(required=True)
+    # group.add_argument("-seq", action="store_true", help="Generate bitstream from sequential folder")
+    # group.add_argument("-comb", action="store_true", help="Generate bitstream from combinational folder")
+    # group.add_argument("-user", metavar="DIR", type=str, help="Generate bitstream from user specified directory")
 
-    args = parser.parse_args()
+    # args = parser.parse_args()
 
-    if args.seq:
-        target_folder = "/home/owen/College/VTR_runs/sequential_run/"
-    elif args.comb:
-        target_folder = "/home/owen/College/VTR_runs/combinational_run/"
-    elif args.user:
-        if not os.path.isdir(args.user):
-            print(f"Error: '{args.user}' is not a valid directory.")
-            sys.exit(1)
-        else:
-            target_folder = args.user
-            print(f"User directory provided: {args.user}")
+    # if args.seq:
+    #     target_folder = "/home/owen/College/VTR_runs/sequential_run/"
+    # elif args.comb:
+    #     target_folder = "/home/owen/College/VTR_runs/combinational_run/"
+    # elif args.user:
+    #     if not os.path.isdir(args.user):
+    #         print(f"Error: '{args.user}' is not a valid directory.")
+    #         sys.exit(1)
+    #     else:
+    #         target_folder = args.user
+    #         print(f"User directory provided: {args.user}")
 
 
-    bitstream_file = "bitsream.txt"
+    target_folder = "/home/owen/College/VTR_runs/sequential_run/"
 
     with open ("logfile.txt", "w+") as logfile: 
 
@@ -869,8 +934,13 @@ def main():
 
         blocks, connectors, switches = extract_routing_configs(target_folder + "top.route", blocks, connectors, switches, logfile)
 
+        blocks, luts = check_for_unrouted_luts(blocks, luts)
+
         #using the luts that were extracted from the blif, lut locations from top.route, the configuration for the crossbar in the clbs is extracted
         blocks = extract_clb_internal_cx_config(luts, blocks, logfile)
+
+
+
 
         #print all the data to the log for debug.
         logfile.write("INFO: printing switches... \n\n")

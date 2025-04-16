@@ -73,14 +73,14 @@
 
   <layout>
 
-      <fixed_layout name="mesh" width="5" height="5"> 
+    <fixed_layout name="mesh" width="5" height="5">
 
-          <corners type="EMPTY" priority="101"/>
-          <perimeter type="io" priority="100"/>
-          <!-- Fill the remaining device with CLB blocks -->
-          <fill type="clb" priority="10"/>
-          <!-- All other non specified locations will default to EMPTY. Could use region instead of fill for the CLBs? -->
-      </fixed_layout>
+      <corners type="EMPTY" priority="101"/>
+      <perimeter type="io" priority="100"/>
+      <!-- Fill the remaining device with CLB blocks -->
+      <fill type="clb" priority="10"/>
+
+    </fixed_layout>
 
   </layout>
 

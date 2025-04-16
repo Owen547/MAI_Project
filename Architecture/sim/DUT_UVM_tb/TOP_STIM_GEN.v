@@ -4,7 +4,8 @@ module TOP_STIM_GEN #(
     
     parameter DATA_IN_WIRE_WIDTH = 0,
     parameter DATA_OUT_WIRE_WIDTH = 0,
-    parameter CONFIG_WIDTH = 0
+    parameter CONFIG_WIDTH = 0,
+    parameter CONFIG_CLOCK_PERIOD = 100
     
     )
     
@@ -14,53 +15,51 @@ module TOP_STIM_GEN #(
     output reg config_clk,
     output reg config_en,
     output reg clk,
-    output [DATA_IN_WIRE_WIDTH-1:0] data_in,
+    output reg sys_reset,
+    output reg [DATA_IN_WIRE_WIDTH-1:0] data_in,
     
     output [DATA_OUT_WIRE_WIDTH-1:0] expected_dataout,
     output expected_config_out,
         
-    output reg sim_done
+    output reg sim_done,
+    
+    output integer current_clock,
+    output reg clock_finished,
+    input clock_result
+    
+    
     );
 
-    reg [CONFIG_WIDTH - 1 : 0] config_bits, expected_config_mem;
+    reg [CONFIG_WIDTH - 1 : 0] config_bits, expected_config_mem;            
+           
+    task sys_init();
+    begin
+    initialise_signals();
+    #1;
+    sys_reset <= 0;
+    config_en <= 1;
+    repeat(5) begin
+        @(negedge config_clk);
+    end
+    config_en <= 0;
+    end
+    endtask      
 
-    reg reset;
-    
-    //declare and join up the target design here
-    //easier than passing concatenated data_in/data_out values, but that would be the more universal approach. i.e 
-    //it would be agnostic to the target design
-    
-    reg [7:0] a, b;
-    reg cin;
-    
-    wire [7:0] expected_s;    
-    wire expected_cout;
-    
-    adder_top target_design (
-    .cout(expected_cout),
-    .s(expected_s),
-    .a(a),
-    .b(b),
-    .cin(cin),
-    .clk(clk),
-    .reset(reset)
-    );
-             
     task initialise_signals ();
     begin
+        sys_reset <= 1;
         expected_config_mem <= 0;
         sim_done <= 0;
-        a <= 8'b00000000;
-        b <= 8'b00000000;
-        cin <= 0;
+        data_in <= 0;
         config_en <= 0;
         config_in <= 0;
         config_clk <= 0;
+        current_clock = 375;
+        clock_finished = 0;
     end
     endtask
 
     task configure_top_module (input [CONFIG_WIDTH-1:0] config_bits); 
-    integer i;
     begin
        i = 0;
        config_en <= 1;
@@ -68,54 +67,76 @@ module TOP_STIM_GEN #(
             @(negedge config_clk) config_in <= config_bits[i];
             i = i + 1;
        end
-       @(negedge config_clk) config_en <= 0;;
+       @(negedge config_clk) config_en <= 0;
     end 
-    endtask
+    endtask 
+       
+    integer sentinel, i;
     
-    task randomise_cin(); begin
-        cin <= $urandom_range(1);            
-    end 
-    endtask
-    
-    
-    integer sentinel;
-    
-    task cycle_data_in(); begin
-        sentinel = 1;
-        reset <= 0;
-        a <= 8'b00000000;
-        b <= 8'b00000000;   
+    task cycle_data_in(input integer cycles); begin
+        data_in <= 0;
         repeat (2) @(posedge clk);
-        #5;
-        randomise_cin();
-        cycle_data_in_b();
-        while (sentinel) begin
-            b <= 8'b00000000; 
-            a <= a + 1;
-            randomise_cin();
-            #10;
-            cycle_data_in_b();
-            if (a == 8'b11111111) begin
-                sentinel = 0;           
-            end
-         end
-    end
-    endtask
-    
-    task cycle_data_in_a(); begin
-        while (a != 8'b11111111) begin
-            a <= a + 1;
-            #10;
+        @(negedge clk);
+        for (sentinel = 0;sentinel < cycles;sentinel = sentinel + 1) begin
+            randomise_data_in();
+            @(negedge clk);
         end
     end
-    
     endtask
+    
+    task randomise_data_in(); begin
 
-    task cycle_data_in_b(); begin
-        while (b != 8'b11111111) begin
-            b <= b + 1;
-            #10;
+        for (i = 0;i<DATA_IN_WIRE_WIDTH; i = i + 1) begin
+        
+            if (i == 14) begin
+                data_in[i] <= 0;
+            end
+            else begin
+                data_in[i] <= $urandom_range(1);
+            end
+
         end
+        
+        
+    end
+    endtask
+    
+    integer current, last, step, upper, lower;
+    
+    task find_max_clock(input integer cycles); begin
+        current = 375;
+        lower = 0;
+        upper = 750;
+        last = 0;
+        step = 375;
+        while ((step > 0) && (current > 4)) begin
+        
+            clock_finished <= 0;
+            data_in = 0;
+            current_clock <= current;
+            repeat(2) @(negedge clk); 
+            cycle_data_in(cycles);
+            
+            data_in = 0;
+            clock_finished <= 1;
+            #5;
+            
+            if (clock_result) begin
+                last = current;
+                current = current - ((current - lower)/2);
+                upper = last;
+                step = last - current;
+            end
+            
+            else begin
+                last = current;
+                current = current + ((upper - current)/2);
+                lower = last;
+                step = current - last;
+            end
+           
+        end  
+              
     end
     endtask
   
@@ -139,7 +160,8 @@ module TOP_STIM_GEN #(
     initial begin
         clk <= 0;
         forever begin 
-            #5;
+            #((current_clock/2) - 1);
+            #1;
             clk <= ~clk;
         end
     end 
@@ -147,7 +169,7 @@ module TOP_STIM_GEN #(
     initial begin 
         config_clk <= 1;
             forever begin
-            #1;
+            #(CONFIG_CLOCK_PERIOD/2);
             config_clk <= ~config_clk;
             end
     end   
@@ -157,73 +179,86 @@ module TOP_STIM_GEN #(
             expected_config_mem <= {expected_config_mem[CONFIG_WIDTH-2:0], config_in};
         end
     end  
-        
-
-    assign data_in[0] = b[6];
-    assign expected_dataout[0] = 0;
-    assign data_in[1] = b[7];
-    assign expected_dataout[1] = 0;
-    assign expected_dataout[2] = 0;
-    assign data_in[3] = a[7];
-    assign expected_dataout[3] = 0;
-    assign expected_dataout[4] = expected_s[7];
-    assign data_in[5] = a[5];
-    assign expected_dataout[5] = 0;
-    assign data_in[6] = b[3];
-    assign expected_dataout[6] = 0;
-    assign expected_dataout[7] = 0;
-    assign data_in[8] = a[3];
-    assign expected_dataout[8] = 0;
-    assign expected_dataout[9] = expected_cout;
-    assign expected_dataout[10] = expected_s[6];
-    assign data_in[11] = a[6];
-    assign expected_dataout[11] = 0;
-    assign data_in[12] = b[4];
-    assign expected_dataout[12] = 0;
-    assign data_in[13] = b[5];
-    assign expected_dataout[13] = 0;
-    assign data_in[14] = a[4];
-    assign expected_dataout[14] = 0;
-    assign expected_dataout[15] = 0;
-    assign data_in[16] = a[2];
-    assign expected_dataout[16] = 0;
-    assign expected_dataout[17] = 0;
-    assign data_in[18] = reset;
-    assign expected_dataout[18] = 0;
-    assign expected_dataout[19] = expected_s[4];
-    assign expected_dataout[20] = 0;
-    assign expected_dataout[21] = 0;
-    assign expected_dataout[22] = expected_s[0];
-    assign expected_dataout[23] = 0;
-    assign expected_dataout[24] = 0;
-    assign expected_dataout[25] = expected_s[5];
-    assign expected_dataout[26] = expected_s[3];
-    assign data_in[27] = b[1];
-    assign expected_dataout[27] = 0;
-    assign expected_dataout[28] = expected_s[1];
-    assign expected_dataout[29] = expected_s[2];
-    assign data_in[30] = a[0];
-    assign expected_dataout[30] = 0;
-    assign data_in[31] = b[0];
-    assign expected_dataout[31] = 0;
-    assign data_in[32] = cin;
-    assign expected_dataout[32] = 0;
-    assign expected_dataout[33] = 0;
-    assign data_in[34] = b[2];
-    assign expected_dataout[34] = 0;
-    assign data_in[35] = a[1];
-    assign expected_dataout[35] = 0;
     
+    //////////////////////// Add assigns and signal declarations for target design here
+assign expected_dataout[0] = expected_s[4];
+assign expected_dataout[1] = 0;
+assign expected_dataout[2] = 0;
+assign b[4] = data_in[3];
+assign expected_dataout[3] = 0;
+assign a[4] = data_in[4];
+assign expected_dataout[4] = 0;
+assign expected_dataout[5] = expected_cout;
+assign expected_dataout[6] = 0;
+assign expected_dataout[7] = 0;
+assign expected_dataout[8] = expected_s[2];
+assign expected_dataout[9] = expected_s[3];
+assign expected_dataout[10] = 0;
+assign expected_dataout[11] = 0;
+assign expected_dataout[12] = 0;
+assign expected_dataout[13] = 0;
+assign expected_dataout[14] = 0;
+assign expected_dataout[15] = 0;
+assign expected_dataout[16] = 0;
+assign expected_dataout[17] = 0;
+assign expected_dataout[18] = 0;
+assign expected_dataout[19] = 0;
+assign expected_dataout[20] = 0;
+assign expected_dataout[21] = 0;
+assign expected_dataout[22] = 0;
+assign expected_dataout[23] = expected_s[1];
+assign expected_dataout[24] = 0;
+assign expected_dataout[25] = 0;
+assign b[2] = data_in[26];
+assign expected_dataout[26] = 0;
+assign a[0] = data_in[27];
+assign expected_dataout[27] = 0;
+assign expected_dataout[28] = expected_s[0];
+assign a[2] = data_in[29];
+assign expected_dataout[29] = 0;
+assign cin = data_in[30];
+assign expected_dataout[30] = 0;
+assign b[1] = data_in[31];
+assign expected_dataout[31] = 0;
+assign b[0] = data_in[32];
+assign expected_dataout[32] = 0;
+assign a[3] = data_in[33];
+assign expected_dataout[33] = 0;
+assign b[3] = data_in[34];
+assign expected_dataout[34] = 0;
+assign a[1] = data_in[35];
+assign expected_dataout[35] = 0;
+wire [4:0] expected_s;
+wire [4:0] b;
+wire [4:0] a;
+wire [0:0] expected_cout;
+wire [0:0] cin;
+
+
+
+
+    
+    //////////////////////// Instantiate target design to capture expected outputs
+
+    adder_top target_design (
+    .cout(expected_cout),
+    .s(expected_s),
+    .a(a),
+    .b(b),
+    .cin(cin),
+    .clk(clk)
+    );
+
+    ////////////////////////
 
     //assign expected config out
     assign expected_config_out = expected_config_mem[CONFIG_WIDTH-1];
     
     initial begin
-        reset = 1;
-        initialise_signals();
+        sys_init();
         configure_top_module(config_bits);
         #10;
-        cycle_data_in();
+        find_max_clock(500);
         #10;
         configure_top_module(config_bits);
         #10;
