@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module adder_top #(
-    parameter WIDTH = 5
+    parameter WIDTH = 8
     )
 
     (

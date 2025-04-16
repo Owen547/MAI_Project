@@ -1,0 +1,3062 @@
+Ignoring output values during system initialisation!
+CLOCK PASSED @ sime_time 653940: No errors were detected during clock testing.
+ Clock Period         375
+CLOCK PASSED @ sime_time 748785: No errors were detected during clock testing.
+ Clock Period         188
+CLOCK PASSED @ sime_time 796208: No errors were detected during clock testing.
+ Clock Period          94
+CLOCK PASSED @ sime_time 819416: No errors were detected during clock testing.
+ Clock Period          47
+CLOCK PASSED @ sime_time 831523: No errors were detected during clock testing.
+ Clock Period          24
+CLOCK PASSED @ sime_time 837577: No errors were detected during clock testing.
+ Clock Period          12
+SIM_ERROR @ sime_time 837610: dataout does match expected dataout
+dataout:            000000000000000000000000000000000000
+expected dataout:   000000000010000000000100000001000010
+SIM_ERROR @ sime_time 837616: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 837622: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 837628: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 837634: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000100100000001000000
+SIM_ERROR @ sime_time 837640: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 837646: dataout does match expected dataout
+dataout:            000010000000000000000010000001000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 837652: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 837706: dataout does match expected dataout
+dataout:            000010000010000000000110000001000010
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 837712: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 837718: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 837724: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 837730: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000000000010000000000010000001000010
+SIM_ERROR @ sime_time 837736: dataout does match expected dataout
+dataout:            000000000010000000000010000001000010
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 837742: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001010000010000000000100000000000000
+SIM_ERROR @ sime_time 837748: dataout does match expected dataout
+dataout:            001010000010000000000100000000000000
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 837808: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 837814: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 837820: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 837826: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 837832: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 837838: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   000010000010000000100010000001000010
+SIM_ERROR @ sime_time 837844: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 837850: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 837904: dataout does match expected dataout
+dataout:            001010000010000000100010000000000000
+expected dataout:   000010000000000000100100000001000000
+SIM_ERROR @ sime_time 837910: dataout does match expected dataout
+dataout:            000010000000000000100100000001000000
+expected dataout:   000010000010000000000110000000000010
+SIM_ERROR @ sime_time 837916: dataout does match expected dataout
+dataout:            000010000010000000000110000000000010
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 837922: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 837928: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100000000001000000
+SIM_ERROR @ sime_time 837934: dataout does match expected dataout
+dataout:            000010000010000000100000000001000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 837940: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 837946: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000010000000000000000100000000000000
+SIM_ERROR @ sime_time 837952: dataout does match expected dataout
+dataout:            000010000000000000000100000000000000
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 838006: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 838012: dataout does match expected dataout
+dataout:            000010000000000000000110000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 838018: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 838024: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 838030: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001000000010000000100010000001000010
+SIM_ERROR @ sime_time 838036: dataout does match expected dataout
+dataout:            001000000010000000100010000001000010
+expected dataout:   000000000010000000000100000001000010
+SIM_ERROR @ sime_time 838042: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 838048: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 838108: dataout does match expected dataout
+dataout:            000000000000000000100110000000000000
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 838114: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   001010000010000000100000000000000000
+SIM_ERROR @ sime_time 838120: dataout does match expected dataout
+dataout:            001010000010000000100000000000000000
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 838126: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 838132: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 838138: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 838144: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 838150: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 838204: dataout does match expected dataout
+dataout:            001000000000000000100110000000000000
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 838210: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 838216: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 838222: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 838228: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   000000000000000000000110000000000010
+SIM_ERROR @ sime_time 838234: dataout does match expected dataout
+dataout:            000000000000000000000110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 838240: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 838246: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 838252: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 838306: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   001000000000000000000010000000000000
+SIM_ERROR @ sime_time 838312: dataout does match expected dataout
+dataout:            001000000000000000000010000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 838318: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 838324: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 838330: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000000000010000000100000000001000010
+SIM_ERROR @ sime_time 838336: dataout does match expected dataout
+dataout:            000000000010000000100000000001000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 838342: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 838348: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 838408: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 838414: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 838420: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 838426: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 838432: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 838438: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   000010000010000000000110000000000000
+SIM_ERROR @ sime_time 838444: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 838450: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000000000000000000010
+SIM_ERROR @ sime_time 838504: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 838510: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 838516: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000100010000001000010
+SIM_ERROR @ sime_time 838522: dataout does match expected dataout
+dataout:            000000000000000000100010000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 838528: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 838534: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001000000000000000000010000001000010
+SIM_ERROR @ sime_time 838540: dataout does match expected dataout
+dataout:            001000000000000000000010000001000010
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 838546: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 838552: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001000000010000000100100000001000000
+SIM_ERROR @ sime_time 838606: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 838612: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   000010000000000000100010000001000010
+SIM_ERROR @ sime_time 838618: dataout does match expected dataout
+dataout:            000010000000000000100010000001000010
+expected dataout:   000010000000000000100110000001000010
+SIM_ERROR @ sime_time 838624: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 838630: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 838636: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 838642: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   001000000000000000000000000001000010
+SIM_ERROR @ sime_time 838648: dataout does match expected dataout
+dataout:            001000000000000000000000000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 838708: dataout does match expected dataout
+dataout:            000000000000000000100010000001000000
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 838714: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 838720: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 838726: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 838732: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 838738: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 838744: dataout does match expected dataout
+dataout:            001010000010000000000100000001000010
+expected dataout:   000000000010000000000110000001000000
+SIM_ERROR @ sime_time 838750: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 838804: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 838810: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 838816: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 838822: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000010000000000000000000000001000000
+SIM_ERROR @ sime_time 838828: dataout does match expected dataout
+dataout:            000010000000000000000000000001000000
+expected dataout:   000000000000000000100000000000000010
+SIM_ERROR @ sime_time 838834: dataout does match expected dataout
+dataout:            000000000000000000100000000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 838840: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 838846: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 838852: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 838906: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000000000000000000000000000000
+SIM_ERROR @ sime_time 838912: dataout does match expected dataout
+dataout:            001010000000000000000000000000000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 838918: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 838924: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 838930: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000000110000001000010
+SIM_ERROR @ sime_time 838936: dataout does match expected dataout
+dataout:            000000000000000000000110000001000010
+expected dataout:   001010000000000000100000000001000000
+SIM_ERROR @ sime_time 838942: dataout does match expected dataout
+dataout:            001010000000000000100000000001000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 838948: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   000010000000000000000110000000000000
+SIM_ERROR @ sime_time 839008: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000010000000100110000000000000
+SIM_ERROR @ sime_time 839014: dataout does match expected dataout
+dataout:            001000000010000000100110000000000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 839020: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 839026: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 839032: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000010000000000000000001000000
+SIM_ERROR @ sime_time 839038: dataout does match expected dataout
+dataout:            001010000010000000000000000001000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 839044: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100110000000000010
+SIM_ERROR @ sime_time 839050: dataout does match expected dataout
+dataout:            000010000010000000100110000000000010
+expected dataout:   001000000000000000000000000000000000
+SIM_ERROR @ sime_time 839104: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001000000000000000000000000001000000
+SIM_ERROR @ sime_time 839110: dataout does match expected dataout
+dataout:            001000000000000000000000000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 839116: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 839122: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 839128: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   000010000010000000000110000001000000
+SIM_ERROR @ sime_time 839134: dataout does match expected dataout
+dataout:            000010000010000000000110000001000000
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 839140: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 839146: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 839152: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 839206: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 839212: dataout does match expected dataout
+dataout:            001000000010000000000010000001000010
+expected dataout:   000010000000000000100110000000000010
+SIM_ERROR @ sime_time 839218: dataout does match expected dataout
+dataout:            000010000000000000100110000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 839224: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001010000000000000100000000000000010
+SIM_ERROR @ sime_time 839230: dataout does match expected dataout
+dataout:            001010000000000000100000000000000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 839236: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   000010000000000000100000000001000000
+SIM_ERROR @ sime_time 839242: dataout does match expected dataout
+dataout:            000010000000000000100000000001000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 839248: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 839308: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 839314: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 839320: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   000010000000000000000110000000000010
+SIM_ERROR @ sime_time 839326: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 839332: dataout does match expected dataout
+dataout:            001000000010000000100010000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 839338: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   001000000000000000100000000000000010
+SIM_ERROR @ sime_time 839344: dataout does match expected dataout
+dataout:            001000000000000000100000000000000010
+expected dataout:   001000000000000000000100000000000000
+SIM_ERROR @ sime_time 839350: dataout does match expected dataout
+dataout:            001000000000000000000100000000000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 839404: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 839410: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 839416: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 839422: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   001000000010000000000000000001000010
+SIM_ERROR @ sime_time 839428: dataout does match expected dataout
+dataout:            001000000010000000000000000001000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 839434: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000010000001000000
+SIM_ERROR @ sime_time 839440: dataout does match expected dataout
+dataout:            001000000010000000000010000001000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 839446: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000000000000000000000
+SIM_ERROR @ sime_time 839452: dataout does match expected dataout
+dataout:            001010000010000000000000000000000000
+expected dataout:   001010000010000000100010000000000000
+SIM_ERROR @ sime_time 839506: dataout does match expected dataout
+dataout:            000010000000000000000100000000000000
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 839512: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 839518: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   001010000000000000100010000001000000
+SIM_ERROR @ sime_time 839524: dataout does match expected dataout
+dataout:            001010000000000000100010000001000000
+expected dataout:   000010000010000000000010000001000010
+SIM_ERROR @ sime_time 839530: dataout does match expected dataout
+dataout:            000010000010000000000010000001000010
+expected dataout:   000010000010000000100110000001000000
+SIM_ERROR @ sime_time 839536: dataout does match expected dataout
+dataout:            000010000010000000100110000001000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 839542: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000000000000000110000000000010
+SIM_ERROR @ sime_time 839548: dataout does match expected dataout
+dataout:            001000000000000000000110000000000010
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 839608: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001000000000000000100100000000000000
+SIM_ERROR @ sime_time 839614: dataout does match expected dataout
+dataout:            001000000000000000100100000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 839620: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 839626: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 839632: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 839638: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000000000000000000100110000001000010
+SIM_ERROR @ sime_time 839644: dataout does match expected dataout
+dataout:            000000000000000000100110000001000010
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 839650: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 839704: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 839710: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 839716: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 839722: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 839728: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 839734: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001000000010000000100000000001000010
+SIM_ERROR @ sime_time 839740: dataout does match expected dataout
+dataout:            001000000010000000100000000001000010
+expected dataout:   000000000010000000100100000000000010
+SIM_ERROR @ sime_time 839746: dataout does match expected dataout
+dataout:            000000000010000000100100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 839752: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000000000000100110000000000000
+SIM_ERROR @ sime_time 839806: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 839812: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001010000000000000100110000000000000
+SIM_ERROR @ sime_time 839818: dataout does match expected dataout
+dataout:            001010000000000000100110000000000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 839824: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001000000010000000100110000001000000
+SIM_ERROR @ sime_time 839830: dataout does match expected dataout
+dataout:            001000000010000000100110000001000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 839836: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100010000001000000
+SIM_ERROR @ sime_time 839842: dataout does match expected dataout
+dataout:            001000000000000000100010000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 839848: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 839908: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 839914: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   001000000000000000100110000001000000
+SIM_ERROR @ sime_time 839920: dataout does match expected dataout
+dataout:            001000000000000000100110000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 839926: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 839932: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 839938: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 839944: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   000010000000000000000100000001000000
+SIM_ERROR @ sime_time 839950: dataout does match expected dataout
+dataout:            000010000000000000000100000001000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 840004: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 840010: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000000000000000000010
+SIM_ERROR @ sime_time 840016: dataout does match expected dataout
+dataout:            000010000000000000000000000000000010
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 840022: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   001000000010000000100000000001000000
+SIM_ERROR @ sime_time 840028: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 840034: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000000000000100010000000000000
+SIM_ERROR @ sime_time 840040: dataout does match expected dataout
+dataout:            000010000000000000100010000000000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 840046: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100000000000000000
+SIM_ERROR @ sime_time 840052: dataout does match expected dataout
+dataout:            001000000000000000100000000000000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 840106: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001000000010000000100100000001000000
+SIM_ERROR @ sime_time 840112: dataout does match expected dataout
+dataout:            001000000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 840118: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000000000010000000100000000000000010
+SIM_ERROR @ sime_time 840124: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 840130: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 840136: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   001000000010000000000110000001000010
+SIM_ERROR @ sime_time 840142: dataout does match expected dataout
+dataout:            001000000010000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 840148: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000010
+SIM_ERROR @ sime_time 840208: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   000000000010000000000000000001000000
+SIM_ERROR @ sime_time 840214: dataout does match expected dataout
+dataout:            000000000010000000000000000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 840220: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 840226: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 840232: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 840238: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 840244: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 840250: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   000000000010000000100100000001000010
+SIM_ERROR @ sime_time 840304: dataout does match expected dataout
+dataout:            001010000010000000000100000001000010
+expected dataout:   000000000010000000000110000001000000
+SIM_ERROR @ sime_time 840310: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 840316: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 840322: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000100110000000000000
+SIM_ERROR @ sime_time 840328: dataout does match expected dataout
+dataout:            000010000000000000100110000000000000
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 840334: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100100000001000010
+SIM_ERROR @ sime_time 840340: dataout does match expected dataout
+dataout:            001000000000000000100100000001000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 840346: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 840352: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 840406: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 840412: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 840418: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   000010000010000000000100000001000010
+SIM_ERROR @ sime_time 840424: dataout does match expected dataout
+dataout:            000010000010000000000100000001000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 840430: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 840436: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 840442: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 840448: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 840508: dataout does match expected dataout
+dataout:            000010000000000000000110000000000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 840514: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 840520: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   000010000010000000000000000000000000
+SIM_ERROR @ sime_time 840526: dataout does match expected dataout
+dataout:            000010000010000000000000000000000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 840532: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000100110000001000010
+SIM_ERROR @ sime_time 840538: dataout does match expected dataout
+dataout:            000010000010000000100110000001000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 840544: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 840550: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   001000000010000000100100000000000000
+SIM_ERROR @ sime_time 840604: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100110000000000010
+CLOCK FAILED @ sime_time 840604: Dataout errors were detected during clock testing.
+ Clock Period           6
+SIM_ERROR @ sime_time 840610: dataout does match expected dataout
+dataout:            000010000010000000100110000000000010
+expected dataout:   000000000000000000000000000000000000
+SIM_ERROR @ sime_time 840642: dataout does match expected dataout
+dataout:            000000000000000000000000000000000000
+expected dataout:   001000000000000000000000000000000000
+SIM_ERROR @ sime_time 840650: dataout does match expected dataout
+dataout:            001000000000000000000000000000000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 840706: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 840714: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001000000000000000000000000001000000
+SIM_ERROR @ sime_time 840722: dataout does match expected dataout
+dataout:            001000000000000000000000000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 840730: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 840738: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 840746: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   000010000010000000000110000001000000
+SIM_ERROR @ sime_time 840754: dataout does match expected dataout
+dataout:            000010000010000000000110000001000000
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 840810: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 840818: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 840826: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000100100000001000000
+SIM_ERROR @ sime_time 840834: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 840842: dataout does match expected dataout
+dataout:            000010000000000000000010000001000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 840850: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 840906: dataout does match expected dataout
+dataout:            000010000000000000100000000001000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 840914: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 840922: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000010000000000110000001000010
+SIM_ERROR @ sime_time 840930: dataout does match expected dataout
+dataout:            000010000010000000000110000001000010
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 840938: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 840946: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 840954: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 841010: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   000010000000000000000110000000000010
+SIM_ERROR @ sime_time 841018: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 841026: dataout does match expected dataout
+dataout:            001000000010000000100010000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 841034: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   001000000000000000100000000000000010
+SIM_ERROR @ sime_time 841042: dataout does match expected dataout
+dataout:            001000000000000000100000000000000010
+expected dataout:   001000000000000000000100000000000000
+SIM_ERROR @ sime_time 841050: dataout does match expected dataout
+dataout:            001000000000000000000100000000000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 841106: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 841114: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   000010000010000000100010000001000010
+SIM_ERROR @ sime_time 841122: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 841130: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 841138: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 841146: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   001000000010000000000000000001000010
+SIM_ERROR @ sime_time 841154: dataout does match expected dataout
+dataout:            001000000010000000000000000001000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 841210: dataout does match expected dataout
+dataout:            000010000010000000000110000000000010
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 841218: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 841226: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100000000001000000
+SIM_ERROR @ sime_time 841234: dataout does match expected dataout
+dataout:            000010000010000000100000000001000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 841242: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 841250: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000010000000000000000100000000000000
+SIM_ERROR @ sime_time 841306: dataout does match expected dataout
+dataout:            000010000010000000100110000001000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 841314: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000000000000000110000000000010
+SIM_ERROR @ sime_time 841322: dataout does match expected dataout
+dataout:            001000000000000000000110000000000010
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 841330: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   001000000000000000100010000000000000
+SIM_ERROR @ sime_time 841338: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 841346: dataout does match expected dataout
+dataout:            000010000000000000000110000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 841354: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 841410: dataout does match expected dataout
+dataout:            001000000000000000100100000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 841418: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 841426: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 841434: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 841442: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000000000000000000100110000001000010
+SIM_ERROR @ sime_time 841450: dataout does match expected dataout
+dataout:            000000000000000000100110000001000010
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 841506: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 841514: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 841522: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 841530: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 841538: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 841546: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 841554: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 841610: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 841618: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 841626: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 841634: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   000000000000000000000110000000000010
+SIM_ERROR @ sime_time 841642: dataout does match expected dataout
+dataout:            000000000000000000000110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 841650: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 841706: dataout does match expected dataout
+dataout:            001000000010000000100110000001000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 841714: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100010000001000000
+SIM_ERROR @ sime_time 841722: dataout does match expected dataout
+dataout:            001000000000000000100010000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 841730: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 841738: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 841746: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   001000000000000000000010000000000000
+SIM_ERROR @ sime_time 841754: dataout does match expected dataout
+dataout:            001000000000000000000010000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 841810: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 841818: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   001000000000000000100110000001000000
+SIM_ERROR @ sime_time 841826: dataout does match expected dataout
+dataout:            001000000000000000100110000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 841834: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 841842: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 841850: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 841906: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 841914: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 841922: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 841930: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   000010000010000000000110000000000000
+SIM_ERROR @ sime_time 841938: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 841946: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000000000000000000010
+SIM_ERROR @ sime_time 841954: dataout does match expected dataout
+dataout:            000010000000000000000000000000000010
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 842010: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 842018: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 842026: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000100010000001000010
+SIM_ERROR @ sime_time 842034: dataout does match expected dataout
+dataout:            000000000000000000100010000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 842042: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 842050: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001000000000000000000010000001000010
+SIM_ERROR @ sime_time 842106: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 842114: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 842122: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   001000000010000000000110000001000010
+SIM_ERROR @ sime_time 842130: dataout does match expected dataout
+dataout:            001000000010000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 842138: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000010
+SIM_ERROR @ sime_time 842146: dataout does match expected dataout
+dataout:            001000000010000000000100000001000010
+expected dataout:   001000000010000000100000000001000000
+SIM_ERROR @ sime_time 842154: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 842210: dataout does match expected dataout
+dataout:            001000000000000000000000000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 842218: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   000000000010000000000000000001000000
+SIM_ERROR @ sime_time 842226: dataout does match expected dataout
+dataout:            000000000010000000000000000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 842234: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 842242: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 842250: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 842306: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 842314: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 842322: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 842330: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 842338: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 842346: dataout does match expected dataout
+dataout:            001010000010000000000100000001000010
+expected dataout:   000000000010000000000110000001000000
+SIM_ERROR @ sime_time 842354: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 842410: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 842418: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 842426: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 842434: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 842442: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000010000000000000000000000001000000
+SIM_ERROR @ sime_time 842450: dataout does match expected dataout
+dataout:            000010000000000000000000000001000000
+expected dataout:   000000000000000000100000000000000010
+SIM_ERROR @ sime_time 842506: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   000010000010000000000100000001000010
+SIM_ERROR @ sime_time 842514: dataout does match expected dataout
+dataout:            000010000010000000000100000001000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 842522: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 842530: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 842538: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 842546: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 842554: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 842610: dataout does match expected dataout
+dataout:            001010000000000000100000000001000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 842618: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   000010000000000000000110000000000000
+SIM_ERROR @ sime_time 842626: dataout does match expected dataout
+dataout:            000010000000000000000110000000000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 842634: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 842642: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   000010000010000000000000000000000000
+SIM_ERROR @ sime_time 842650: dataout does match expected dataout
+dataout:            000010000010000000000000000000000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 842706: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000010000000100110000000000000
+SIM_ERROR @ sime_time 842714: dataout does match expected dataout
+dataout:            001000000010000000100110000000000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 842722: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 842730: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 842738: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000010000000000000000001000000
+SIM_ERROR @ sime_time 842746: dataout does match expected dataout
+dataout:            001010000010000000000000000001000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 842754: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100110000000000010
+SIM_ERROR @ sime_time 842810: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 842818: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 842826: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001000000000000000000000000001000000
+SIM_ERROR @ sime_time 842834: dataout does match expected dataout
+dataout:            001000000000000000000000000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 842842: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 842850: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 842906: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   000000000010000000100110000001000010
+SIM_ERROR @ sime_time 842914: dataout does match expected dataout
+dataout:            000000000010000000100110000001000010
+expected dataout:   000000000010000000000100000001000010
+SIM_ERROR @ sime_time 842922: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 842930: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 842938: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 842946: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000100100000001000000
+SIM_ERROR @ sime_time 842954: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 843010: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   000010000000000000100000000001000000
+SIM_ERROR @ sime_time 843018: dataout does match expected dataout
+dataout:            000010000000000000100000000001000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 843026: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 843034: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000010000000000110000001000010
+SIM_ERROR @ sime_time 843042: dataout does match expected dataout
+dataout:            000010000010000000000110000001000010
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 843050: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 843106: dataout does match expected dataout
+dataout:            001010000010000000000100000000000000
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 843114: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 843122: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 843130: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   000010000000000000000110000000000010
+SIM_ERROR @ sime_time 843138: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 843146: dataout does match expected dataout
+dataout:            001000000010000000100010000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 843154: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   001000000000000000100000000000000010
+SIM_ERROR @ sime_time 843210: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 843218: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 843226: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   000010000010000000100010000001000010
+SIM_ERROR @ sime_time 843234: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 843242: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 843250: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 843306: dataout does match expected dataout
+dataout:            001010000010000000000000000000000000
+expected dataout:   001010000010000000100010000000000000
+SIM_ERROR @ sime_time 843314: dataout does match expected dataout
+dataout:            001010000010000000100010000000000000
+expected dataout:   000010000000000000100100000001000000
+SIM_ERROR @ sime_time 843322: dataout does match expected dataout
+dataout:            000010000000000000100100000001000000
+expected dataout:   000010000010000000000110000000000010
+SIM_ERROR @ sime_time 843330: dataout does match expected dataout
+dataout:            000010000010000000000110000000000010
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 843338: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 843346: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100000000001000000
+SIM_ERROR @ sime_time 843354: dataout does match expected dataout
+dataout:            000010000010000000100000000001000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 843410: dataout does match expected dataout
+dataout:            000010000010000000000010000001000010
+expected dataout:   000010000010000000100110000001000000
+SIM_ERROR @ sime_time 843418: dataout does match expected dataout
+dataout:            000010000010000000100110000001000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 843426: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000000000000000110000000000010
+SIM_ERROR @ sime_time 843434: dataout does match expected dataout
+dataout:            001000000000000000000110000000000010
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 843442: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   001000000000000000100010000000000000
+SIM_ERROR @ sime_time 843450: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 843506: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 843514: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 843522: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001000000000000000100100000000000000
+SIM_ERROR @ sime_time 843530: dataout does match expected dataout
+dataout:            001000000000000000100100000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 843538: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 843546: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 843554: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 843610: dataout does match expected dataout
+dataout:            001010000010000000100000000000000000
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 843618: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 843626: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 843634: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 843642: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 843650: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 843706: dataout does match expected dataout
+dataout:            000000000010000000100100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 843714: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000000000000100110000000000000
+SIM_ERROR @ sime_time 843722: dataout does match expected dataout
+dataout:            001000000000000000100110000000000000
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 843730: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 843738: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 843746: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 843754: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   000000000000000000000110000000000010
+SIM_ERROR @ sime_time 843810: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001000000010000000100110000001000000
+SIM_ERROR @ sime_time 843818: dataout does match expected dataout
+dataout:            001000000010000000100110000001000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 843826: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100010000001000000
+SIM_ERROR @ sime_time 843834: dataout does match expected dataout
+dataout:            001000000000000000100010000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 843842: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 843850: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 843906: dataout does match expected dataout
+dataout:            000000000010000000100000000001000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 843914: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 843922: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 843930: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 843938: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   001000000000000000100110000001000000
+SIM_ERROR @ sime_time 843946: dataout does match expected dataout
+dataout:            001000000000000000100110000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 843954: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 844010: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 844018: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 844026: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 844034: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 844042: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   000010000010000000000110000000000000
+SIM_ERROR @ sime_time 844050: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 844106: dataout does match expected dataout
+dataout:            000010000000000000100010000000000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 844114: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100000000000000000
+SIM_ERROR @ sime_time 844122: dataout does match expected dataout
+dataout:            001000000000000000100000000000000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 844130: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 844138: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 844146: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000100010000001000010
+SIM_ERROR @ sime_time 844154: dataout does match expected dataout
+dataout:            000000000000000000100010000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 844210: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000000000010000000100000000000000010
+SIM_ERROR @ sime_time 844218: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 844226: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 844234: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   001000000010000000000110000001000010
+SIM_ERROR @ sime_time 844242: dataout does match expected dataout
+dataout:            001000000010000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 844250: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000010
+SIM_ERROR @ sime_time 844306: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 844314: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 844322: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   001000000000000000000000000001000010
+SIM_ERROR @ sime_time 844330: dataout does match expected dataout
+dataout:            001000000000000000000000000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 844338: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   000000000010000000000000000001000000
+SIM_ERROR @ sime_time 844346: dataout does match expected dataout
+dataout:            000000000010000000000000000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 844354: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 844410: dataout does match expected dataout
+dataout:            000000000000000000100010000001000000
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 844418: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 844426: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 844434: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 844442: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 844450: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 844506: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100100000001000010
+SIM_ERROR @ sime_time 844514: dataout does match expected dataout
+dataout:            001000000000000000100100000001000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 844522: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 844530: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 844538: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 844546: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 844554: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 844610: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 844618: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   000010000010000000000100000001000010
+SIM_ERROR @ sime_time 844626: dataout does match expected dataout
+dataout:            000010000010000000000100000001000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 844634: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   001000000010000000000110000001000000
+CLOCK FAILED @ sime_time 844634: Dataout errors were detected during clock testing.
+ Clock Period           9
+SIM_ERROR @ sime_time 844642: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   000000000000000000000000000000000000
+SIM_ERROR @ sime_time 844712: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 844722: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000000000000000000000000000000
+SIM_ERROR @ sime_time 844732: dataout does match expected dataout
+dataout:            001010000000000000000000000000000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 844742: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 844752: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 844812: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 844822: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   000010000010000000000000000000000000
+SIM_ERROR @ sime_time 844832: dataout does match expected dataout
+dataout:            000010000010000000000000000000000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 844842: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000100110000001000010
+SIM_ERROR @ sime_time 844852: dataout does match expected dataout
+dataout:            000010000010000000100110000001000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 844912: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 844922: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 844932: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000010000000000000000001000000
+SIM_ERROR @ sime_time 844942: dataout does match expected dataout
+dataout:            001010000010000000000000000001000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 844952: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100110000000000010
+SIM_ERROR @ sime_time 845012: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000100110000001000000
+SIM_ERROR @ sime_time 845022: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 845032: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 845042: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001000000000000000000000000001000000
+SIM_ERROR @ sime_time 845052: dataout does match expected dataout
+dataout:            001000000000000000000000000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 845112: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 845122: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 845132: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   000000000010000000100110000001000010
+SIM_ERROR @ sime_time 845142: dataout does match expected dataout
+dataout:            000000000010000000100110000001000010
+expected dataout:   000000000010000000000100000001000010
+SIM_ERROR @ sime_time 845152: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 845212: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 845222: dataout does match expected dataout
+dataout:            001000000010000000000010000001000010
+expected dataout:   000010000000000000100110000000000010
+SIM_ERROR @ sime_time 845232: dataout does match expected dataout
+dataout:            000010000000000000100110000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 845242: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001010000000000000100000000000000010
+SIM_ERROR @ sime_time 845252: dataout does match expected dataout
+dataout:            001010000000000000100000000000000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 845312: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 845322: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 845332: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 845342: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000000000010000000000010000001000010
+SIM_ERROR @ sime_time 845352: dataout does match expected dataout
+dataout:            000000000010000000000010000001000010
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 845412: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 845422: dataout does match expected dataout
+dataout:            001000000010000000100010000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 845432: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   001000000000000000100000000000000010
+SIM_ERROR @ sime_time 845442: dataout does match expected dataout
+dataout:            001000000000000000100000000000000010
+expected dataout:   001000000000000000000100000000000000
+SIM_ERROR @ sime_time 845452: dataout does match expected dataout
+dataout:            001000000000000000000100000000000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 845512: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 845522: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   000010000010000000100010000001000010
+SIM_ERROR @ sime_time 845532: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 845542: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 845552: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 845612: dataout does match expected dataout
+dataout:            001010000010000000000000000000000000
+expected dataout:   001010000010000000100010000000000000
+SIM_ERROR @ sime_time 845622: dataout does match expected dataout
+dataout:            001010000010000000100010000000000000
+expected dataout:   000010000000000000100100000001000000
+SIM_ERROR @ sime_time 845632: dataout does match expected dataout
+dataout:            000010000000000000100100000001000000
+expected dataout:   000010000010000000000110000000000010
+SIM_ERROR @ sime_time 845642: dataout does match expected dataout
+dataout:            000010000010000000000110000000000010
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 845652: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 845712: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 845722: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   001010000000000000100010000001000000
+SIM_ERROR @ sime_time 845732: dataout does match expected dataout
+dataout:            001010000000000000100010000001000000
+expected dataout:   000010000010000000000010000001000010
+SIM_ERROR @ sime_time 845742: dataout does match expected dataout
+dataout:            000010000010000000000010000001000010
+expected dataout:   000010000010000000100110000001000000
+SIM_ERROR @ sime_time 845752: dataout does match expected dataout
+dataout:            000010000010000000100110000001000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 845812: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 845822: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 845832: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001000000010000000100010000001000010
+SIM_ERROR @ sime_time 845842: dataout does match expected dataout
+dataout:            001000000010000000100010000001000010
+expected dataout:   000000000010000000000100000001000010
+SIM_ERROR @ sime_time 845852: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 845912: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 845922: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000000000000000000100110000001000010
+SIM_ERROR @ sime_time 845932: dataout does match expected dataout
+dataout:            000000000000000000100110000001000010
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 845942: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 845952: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000000000000000000100110000000000000
+SIM_ERROR @ sime_time 846012: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 846022: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 846032: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 846042: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 846052: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 846112: dataout does match expected dataout
+dataout:            001000000000000000100110000000000000
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 846122: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 846132: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 846142: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 846152: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   000000000000000000000110000000000010
+SIM_ERROR @ sime_time 846212: dataout does match expected dataout
+dataout:            001010000000000000100110000000000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 846222: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001000000010000000100110000001000000
+SIM_ERROR @ sime_time 846232: dataout does match expected dataout
+dataout:            001000000010000000100110000001000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 846242: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100010000001000000
+SIM_ERROR @ sime_time 846252: dataout does match expected dataout
+dataout:            001000000000000000100010000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 846312: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 846322: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000000000010000000100000000001000010
+SIM_ERROR @ sime_time 846332: dataout does match expected dataout
+dataout:            000000000010000000100000000001000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 846342: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 846352: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 846412: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 846422: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   000010000000000000000100000001000000
+SIM_ERROR @ sime_time 846432: dataout does match expected dataout
+dataout:            000010000000000000000100000001000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 846442: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   001010000000000000100110000001000000
+SIM_ERROR @ sime_time 846452: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 846512: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 846522: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000000000000000000010
+SIM_ERROR @ sime_time 846532: dataout does match expected dataout
+dataout:            000010000000000000000000000000000010
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 846542: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   001000000010000000100000000001000000
+SIM_ERROR @ sime_time 846552: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 846612: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 846622: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000100010000001000010
+SIM_ERROR @ sime_time 846632: dataout does match expected dataout
+dataout:            000000000000000000100010000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 846642: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 846652: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001000000000000000000010000001000010
+SIM_ERROR @ sime_time 846712: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 846722: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 846732: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   001000000010000000000110000001000010
+SIM_ERROR @ sime_time 846742: dataout does match expected dataout
+dataout:            001000000010000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 846752: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000010
+SIM_ERROR @ sime_time 846812: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 846822: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 846832: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   001000000000000000000000000001000010
+SIM_ERROR @ sime_time 846842: dataout does match expected dataout
+dataout:            001000000000000000000000000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 846852: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   000000000010000000000000000001000000
+SIM_ERROR @ sime_time 846912: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 846922: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   000000000010000000100100000001000010
+SIM_ERROR @ sime_time 846932: dataout does match expected dataout
+dataout:            000000000010000000100100000001000010
+expected dataout:   000000000000000000100010000001000000
+SIM_ERROR @ sime_time 846942: dataout does match expected dataout
+dataout:            000000000000000000100010000001000000
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 846952: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 847012: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 847022: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 847032: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000100110000000000000
+SIM_ERROR @ sime_time 847042: dataout does match expected dataout
+dataout:            000010000000000000100110000000000000
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 847052: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100100000001000010
+SIM_ERROR @ sime_time 847112: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 847122: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000010000000000000000000000001000000
+SIM_ERROR @ sime_time 847132: dataout does match expected dataout
+dataout:            000010000000000000000000000001000000
+expected dataout:   000000000000000000100000000000000010
+SIM_ERROR @ sime_time 847142: dataout does match expected dataout
+dataout:            000000000000000000100000000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 847152: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 847212: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 847222: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 847232: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 847242: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 847252: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 847312: dataout does match expected dataout
+dataout:            000000000000000000000110000001000010
+expected dataout:   001010000000000000100000000001000000
+SIM_ERROR @ sime_time 847322: dataout does match expected dataout
+dataout:            001010000000000000100000000001000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 847332: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   000010000000000000000110000000000000
+SIM_ERROR @ sime_time 847342: dataout does match expected dataout
+dataout:            000010000000000000000110000000000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 847352: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 847412: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   001000000010000000100100000000000000
+SIM_ERROR @ sime_time 847422: dataout does match expected dataout
+dataout:            001000000010000000100100000000000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 847432: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000010000000100110000000000000
+SIM_ERROR @ sime_time 847442: dataout does match expected dataout
+dataout:            001000000010000000100110000000000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 847452: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 847512: dataout does match expected dataout
+dataout:            001000000000000000000000000000000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 847522: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 847532: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 847542: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 847552: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000100110000001000000
+SIM_ERROR @ sime_time 847612: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 847622: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   000010000010000000000110000001000000
+SIM_ERROR @ sime_time 847632: dataout does match expected dataout
+dataout:            000010000010000000000110000001000000
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 847642: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 847652: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 847712: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 847722: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000100100000001000000
+SIM_ERROR @ sime_time 847732: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 847742: dataout does match expected dataout
+dataout:            000010000000000000000010000001000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 847752: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 847812: dataout does match expected dataout
+dataout:            000010000000000000100000000001000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 847822: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 847832: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000010000000000110000001000010
+SIM_ERROR @ sime_time 847842: dataout does match expected dataout
+dataout:            000010000010000000000110000001000010
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 847852: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 847912: dataout does match expected dataout
+dataout:            001010000010000000000100000000000000
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 847922: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 847932: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 847942: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   000010000000000000000110000000000010
+SIM_ERROR @ sime_time 847952: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 848012: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 848022: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 848032: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 848042: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 848052: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 848112: dataout does match expected dataout
+dataout:            001000000010000000000000000001000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 848122: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000010000001000000
+SIM_ERROR @ sime_time 848132: dataout does match expected dataout
+dataout:            001000000010000000000010000001000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 848142: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000000000000000000000
+SIM_ERROR @ sime_time 848152: dataout does match expected dataout
+dataout:            001010000010000000000000000000000000
+expected dataout:   001010000010000000100010000000000000
+SIM_ERROR @ sime_time 848212: dataout does match expected dataout
+dataout:            000010000010000000100000000001000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 848222: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 848232: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000010000000000000000100000000000000
+SIM_ERROR @ sime_time 848242: dataout does match expected dataout
+dataout:            000010000000000000000100000000000000
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 848252: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 848312: dataout does match expected dataout
+dataout:            001000000000000000000110000000000010
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 848322: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   001000000000000000100010000000000000
+SIM_ERROR @ sime_time 848332: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 848342: dataout does match expected dataout
+dataout:            000010000000000000000110000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 848352: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 848412: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001000000000000000100100000000000000
+SIM_ERROR @ sime_time 848422: dataout does match expected dataout
+dataout:            001000000000000000100100000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 848432: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 848442: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 848452: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 848512: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   001010000010000000100000000000000000
+SIM_ERROR @ sime_time 848522: dataout does match expected dataout
+dataout:            001010000010000000100000000000000000
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 848532: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 848542: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 848552: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 848612: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001000000010000000100000000001000010
+SIM_ERROR @ sime_time 848622: dataout does match expected dataout
+dataout:            001000000010000000100000000001000010
+expected dataout:   000000000010000000100100000000000010
+SIM_ERROR @ sime_time 848632: dataout does match expected dataout
+dataout:            000000000010000000100100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 848642: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000000000000100110000000000000
+SIM_ERROR @ sime_time 848652: dataout does match expected dataout
+dataout:            001000000000000000100110000000000000
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 848712: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 848722: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 848732: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 848742: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001010000000000000100110000000000000
+SIM_ERROR @ sime_time 848752: dataout does match expected dataout
+dataout:            001010000000000000100110000000000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 848812: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 848822: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   001000000000000000000010000000000000
+SIM_ERROR @ sime_time 848832: dataout does match expected dataout
+dataout:            001000000000000000000010000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 848842: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 848852: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 848912: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   001000000000000000100110000001000000
+SIM_ERROR @ sime_time 848922: dataout does match expected dataout
+dataout:            001000000000000000100110000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 848932: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 848942: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 848952: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 849012: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 849022: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 849032: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 849042: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   000010000010000000000110000000000000
+SIM_ERROR @ sime_time 849052: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 849112: dataout does match expected dataout
+dataout:            000010000000000000100010000000000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 849122: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100000000000000000
+SIM_ERROR @ sime_time 849132: dataout does match expected dataout
+dataout:            001000000000000000100000000000000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 849142: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 849152: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 849212: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 849222: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001000000010000000100100000001000000
+SIM_ERROR @ sime_time 849232: dataout does match expected dataout
+dataout:            001000000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 849242: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000000000010000000100000000000000010
+SIM_ERROR @ sime_time 849252: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 849312: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 849322: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   000010000000000000100010000001000010
+SIM_ERROR @ sime_time 849332: dataout does match expected dataout
+dataout:            000010000000000000100010000001000010
+expected dataout:   000010000000000000100110000001000010
+SIM_ERROR @ sime_time 849342: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 849352: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 849412: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 849422: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 849432: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 849442: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 849452: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 849512: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 849522: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 849532: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 849542: dataout does match expected dataout
+dataout:            001010000010000000000100000001000010
+expected dataout:   000000000010000000000110000001000000
+SIM_ERROR @ sime_time 849552: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 849612: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 849622: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 849632: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 849642: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 849652: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+CLOCK FAILED @ sime_time 849672: Dataout errors were detected during clock testing.
+ Clock Period          10
+SIM_ERROR @ sime_time 849722: dataout does match expected dataout
+dataout:            000000000000000000000000000000000000
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 849732: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 849742: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000000000000000100000000000010
+SIM_ERROR @ sime_time 849752: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 849812: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 849822: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 849832: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 849842: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000000000000000000000000000000
+SIM_ERROR @ sime_time 849852: dataout does match expected dataout
+dataout:            001010000000000000000000000000000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 849912: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   000010000000000000000110000000000000
+SIM_ERROR @ sime_time 849922: dataout does match expected dataout
+dataout:            000010000000000000000110000000000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 849932: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 849942: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   000010000010000000000000000000000000
+SIM_ERROR @ sime_time 849952: dataout does match expected dataout
+dataout:            000010000010000000000000000000000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 850012: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000010000000100110000000000000
+SIM_ERROR @ sime_time 850022: dataout does match expected dataout
+dataout:            001000000010000000100110000000000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 850032: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 850042: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 850052: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000010000000000000000001000000
+SIM_ERROR @ sime_time 850112: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 850122: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 850132: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000100110000001000000
+SIM_ERROR @ sime_time 850142: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 850152: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 850212: dataout does match expected dataout
+dataout:            000010000010000000000110000001000000
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 850222: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   000010000010000000100100000001000000
+SIM_ERROR @ sime_time 850232: dataout does match expected dataout
+dataout:            000010000010000000100100000001000000
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 850242: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001010000010000000000010000001000000
+SIM_ERROR @ sime_time 850252: dataout does match expected dataout
+dataout:            001010000010000000000010000001000000
+expected dataout:   000000000010000000100110000001000010
+SIM_ERROR @ sime_time 850312: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 850322: dataout does match expected dataout
+dataout:            000010000000000000000010000001000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 850332: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000010000000000010000001000010
+SIM_ERROR @ sime_time 850342: dataout does match expected dataout
+dataout:            001000000010000000000010000001000010
+expected dataout:   000010000000000000100110000000000010
+SIM_ERROR @ sime_time 850352: dataout does match expected dataout
+dataout:            000010000000000000100110000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 850412: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000010000000000110000001000010
+SIM_ERROR @ sime_time 850422: dataout does match expected dataout
+dataout:            000010000010000000000110000001000010
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 850432: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 850442: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 850452: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 850512: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 850522: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   000010000000000000000110000000000010
+SIM_ERROR @ sime_time 850532: dataout does match expected dataout
+dataout:            000010000000000000000110000000000010
+expected dataout:   001000000010000000100010000000000000
+SIM_ERROR @ sime_time 850542: dataout does match expected dataout
+dataout:            001000000010000000100010000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 850552: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   001000000000000000100000000000000010
+SIM_ERROR @ sime_time 850612: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 850622: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 850632: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 850642: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   000010000010000000100010000001000010
+SIM_ERROR @ sime_time 850652: dataout does match expected dataout
+dataout:            000010000010000000100010000001000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 850712: dataout does match expected dataout
+dataout:            001000000010000000000010000001000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 850722: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000000000000000000000
+SIM_ERROR @ sime_time 850732: dataout does match expected dataout
+dataout:            001010000010000000000000000000000000
+expected dataout:   001010000010000000100010000000000000
+SIM_ERROR @ sime_time 850742: dataout does match expected dataout
+dataout:            001010000010000000100010000000000000
+expected dataout:   000010000000000000100100000001000000
+SIM_ERROR @ sime_time 850752: dataout does match expected dataout
+dataout:            000010000000000000100100000001000000
+expected dataout:   000010000010000000000110000000000010
+SIM_ERROR @ sime_time 850812: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000010000000000000000100000000000000
+SIM_ERROR @ sime_time 850822: dataout does match expected dataout
+dataout:            000010000000000000000100000000000000
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 850832: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 850842: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   001010000000000000100010000001000000
+SIM_ERROR @ sime_time 850852: dataout does match expected dataout
+dataout:            001010000000000000100010000001000000
+expected dataout:   000010000010000000000010000001000010
+SIM_ERROR @ sime_time 850912: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 850922: dataout does match expected dataout
+dataout:            000010000000000000000110000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 850932: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   000010000010000000000100000000000010
+SIM_ERROR @ sime_time 850942: dataout does match expected dataout
+dataout:            000010000010000000000100000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 850952: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001000000010000000100010000001000010
+SIM_ERROR @ sime_time 851012: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 851022: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 851032: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100010000000000010
+SIM_ERROR @ sime_time 851042: dataout does match expected dataout
+dataout:            000000000010000000100010000000000010
+expected dataout:   000000000000000000100110000001000010
+SIM_ERROR @ sime_time 851052: dataout does match expected dataout
+dataout:            000000000000000000100110000001000010
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 851112: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 851122: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 851132: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 851142: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 851152: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 851212: dataout does match expected dataout
+dataout:            000000000010000000100100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 851222: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000000000000100110000000000000
+SIM_ERROR @ sime_time 851232: dataout does match expected dataout
+dataout:            001000000000000000100110000000000000
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 851242: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 851252: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 851312: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 851322: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001010000000000000100110000000000000
+SIM_ERROR @ sime_time 851332: dataout does match expected dataout
+dataout:            001010000000000000100110000000000000
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 851342: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   001000000010000000100110000001000000
+SIM_ERROR @ sime_time 851352: dataout does match expected dataout
+dataout:            001000000010000000100110000001000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 851412: dataout does match expected dataout
+dataout:            001000000000000000000010000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 851422: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   000010000010000000100000000000000010
+SIM_ERROR @ sime_time 851432: dataout does match expected dataout
+dataout:            000010000010000000100000000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 851442: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000000000010000000100000000001000010
+SIM_ERROR @ sime_time 851452: dataout does match expected dataout
+dataout:            000000000010000000100000000001000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 851512: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 851522: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   000010000010000000100100000000000010
+SIM_ERROR @ sime_time 851532: dataout does match expected dataout
+dataout:            000010000010000000100100000000000010
+expected dataout:   000000000000000000100010000000000010
+SIM_ERROR @ sime_time 851542: dataout does match expected dataout
+dataout:            000000000000000000100010000000000010
+expected dataout:   000010000000000000000100000001000000
+SIM_ERROR @ sime_time 851552: dataout does match expected dataout
+dataout:            000010000000000000000100000001000000
+expected dataout:   000010000000000000000100000001000010
+SIM_ERROR @ sime_time 851612: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 851622: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   000010000010000000000110000000000000
+SIM_ERROR @ sime_time 851632: dataout does match expected dataout
+dataout:            000010000010000000000110000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 851642: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000000000000000000010
+SIM_ERROR @ sime_time 851652: dataout does match expected dataout
+dataout:            000010000000000000000000000000000010
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 851712: dataout does match expected dataout
+dataout:            001000000000000000100000000000000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 851722: dataout does match expected dataout
+dataout:            001010000010000000000100000001000000
+expected dataout:   001000000010000000000100000000000010
+SIM_ERROR @ sime_time 851732: dataout does match expected dataout
+dataout:            001000000010000000000100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 851742: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000100010000001000010
+SIM_ERROR @ sime_time 851752: dataout does match expected dataout
+dataout:            000000000000000000100010000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 851812: dataout does match expected dataout
+dataout:            001000000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 851822: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000000000010000000100000000000000010
+SIM_ERROR @ sime_time 851832: dataout does match expected dataout
+dataout:            000000000010000000100000000000000010
+expected dataout:   001010000010000000000110000001000000
+SIM_ERROR @ sime_time 851842: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   001010000010000000100010000001000000
+SIM_ERROR @ sime_time 851852: dataout does match expected dataout
+dataout:            001010000010000000100010000001000000
+expected dataout:   001000000010000000000110000001000010
+SIM_ERROR @ sime_time 851912: dataout does match expected dataout
+dataout:            000010000000000000100010000001000010
+expected dataout:   000010000000000000100110000001000010
+SIM_ERROR @ sime_time 851922: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 851932: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000000000000000000000010000000000010
+SIM_ERROR @ sime_time 851942: dataout does match expected dataout
+dataout:            000000000000000000000010000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 851952: dataout does match expected dataout
+dataout:            000010000010000000100010000000000000
+expected dataout:   001000000000000000000000000001000010
+SIM_ERROR @ sime_time 852012: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 852022: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 852032: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 852042: dataout does match expected dataout
+dataout:            001000000000000000100000000001000010
+expected dataout:   000000000010000000100100000001000010
+SIM_ERROR @ sime_time 852052: dataout does match expected dataout
+dataout:            000000000010000000100100000001000010
+expected dataout:   000000000000000000100010000001000000
+SIM_ERROR @ sime_time 852112: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 852122: dataout does match expected dataout
+dataout:            001010000010000000000100000001000010
+expected dataout:   000000000010000000000110000001000000
+SIM_ERROR @ sime_time 852132: dataout does match expected dataout
+dataout:            000000000010000000000110000001000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 852142: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000000000000100000000001000010
+SIM_ERROR @ sime_time 852152: dataout does match expected dataout
+dataout:            000000000000000000100000000001000010
+expected dataout:   000010000000000000100110000000000000
+SIM_ERROR @ sime_time 852212: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 852222: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 852232: dataout does match expected dataout
+dataout:            001000000000000000100110000000000010
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 852242: dataout does match expected dataout
+dataout:            001000000010000000000100000001000000
+expected dataout:   000010000000000000000000000001000000
+SIM_ERROR @ sime_time 852252: dataout does match expected dataout
+dataout:            000010000000000000000000000001000000
+expected dataout:   000000000000000000100000000000000010
+SIM_ERROR @ sime_time 852312: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   000010000010000000000100000001000010
+SIM_ERROR @ sime_time 852322: dataout does match expected dataout
+dataout:            000010000010000000000100000001000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 852332: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   001000000010000000000110000001000000
+SIM_ERROR @ sime_time 852342: dataout does match expected dataout
+dataout:            001000000010000000000110000001000000
+expected dataout:   001000000010000000100110000001000010
+SIM_ERROR @ sime_time 852352: dataout does match expected dataout
+dataout:            001000000010000000100110000001000010
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 852412: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 852422: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   000000000000000000000110000001000010
+SIM_ERROR @ sime_time 852432: dataout does match expected dataout
+dataout:            000000000000000000000110000001000010
+expected dataout:   001010000000000000100000000001000000
+SIM_ERROR @ sime_time 852442: dataout does match expected dataout
+dataout:            001010000000000000100000000001000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 852452: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   000010000000000000000110000000000000
+SIM_ERROR @ sime_time 852512: dataout does match expected dataout
+dataout:            000010000010000000100110000001000010
+expected dataout:   001010000010000000100110000001000000
+SIM_ERROR @ sime_time 852522: dataout does match expected dataout
+dataout:            001010000010000000100110000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 852532: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   001000000010000000100100000000000000
+SIM_ERROR @ sime_time 852542: dataout does match expected dataout
+dataout:            001000000010000000100100000000000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 852552: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000010000000100110000000000000
+SIM_ERROR @ sime_time 852612: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100110000000000010
+SIM_ERROR @ sime_time 852622: dataout does match expected dataout
+dataout:            000010000010000000100110000000000010
+expected dataout:   001000000000000000000000000000000000
+SIM_ERROR @ sime_time 852632: dataout does match expected dataout
+dataout:            001000000000000000000000000000000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 852642: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 852652: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000010000000000010
+SIM_ERROR @ sime_time 852712: dataout does match expected dataout
+dataout:            001000000000000000000000000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 852722: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   000010000000000000100010000000000010
+SIM_ERROR @ sime_time 852732: dataout does match expected dataout
+dataout:            000010000000000000100010000000000010
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 852742: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   000010000010000000000110000001000000
+SIM_ERROR @ sime_time 852752: dataout does match expected dataout
+dataout:            000010000010000000000110000001000000
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 852812: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 852822: dataout does match expected dataout
+dataout:            001000000000000000000110000001000010
+expected dataout:   001010000010000000100100000001000000
+SIM_ERROR @ sime_time 852832: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001010000000000000000000000001000000
+SIM_ERROR @ sime_time 852842: dataout does match expected dataout
+dataout:            001010000000000000000000000001000000
+expected dataout:   000000000000000000100100000001000000
+SIM_ERROR @ sime_time 852852: dataout does match expected dataout
+dataout:            000000000000000000100100000001000000
+expected dataout:   000010000000000000000010000001000010
+SIM_ERROR @ sime_time 852912: dataout does match expected dataout
+dataout:            001010000000000000100000000000000010
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 852922: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   000010000000000000100000000001000000
+SIM_ERROR @ sime_time 852932: dataout does match expected dataout
+dataout:            000010000000000000100000000001000000
+expected dataout:   000010000000000000100100000000000010
+SIM_ERROR @ sime_time 852942: dataout does match expected dataout
+dataout:            000010000000000000100100000000000010
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 852952: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000010000000000110000001000010
+SIM_ERROR @ sime_time 853012: dataout does match expected dataout
+dataout:            000000000010000000000010000001000010
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 853022: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001010000010000000000100000000000000
+SIM_ERROR @ sime_time 853032: dataout does match expected dataout
+dataout:            001010000010000000000100000000000000
+expected dataout:   001010000000000000100000000000000000
+SIM_ERROR @ sime_time 853042: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   001000000010000000000010000000000000
+SIM_ERROR @ sime_time 853052: dataout does match expected dataout
+dataout:            001000000010000000000010000000000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 853112: dataout does match expected dataout
+dataout:            001000000000000000000100000000000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 853122: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   000010000000000000100110000001000010
+SIM_ERROR @ sime_time 853132: dataout does match expected dataout
+dataout:            000010000000000000100110000001000010
+expected dataout:   000000000000000000100100000001000010
+SIM_ERROR @ sime_time 853142: dataout does match expected dataout
+dataout:            000000000000000000100100000001000010
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 853152: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100000000001000010
+SIM_ERROR @ sime_time 853212: dataout does match expected dataout
+dataout:            001010000010000000000110000001000000
+expected dataout:   000000000010000000000000000000000010
+SIM_ERROR @ sime_time 853222: dataout does match expected dataout
+dataout:            000000000010000000000000000000000010
+expected dataout:   001000000010000000000000000001000010
+SIM_ERROR @ sime_time 853232: dataout does match expected dataout
+dataout:            001000000010000000000000000001000010
+expected dataout:   000000000000000000100110000000000010
+SIM_ERROR @ sime_time 853242: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001000000010000000000010000001000000
+SIM_ERROR @ sime_time 853252: dataout does match expected dataout
+dataout:            001000000010000000000010000001000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 853312: dataout does match expected dataout
+dataout:            001000000000000000000100000000000010
+expected dataout:   000000000010000000000110000000000010
+SIM_ERROR @ sime_time 853322: dataout does match expected dataout
+dataout:            000000000010000000000110000000000010
+expected dataout:   000010000010000000100000000001000000
+SIM_ERROR @ sime_time 853332: dataout does match expected dataout
+dataout:            000010000010000000100000000001000000
+expected dataout:   000010000000000000100000000000000010
+SIM_ERROR @ sime_time 853342: dataout does match expected dataout
+dataout:            000010000000000000100000000000000010
+expected dataout:   000010000010000000000000000000000010
+SIM_ERROR @ sime_time 853352: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000010000000000000000100000000000000
+SIM_ERROR @ sime_time 853412: dataout does match expected dataout
+dataout:            000010000010000000100110000001000000
+expected dataout:   001010000000000000000110000001000000
+SIM_ERROR @ sime_time 853422: dataout does match expected dataout
+dataout:            001010000000000000000110000001000000
+expected dataout:   001000000000000000000110000000000010
+SIM_ERROR @ sime_time 853432: dataout does match expected dataout
+dataout:            001000000000000000000110000000000010
+expected dataout:   001010000000000000000010000000000000
+SIM_ERROR @ sime_time 853442: dataout does match expected dataout
+dataout:            001010000000000000000010000000000000
+expected dataout:   001000000000000000100010000000000000
+SIM_ERROR @ sime_time 853452: dataout does match expected dataout
+dataout:            001000000000000000100010000000000000
+expected dataout:   000010000000000000000110000001000010
+SIM_ERROR @ sime_time 853512: dataout does match expected dataout
+dataout:            000000000010000000000100000001000010
+expected dataout:   000010000000000000100100000000000000
+SIM_ERROR @ sime_time 853522: dataout does match expected dataout
+dataout:            000010000000000000100100000000000000
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 853532: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001000000000000000100100000000000000
+SIM_ERROR @ sime_time 853542: dataout does match expected dataout
+dataout:            001000000000000000100100000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 853552: dataout does match expected dataout
+dataout:            001000000000000000000000000000000010
+expected dataout:   001010000000000000100100000001000000
+SIM_ERROR @ sime_time 853612: dataout does match expected dataout
+dataout:            000010000010000000000000000000000010
+expected dataout:   000000000000000000100110000000000000
+SIM_ERROR @ sime_time 853622: dataout does match expected dataout
+dataout:            000000000000000000100110000000000000
+expected dataout:   000010000010000000100010000001000000
+SIM_ERROR @ sime_time 853632: dataout does match expected dataout
+dataout:            000010000010000000100010000001000000
+expected dataout:   001010000010000000100000000000000000
+SIM_ERROR @ sime_time 853642: dataout does match expected dataout
+dataout:            001010000010000000100000000000000000
+expected dataout:   000000000000000000000000000000000010
+SIM_ERROR @ sime_time 853652: dataout does match expected dataout
+dataout:            000000000000000000000000000000000010
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 853712: dataout does match expected dataout
+dataout:            001010000000000000100000000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 853722: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001010000010000000100100000000000000
+SIM_ERROR @ sime_time 853732: dataout does match expected dataout
+dataout:            001010000010000000100100000000000000
+expected dataout:   001000000010000000100000000001000010
+SIM_ERROR @ sime_time 853742: dataout does match expected dataout
+dataout:            001000000010000000100000000001000010
+expected dataout:   000000000010000000100100000000000010
+SIM_ERROR @ sime_time 853752: dataout does match expected dataout
+dataout:            000000000010000000100100000000000010
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 853812: dataout does match expected dataout
+dataout:            000010000000000000000100000001000010
+expected dataout:   000000000000000000000110000000000010
+SIM_ERROR @ sime_time 853822: dataout does match expected dataout
+dataout:            000000000000000000000110000000000010
+expected dataout:   001000000010000000000100000000000000
+SIM_ERROR @ sime_time 853832: dataout does match expected dataout
+dataout:            001000000010000000000100000000000000
+expected dataout:   000000000010000000000000000001000010
+SIM_ERROR @ sime_time 853842: dataout does match expected dataout
+dataout:            000000000010000000000000000001000010
+expected dataout:   001000000010000000000110000000000000
+SIM_ERROR @ sime_time 853852: dataout does match expected dataout
+dataout:            001000000010000000000110000000000000
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 853912: dataout does match expected dataout
+dataout:            001000000000000000100010000001000000
+expected dataout:   000000000010000000100100000001000000
+SIM_ERROR @ sime_time 853922: dataout does match expected dataout
+dataout:            000000000010000000100100000001000000
+expected dataout:   001010000000000000000100000001000000
+SIM_ERROR @ sime_time 853932: dataout does match expected dataout
+dataout:            001010000000000000000100000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 853942: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   001000000000000000000010000000000000
+SIM_ERROR @ sime_time 853952: dataout does match expected dataout
+dataout:            001000000000000000000010000000000000
+expected dataout:   001000000000000000000000000000000010
+SIM_ERROR @ sime_time 854012: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000000100000001000000
+SIM_ERROR @ sime_time 854022: dataout does match expected dataout
+dataout:            001000000000000000000100000001000000
+expected dataout:   000010000010000000100100000001000010
+SIM_ERROR @ sime_time 854032: dataout does match expected dataout
+dataout:            000010000010000000100100000001000010
+expected dataout:   001000000000000000100110000001000000
+SIM_ERROR @ sime_time 854042: dataout does match expected dataout
+dataout:            001000000000000000100110000001000000
+expected dataout:   001010000000000000000100000000000000
+SIM_ERROR @ sime_time 854052: dataout does match expected dataout
+dataout:            001010000000000000000100000000000000
+expected dataout:   001000000000000000000110000001000010
+SIM_ERROR @ sime_time 854112: dataout does match expected dataout
+dataout:            001010000000000000100110000001000000
+expected dataout:   001000000010000000000000000000000000
+SIM_ERROR @ sime_time 854122: dataout does match expected dataout
+dataout:            001000000010000000000000000000000000
+expected dataout:   001010000000000000000110000000000000
+SIM_ERROR @ sime_time 854132: dataout does match expected dataout
+dataout:            001010000000000000000110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 854142: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   000010000000000000000100000000000010
+SIM_ERROR @ sime_time 854152: dataout does match expected dataout
+dataout:            000010000000000000000100000000000010
+expected dataout:   000010000010000000100010000000000000
+SIM_ERROR @ sime_time 854212: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   000010000000000000100000000001000010
+SIM_ERROR @ sime_time 854222: dataout does match expected dataout
+dataout:            000010000000000000100000000001000010
+expected dataout:   000010000000000000100010000000000000
+SIM_ERROR @ sime_time 854232: dataout does match expected dataout
+dataout:            000010000000000000100010000000000000
+expected dataout:   000000000000000000100100000000000010
+SIM_ERROR @ sime_time 854242: dataout does match expected dataout
+dataout:            000000000000000000100100000000000010
+expected dataout:   001000000000000000100000000000000000
+SIM_ERROR @ sime_time 854252: dataout does match expected dataout
+dataout:            001000000000000000100000000000000000
+expected dataout:   001010000010000000000100000001000000
+SIM_ERROR @ sime_time 854312: dataout does match expected dataout
+dataout:            001010000000000000100100000001000000
+expected dataout:   001000000000000000000010000001000010
+SIM_ERROR @ sime_time 854322: dataout does match expected dataout
+dataout:            001000000000000000000010000001000010
+expected dataout:   001010000000000000000010000001000000
+SIM_ERROR @ sime_time 854332: dataout does match expected dataout
+dataout:            001010000000000000000010000001000000
+expected dataout:   001000000000000000100010000000000010
+SIM_ERROR @ sime_time 854342: dataout does match expected dataout
+dataout:            001000000000000000100010000000000010
+expected dataout:   001000000010000000100100000001000000
+SIM_ERROR @ sime_time 854352: dataout does match expected dataout
+dataout:            001000000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000000
+SIM_ERROR @ sime_time 854412: dataout does match expected dataout
+dataout:            001010000010000000100100000001000000
+expected dataout:   001000000010000000000100000001000010
+SIM_ERROR @ sime_time 854422: dataout does match expected dataout
+dataout:            001000000010000000000100000001000010
+expected dataout:   001000000010000000100000000001000000
+SIM_ERROR @ sime_time 854432: dataout does match expected dataout
+dataout:            001000000010000000100000000001000000
+expected dataout:   001000000010000000100010000001000000
+SIM_ERROR @ sime_time 854442: dataout does match expected dataout
+dataout:            001000000010000000100010000001000000
+expected dataout:   000010000000000000100010000001000010
+SIM_ERROR @ sime_time 854452: dataout does match expected dataout
+dataout:            000010000000000000100010000001000010
+expected dataout:   000010000000000000100110000001000010
+SIM_ERROR @ sime_time 854512: dataout does match expected dataout
+dataout:            000000000010000000000010000000000010
+expected dataout:   000000000010000000000000000001000000
+SIM_ERROR @ sime_time 854522: dataout does match expected dataout
+dataout:            000000000010000000000000000001000000
+expected dataout:   000000000010000000100110000000000010
+SIM_ERROR @ sime_time 854532: dataout does match expected dataout
+dataout:            000000000010000000100110000000000010
+expected dataout:   000000000000000000000000000001000010
+SIM_ERROR @ sime_time 854542: dataout does match expected dataout
+dataout:            000000000000000000000000000001000010
+expected dataout:   001010000010000000000010000000000000
+SIM_ERROR @ sime_time 854552: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100110000000000010
+SIM_ERROR @ sime_time 854612: dataout does match expected dataout
+dataout:            000000000000000000100110000000000010
+expected dataout:   001010000010000000100110000000000000
+SIM_ERROR @ sime_time 854622: dataout does match expected dataout
+dataout:            001010000010000000100110000000000000
+expected dataout:   001010000000000000000000000000000010
+SIM_ERROR @ sime_time 854632: dataout does match expected dataout
+dataout:            001010000000000000000000000000000010
+expected dataout:   001000000000000000000010000000000010
+SIM_ERROR @ sime_time 854642: dataout does match expected dataout
+dataout:            001000000000000000000010000000000010
+expected dataout:   000000000000000000000100000000000010
+SIM_ERROR @ sime_time 854652: dataout does match expected dataout
+dataout:            000000000000000000000100000000000010
+expected dataout:   001010000010000000000100000001000010
+SIM_ERROR @ sime_time 854712: dataout does match expected dataout
+dataout:            001010000010000000000010000000000000
+expected dataout:   001000000000000000100100000001000010
+CLOCK FAILED @ sime_time 854712: Dataout errors were detected during clock testing.
+ Clock Period          11
+SIM_ERROR @ sime_time 854722: dataout does match expected dataout
+dataout:            001000000000000000100100000001000010
+expected dataout:   000000000000000000000000000000000000
+SIM FAILED:        1013 errors detected in simulation runtime!
+BEST CLOCK:          12ns period!

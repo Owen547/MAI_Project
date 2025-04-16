@@ -83,7 +83,8 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
     logfile.write(f"\n\n")  # Write each dictionary on a new line
 
     signals = []
-    with open ("./io_verilog.txt", "w") as io_file:
+    
+    with open ("/home/owen/College/MAI_Project/VTR/Bit_gen/io_verilog.txt", "w") as io_file:
 
         data_out_index = 0
         data_in_index = 0
@@ -115,7 +116,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
                                         signal_found = 1
 
-                                        if signal["width"] < match.group(2) :
+                                        if int(signal["width"]) < int(match.group(2)) :
                                             
                                             signal["width"] = match.group(2)
 
@@ -174,7 +175,7 @@ def extract_io_bits (blocks, MESH_SIZE_X, MESH_SIZE_Y, logfile):
 
                                         signal_found = 1
 
-                                        if signal["width"] < match.group(2):
+                                        if int(signal["width"]) < int(match.group(2)):
                                             
                                             signal["width"] = match.group(2)
 
@@ -332,7 +333,7 @@ def extract_lut_configs (file_path, logfile) :
                 
                 lut_config = [0] * 65
                 expecting_config = 1
-
+                
                 match = re.match(r".names\s+(.+) (\S+)", line)
                 inputs = match.group(1)
                 name = match.group(2)
@@ -850,30 +851,30 @@ def check_for_unrouted_luts(blocks, luts):
 
 def main():
 
-    # parser = argparse.ArgumentParser(description="Choose between sequence and combination modes.")
-    # group = parser.add_mutually_exclusive_group(required=True)
-    # group.add_argument("-seq", action="store_true", help="Generate bitstream from sequential folder")
-    # group.add_argument("-comb", action="store_true", help="Generate bitstream from combinational folder")
-    # group.add_argument("-user", metavar="DIR", type=str, help="Generate bitstream from user specified directory")
+    parser = argparse.ArgumentParser(description="Choose between sequence and combination modes.")
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("-seq", action="store_true", help="Generate bitstream from sequential folder")
+    group.add_argument("-comb", action="store_true", help="Generate bitstream from combinational folder")
+    group.add_argument("-user", metavar="DIR", type=str, help="Generate bitstream from user specified directory")
 
-    # args = parser.parse_args()
+    args = parser.parse_args()
 
-    # if args.seq:
-    #     target_folder = "/home/owen/College/VTR_runs/sequential_run/"
-    # elif args.comb:
-    #     target_folder = "/home/owen/College/VTR_runs/combinational_run/"
-    # elif args.user:
-    #     if not os.path.isdir(args.user):
-    #         print(f"Error: '{args.user}' is not a valid directory.")
-    #         sys.exit(1)
-    #     else:
-    #         target_folder = args.user
-    #         print(f"User directory provided: {args.user}")
+    if args.seq:
+        target_folder = "/home/owen/College/VTR_runs/sequential_run/"
+    elif args.comb:
+        target_folder = "/home/owen/College/VTR_runs/combinational_run/"
+    elif args.user:
+        if not os.path.isdir(args.user):
+            print(f"Error: '{args.user}' is not a valid directory.")
+            sys.exit(1)
+        else:
+            target_folder = args.user
+            print(f"User directory provided: {args.user}")
 
 
-    target_folder = "/home/owen/College/VTR_runs/sequential_run/"
+    # target_folder = "/home/owen/College/VTR_runs/sequential_run/"
 
-    with open ("logfile.txt", "w+") as logfile: 
+    with open ("/home/owen/College/MAI_Project/VTR/Bit_gen/logfile.txt", "w+") as logfile: 
 
         # Parse the place file, extract clb and io placements as well as grid size
         blocks, MESH_SIZE_X, MESH_SIZE_Y = parse_place_file(target_folder + "top.place", logfile)
@@ -964,7 +965,7 @@ def main():
         logfile.write("\n\n")
 
         #print the bitstream using all the stored configurations
-        write_bitstream("./bitstream.txt", MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connectors, switches, logfile)
+        write_bitstream("/home/owen/College/MAI_Project/VTR/Bit_gen/bitstream.txt", MESH_SIZE_X, MESH_SIZE_Y, blocks, luts, connectors, switches, logfile)
 
 # Run the script
 if __name__ == "__main__":

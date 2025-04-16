@@ -34,6 +34,10 @@ def main():#edit the mesh_arch_xml with mesh x and y
         else:
             break
 
+    if (int(MESH_SIZE_X) == 1) and (best_width > 4):
+
+        best_width = 4
+
     new_line = f"    parameter WIDTH = {best_width}\n"
 
     output_lines = []

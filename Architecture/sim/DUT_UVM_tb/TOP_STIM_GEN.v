@@ -181,71 +181,162 @@ module TOP_STIM_GEN #(
     end  
     
     //////////////////////// Add assigns and signal declarations for target design here
-assign expected_dataout[0] = expected_s[4];
-assign expected_dataout[1] = 0;
+assign expected_dataout[0] = 0;
+
+assign expected_dataout[1] = expected_s[2];
+
 assign expected_dataout[2] = 0;
-assign b[4] = data_in[3];
+
+assign a[2] = data_in[3];
+
 assign expected_dataout[3] = 0;
-assign a[4] = data_in[4];
+
+assign a[3] = data_in[4];
+
 assign expected_dataout[4] = 0;
-assign expected_dataout[5] = expected_cout;
+
+assign b[3] = data_in[5];
+
+assign expected_dataout[5] = 0;
+
+assign b[1] = data_in[6];
+
 assign expected_dataout[6] = 0;
+
+assign a[0] = data_in[7];
+
 assign expected_dataout[7] = 0;
-assign expected_dataout[8] = expected_s[2];
-assign expected_dataout[9] = expected_s[3];
+
+assign cin = data_in[8];
+
+assign expected_dataout[8] = 0;
+
+assign a[4] = data_in[9];
+
+assign expected_dataout[9] = 0;
+
+assign b[0] = data_in[10];
+
 assign expected_dataout[10] = 0;
+
+assign a[1] = data_in[11];
+
 assign expected_dataout[11] = 0;
+
+assign b[5] = data_in[12];
+
 assign expected_dataout[12] = 0;
-assign expected_dataout[13] = 0;
+
+assign expected_dataout[13] = expected_s[5];
+
+assign b[4] = data_in[14];
+
 assign expected_dataout[14] = 0;
+
 assign expected_dataout[15] = 0;
-assign expected_dataout[16] = 0;
+
+assign expected_dataout[16] = expected_s[3];
+
 assign expected_dataout[17] = 0;
-assign expected_dataout[18] = 0;
+
+assign expected_dataout[18] = expected_s[6];
+
+assign a[5] = data_in[19];
+
 assign expected_dataout[19] = 0;
-assign expected_dataout[20] = 0;
+
+assign expected_dataout[20] = expected_s[4];
+
 assign expected_dataout[21] = 0;
+
 assign expected_dataout[22] = 0;
-assign expected_dataout[23] = expected_s[1];
-assign expected_dataout[24] = 0;
+
+assign expected_dataout[23] = 0;
+
+assign expected_dataout[24] = expected_s[7];
+
+assign a[7] = data_in[25];
+
 assign expected_dataout[25] = 0;
-assign b[2] = data_in[26];
+
+assign a[6] = data_in[26];
+
 assign expected_dataout[26] = 0;
-assign a[0] = data_in[27];
+
 assign expected_dataout[27] = 0;
-assign expected_dataout[28] = expected_s[0];
-assign a[2] = data_in[29];
+
+assign expected_dataout[28] = 0;
+
 assign expected_dataout[29] = 0;
-assign cin = data_in[30];
+
 assign expected_dataout[30] = 0;
-assign b[1] = data_in[31];
+
 assign expected_dataout[31] = 0;
-assign b[0] = data_in[32];
+
 assign expected_dataout[32] = 0;
-assign a[3] = data_in[33];
+
 assign expected_dataout[33] = 0;
-assign b[3] = data_in[34];
+
 assign expected_dataout[34] = 0;
-assign a[1] = data_in[35];
+
 assign expected_dataout[35] = 0;
-wire [4:0] expected_s;
-wire [4:0] b;
-wire [4:0] a;
-wire [0:0] expected_cout;
+
+assign expected_dataout[36] = 0;
+
+assign expected_dataout[37] = 0;
+
+assign b[2] = data_in[38];
+
+assign expected_dataout[38] = 0;
+
+assign expected_dataout[39] = expected_s[1];
+
+assign expected_dataout[40] = expected_s[0];
+
+assign expected_dataout[41] = 0;
+
+assign b[7] = data_in[42];
+
+assign expected_dataout[42] = 0;
+
+assign expected_dataout[43] = 0;
+
+assign expected_dataout[44] = 0;
+
+assign expected_dataout[45] = expected_cout;
+
+assign expected_dataout[46] = 0;
+
+assign b[6] = data_in[47];
+
+assign expected_dataout[47] = 0;
+
+wire [7:0] expected_s;
+
+wire [7:0] a;
+
+wire [7:0] b;
+
 wire [0:0] cin;
 
+wire [0:0] expected_cout;
 
-
-
-    
     //////////////////////// Instantiate target design to capture expected outputs
 
-    adder_top target_design (
-    .cout(expected_cout),
+//    adder_top target_design (
+//    .cout(expected_cout),
+//    .s(expected_s),
+//    .a(a),
+//    .b(b),
+//    .cin(cin),
+//    .clk(clk)
+//    );
+
+    madd_top target_design (
     .s(expected_s),
     .a(a),
     .b(b),
-    .cin(cin),
+    .c(c),
     .clk(clk)
     );
 

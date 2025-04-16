@@ -2,9 +2,9 @@
 
 module top #(
         
-    parameter MESH_SIZE_X = 3,  //declare number of CLB's in x axis.
-    parameter MESH_SIZE_Y = 3,  //declared in number of CLB's in y axis.
-        
+    parameter MESH_SIZE_X = 5,  //declare number of CLB's in x axis.
+    parameter MESH_SIZE_Y = 3,  //declare number of CLB's in x axis.
+
     parameter CLB_NUM_BLE = 3,
     parameter CLB_NUM_INPUTS = 12,
     parameter CLB_TRACK_INPUTS = CLB_NUM_INPUTS/4,

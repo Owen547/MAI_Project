@@ -1,0 +1,590 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Apr 16 05:38:41 2025
+| Host         : BIGBADRED running 64-bit Ubuntu 24.04.2 LTS
+| Command      : report_timing -file /home/owen/College/MAI_Project/Vivado/seq_sim_runs/8_bit_adder/run_timing.txt
+| Design       : top
+| Device       : 7k160t-fbg676
+| Speed File   : -3  PRODUCTION 1.12 2017-02-17
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             28.161ns  (required time - arrival time)
+  Source:                 clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/flip_flop_reg/C
+                            (rising edge-triggered cell FDCE clocked by clock  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Destination:            clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/flip_flop_reg/D
+                            (rising edge-triggered cell FDCE clocked by clock  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Path Group:             clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            100.000ns  (clock rise@100.000ns - clock rise@0.000ns)
+  Data Path Delay:        71.780ns  (logic 20.679ns (28.809%)  route 51.101ns (71.191%))
+  Logic Levels:           260  (LUT3=47 LUT4=33 LUT5=2 LUT6=72 MUXF7=62 MUXF8=44)
+  Clock Path Skew:        -0.055ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.689ns = ( 103.689 - 100.000 ) 
+    Source Clock Delay      (SCD):    3.993ns
+    Clock Pessimism Removal (CPR):    0.249ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clock rise edge)      0.000     0.000 r  
+    R21                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    R21                  IBUF (Prop_ibuf_I_O)         0.706     0.706 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.781     2.487    clk_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.080     2.567 r  clk_IBUF_BUFG_inst/O
+                         net (fo=9, routed)           1.426     3.993    clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/clk
+    SLICE_X29Y44         FDCE                                         r  clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/flip_flop_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y44         FDCE (Prop_fdce_C_Q)         0.216     4.209 r  clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/flip_flop_reg/Q
+                         net (fo=1, routed)           0.170     4.379    clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/flip_flop
+    SLICE_X30Y44         LUT3 (Prop_lut3_I2_O)        0.043     4.422 r  clb_rows[0].clb_cols[2].CLB/genblk1[2].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.355     4.776    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_in[15]
+    SLICE_X35Y41         LUT6 (Prop_lut6_I0_O)        0.043     4.819 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000     4.819    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X35Y41         MUXF7 (Prop_muxf7_I1_O)      0.106     4.925 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000     4.925    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X35Y41         MUXF8 (Prop_muxf8_I1_O)      0.042     4.967 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=3, routed)           0.490     5.457    clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/data_in[3]
+    SLICE_X38Y39         LUT6 (Prop_lut6_I5_O)        0.123     5.580 r  clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.299     5.879    clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/data_out_INST_0_i_3_n_0
+    SLICE_X38Y40         LUT5 (Prop_lut5_I2_O)        0.043     5.922 r  clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.264     6.186    clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/lut_out
+    SLICE_X36Y42         LUT3 (Prop_lut3_I2_O)        0.043     6.229 r  clb_rows[0].clb_cols[2].CLB/genblk1[1].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.491     6.720    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_in[14]
+    SLICE_X32Y41         LUT6 (Prop_lut6_I1_O)        0.043     6.763 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000     6.763    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X32Y41         MUXF7 (Prop_muxf7_I1_O)      0.106     6.869 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000     6.869    clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X32Y41         MUXF8 (Prop_muxf8_I1_O)      0.042     6.911 r  clb_rows[0].clb_cols[2].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.339     7.251    clb_rows[0].clb_cols[2].CLB/genblk1[0].ble_i/data_in[5]
+    SLICE_X35Y45         LUT6 (Prop_lut6_I2_O)        0.123     7.374 r  clb_rows[0].clb_cols[2].CLB/genblk1[0].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.222     7.596    clb_rows[0].clb_cols[2].CLB/genblk1[0].ble_i/lut_out
+    SLICE_X33Y44         LUT3 (Prop_lut3_I1_O)        0.043     7.639 r  clb_rows[0].clb_cols[2].CLB/genblk1[0].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.672     8.311    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_in[8]
+    SLICE_X23Y36         LUT6 (Prop_lut6_I5_O)        0.043     8.354 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000     8.354    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X23Y36         MUXF7 (Prop_muxf7_I0_O)      0.117     8.471 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.259     8.730    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X22Y36         LUT3 (Prop_lut3_I2_O)        0.118     8.848 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.224     9.072    swbx_rows[0].swbx_cols[2].switch_box/genblk1[4].mux_right/mux_i/data_in[3]
+    SLICE_X21Y35         LUT4 (Prop_lut4_I1_O)        0.043     9.115 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[4].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.275     9.391    cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_in[4]
+    SLICE_X15Y36         LUT6 (Prop_lut6_I5_O)        0.043     9.434 r  cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000     9.434    cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X15Y36         MUXF7 (Prop_muxf7_I1_O)      0.118     9.552 r  cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000     9.552    cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X15Y36         MUXF8 (Prop_muxf8_I0_O)      0.043     9.595 r  cx_cols_top_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.396     9.991    swbx_rows[0].swbx_cols[3].switch_box/genblk1[1].mux_bottom/mux_i/data_in[1]
+    SLICE_X14Y40         LUT3 (Prop_lut3_I0_O)        0.123    10.114 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[1].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.167    10.281    cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_in[4]
+    SLICE_X15Y41         LUT6 (Prop_lut6_I5_O)        0.043    10.324 r  cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    10.324    cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X15Y41         MUXF7 (Prop_muxf7_I1_O)      0.118    10.442 r  cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    10.442    cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X15Y41         MUXF8 (Prop_muxf8_I0_O)      0.043    10.485 r  cx_rows_right_col[0].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.293    10.777    swbx_rows[0].swbx_cols[3].switch_box/genblk1[4].mux_left/mux_i/data_in[3]
+    SLICE_X13Y39         LUT3 (Prop_lut3_I1_O)        0.123    10.900 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[4].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.302    11.202    cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_in[12]
+    SLICE_X15Y35         LUT6 (Prop_lut6_I5_O)        0.043    11.245 r  cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    11.245    cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X15Y35         MUXF7 (Prop_muxf7_I1_O)      0.106    11.351 r  cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    11.351    cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X15Y35         MUXF8 (Prop_muxf8_I1_O)      0.042    11.393 r  cx_cols_top_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.457    11.851    swbx_rows[0].swbx_cols[3].switch_box/genblk1[0].mux_bottom/mux_i/data_in[1]
+    SLICE_X14Y40         LUT3 (Prop_lut3_I0_O)        0.123    11.974 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[0].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.412    12.386    cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_in[3]
+    SLICE_X13Y41         LUT6 (Prop_lut6_I0_O)        0.043    12.429 r  cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    12.429    cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X13Y41         MUXF7 (Prop_muxf7_I0_O)      0.117    12.546 r  cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    12.546    cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X13Y41         MUXF8 (Prop_muxf8_I0_O)      0.043    12.589 r  cx_rows_right_col[0].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.224    12.812    swbx_rows[0].swbx_cols[3].switch_box/genblk1[3].mux_left/mux_i/data_in[3]
+    SLICE_X13Y39         LUT3 (Prop_lut3_I1_O)        0.123    12.935 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[3].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.366    13.302    cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_in[11]
+    SLICE_X17Y35         LUT6 (Prop_lut6_I0_O)        0.043    13.345 r  cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    13.345    cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X17Y35         MUXF7 (Prop_muxf7_I0_O)      0.104    13.449 r  cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    13.449    cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X17Y35         MUXF8 (Prop_muxf8_I1_O)      0.042    13.491 r  cx_cols_top_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.385    13.876    swbx_rows[0].swbx_cols[2].switch_box/genblk1[4].mux_bottom/mux_i/data_in[3]
+    SLICE_X21Y35         LUT4 (Prop_lut4_I1_O)        0.123    13.999 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[4].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.188    14.187    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_in[7]
+    SLICE_X22Y35         LUT6 (Prop_lut6_I0_O)        0.043    14.230 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    14.230    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X22Y35         MUXF7 (Prop_muxf7_I1_O)      0.100    14.330 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.221    14.550    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X21Y35         LUT3 (Prop_lut3_I1_O)        0.120    14.670 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.315    14.985    swbx_rows[0].swbx_cols[2].switch_box/genblk1[3].mux_right/mux_i/data_in[3]
+    SLICE_X20Y32         LUT4 (Prop_lut4_I1_O)        0.043    15.028 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[3].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.399    15.427    cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_in[3]
+    SLICE_X19Y33         LUT6 (Prop_lut6_I0_O)        0.043    15.470 r  cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    15.470    cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X19Y33         MUXF7 (Prop_muxf7_I0_O)      0.117    15.587 r  cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    15.587    cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X19Y33         MUXF8 (Prop_muxf8_I0_O)      0.043    15.630 r  cx_cols_top_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.330    15.960    swbx_rows[0].swbx_cols[2].switch_box/genblk1[3].mux_bottom/mux_i/data_in[3]
+    SLICE_X20Y32         LUT4 (Prop_lut4_I1_O)        0.123    16.083 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[3].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.262    16.345    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_in[6]
+    SLICE_X23Y33         LUT6 (Prop_lut6_I1_O)        0.043    16.388 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    16.388    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X23Y33         MUXF7 (Prop_muxf7_I1_O)      0.106    16.494 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.168    16.661    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X23Y34         LUT3 (Prop_lut3_I1_O)        0.120    16.781 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.261    17.042    swbx_rows[0].swbx_cols[2].switch_box/genblk1[2].mux_right/mux_i/data_in[3]
+    SLICE_X20Y33         LUT4 (Prop_lut4_I1_O)        0.043    17.085 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[2].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.541    17.626    cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_in[2]
+    SLICE_X16Y35         LUT6 (Prop_lut6_I1_O)        0.043    17.669 r  cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    17.669    cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X16Y35         MUXF7 (Prop_muxf7_I0_O)      0.112    17.781 r  cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    17.781    cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X16Y35         MUXF8 (Prop_muxf8_I0_O)      0.044    17.825 r  cx_cols_top_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.480    18.305    swbx_rows[0].swbx_cols[2].switch_box/genblk1[2].mux_bottom/mux_i/data_in[3]
+    SLICE_X20Y33         LUT4 (Prop_lut4_I1_O)        0.120    18.425 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[2].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.266    18.691    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_in[5]
+    SLICE_X22Y32         LUT6 (Prop_lut6_I3_O)        0.043    18.734 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    18.734    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X22Y32         MUXF7 (Prop_muxf7_I1_O)      0.100    18.834 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.364    19.197    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X21Y32         LUT3 (Prop_lut3_I1_O)        0.120    19.317 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.224    19.542    swbx_rows[0].swbx_cols[2].switch_box/genblk1[1].mux_right/mux_i/data_in[3]
+    SLICE_X20Y33         LUT4 (Prop_lut4_I1_O)        0.043    19.585 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[1].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.376    19.961    cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_in[1]
+    SLICE_X17Y36         LUT6 (Prop_lut6_I3_O)        0.043    20.004 r  cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    20.004    cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X17Y36         MUXF7 (Prop_muxf7_I0_O)      0.117    20.121 r  cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    20.121    cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X17Y36         MUXF8 (Prop_muxf8_I0_O)      0.043    20.164 r  cx_cols_top_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.393    20.557    swbx_rows[0].swbx_cols[2].switch_box/genblk1[1].mux_bottom/mux_i/data_in[3]
+    SLICE_X22Y33         LUT4 (Prop_lut4_I1_O)        0.123    20.680 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[1].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.298    20.978    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_in[4]
+    SLICE_X25Y32         LUT6 (Prop_lut6_I5_O)        0.043    21.021 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    21.021    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X25Y32         MUXF7 (Prop_muxf7_I1_O)      0.106    21.127 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.328    21.455    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X23Y32         LUT3 (Prop_lut3_I1_O)        0.120    21.575 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.320    21.896    swbx_rows[0].swbx_cols[2].switch_box/genblk1[0].mux_right/mux_i/data_in[3]
+    SLICE_X19Y31         LUT4 (Prop_lut4_I0_O)        0.043    21.939 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[0].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.424    22.363    cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_in[0]
+    SLICE_X15Y37         LUT6 (Prop_lut6_I5_O)        0.043    22.406 r  cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    22.406    cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X15Y37         MUXF7 (Prop_muxf7_I0_O)      0.117    22.523 r  cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    22.523    cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X15Y37         MUXF8 (Prop_muxf8_I0_O)      0.043    22.566 r  cx_cols_top_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.352    22.918    swbx_rows[0].swbx_cols[3].switch_box/genblk1[4].mux_bottom/mux_i/data_in[1]
+    SLICE_X16Y38         LUT3 (Prop_lut3_I0_O)        0.123    23.041 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[4].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.252    23.294    cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_in[7]
+    SLICE_X17Y41         LUT6 (Prop_lut6_I0_O)        0.043    23.337 r  cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    23.337    cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X17Y41         MUXF7 (Prop_muxf7_I1_O)      0.118    23.455 r  cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    23.455    cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X17Y41         MUXF8 (Prop_muxf8_I0_O)      0.043    23.498 r  cx_rows_right_col[0].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.325    23.823    swbx_rows[0].swbx_cols[3].switch_box/genblk1[2].mux_left/mux_i/data_in[3]
+    SLICE_X14Y39         LUT3 (Prop_lut3_I1_O)        0.123    23.946 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[2].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.246    24.192    cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_in[10]
+    SLICE_X14Y37         LUT6 (Prop_lut6_I1_O)        0.043    24.235 r  cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    24.235    cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X14Y37         MUXF7 (Prop_muxf7_I0_O)      0.098    24.333 r  cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    24.333    cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X14Y37         MUXF8 (Prop_muxf8_I1_O)      0.042    24.375 r  cx_cols_top_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.359    24.734    swbx_rows[0].swbx_cols[3].switch_box/genblk1[3].mux_bottom/mux_i/data_in[1]
+    SLICE_X13Y39         LUT3 (Prop_lut3_I0_O)        0.120    24.854 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[3].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.496    25.350    cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_in[6]
+    SLICE_X18Y41         LUT6 (Prop_lut6_I1_O)        0.043    25.393 r  cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    25.393    cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X18Y41         MUXF7 (Prop_muxf7_I1_O)      0.113    25.506 r  cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    25.506    cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X18Y41         MUXF8 (Prop_muxf8_I0_O)      0.044    25.550 r  cx_rows_right_col[0].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.355    25.905    swbx_rows[0].swbx_cols[3].switch_box/genblk1[1].mux_left/mux_i/data_in[3]
+    SLICE_X16Y38         LUT3 (Prop_lut3_I1_O)        0.120    26.025 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[1].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.288    26.312    cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_in[9]
+    SLICE_X14Y35         LUT6 (Prop_lut6_I3_O)        0.043    26.355 r  cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    26.355    cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X14Y35         MUXF7 (Prop_muxf7_I0_O)      0.098    26.453 r  cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    26.453    cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X14Y35         MUXF8 (Prop_muxf8_I1_O)      0.042    26.495 r  cx_cols_top_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.379    26.874    swbx_rows[0].swbx_cols[3].switch_box/genblk1[2].mux_bottom/mux_i/data_in[1]
+    SLICE_X13Y39         LUT3 (Prop_lut3_I0_O)        0.120    26.994 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[2].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.495    27.490    cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_in[5]
+    SLICE_X18Y42         LUT6 (Prop_lut6_I3_O)        0.043    27.533 r  cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    27.533    cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X18Y42         MUXF7 (Prop_muxf7_I1_O)      0.113    27.646 r  cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    27.646    cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X18Y42         MUXF8 (Prop_muxf8_I0_O)      0.044    27.690 r  cx_rows_right_col[0].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.403    28.093    swbx_rows[0].swbx_cols[3].switch_box/genblk1[0].mux_left/mux_i/data_in[3]
+    SLICE_X16Y38         LUT3 (Prop_lut3_I1_O)        0.120    28.213 r  swbx_rows[0].swbx_cols[3].switch_box/genblk1[0].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.388    28.601    cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_in[8]
+    SLICE_X19Y35         LUT6 (Prop_lut6_I5_O)        0.043    28.644 r  cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    28.644    cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X19Y35         MUXF7 (Prop_muxf7_I0_O)      0.104    28.748 r  cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    28.748    cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X19Y35         MUXF8 (Prop_muxf8_I1_O)      0.042    28.790 r  cx_cols_top_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.431    29.221    swbx_rows[0].swbx_cols[2].switch_box/genblk1[0].mux_bottom/mux_i/data_in[3]
+    SLICE_X16Y31         LUT4 (Prop_lut4_I0_O)        0.123    29.344 r  swbx_rows[0].swbx_cols[2].switch_box/genblk1[0].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.487    29.831    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_in[3]
+    SLICE_X25Y33         LUT6 (Prop_lut6_I0_O)        0.043    29.874 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    29.874    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X25Y33         MUXF7 (Prop_muxf7_I0_O)      0.117    29.991 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    29.991    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X25Y33         MUXF8 (Prop_muxf8_I0_O)      0.043    30.034 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=18, routed)          0.374    30.408    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_in[9]
+    SLICE_X35Y29         LUT6 (Prop_lut6_I3_O)        0.123    30.531 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    30.531    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X35Y29         MUXF7 (Prop_muxf7_I0_O)      0.104    30.635 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    30.635    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X35Y29         MUXF8 (Prop_muxf8_I1_O)      0.042    30.677 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=4, routed)           0.352    31.029    clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/data_in[3]
+    SLICE_X39Y27         MUXF8 (Prop_muxf8_S_O)       0.219    31.248 r  clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.214    31.461    clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/data_out_INST_0_i_5_n_0
+    SLICE_X39Y28         LUT6 (Prop_lut6_I5_O)        0.123    31.584 r  clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.234    31.818    clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/lut_out
+    SLICE_X38Y27         LUT3 (Prop_lut3_I1_O)        0.043    31.861 r  clb_rows[0].clb_cols[1].CLB/genblk1[1].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.408    32.269    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_in[14]
+    SLICE_X33Y28         LUT6 (Prop_lut6_I1_O)        0.043    32.312 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    32.312    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X33Y28         MUXF7 (Prop_muxf7_I1_O)      0.106    32.418 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    32.418    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X33Y28         MUXF8 (Prop_muxf8_I1_O)      0.042    32.460 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.229    32.689    clb_rows[0].clb_cols[1].CLB/genblk1[0].ble_i/data_in[5]
+    SLICE_X32Y26         LUT6 (Prop_lut6_I2_O)        0.123    32.812 r  clb_rows[0].clb_cols[1].CLB/genblk1[0].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.261    33.073    clb_rows[0].clb_cols[1].CLB/genblk1[0].ble_i/lut_out
+    SLICE_X33Y27         LUT3 (Prop_lut3_I1_O)        0.043    33.116 r  clb_rows[0].clb_cols[1].CLB/genblk1[0].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.425    33.542    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_in[13]
+    SLICE_X37Y31         LUT6 (Prop_lut6_I3_O)        0.043    33.585 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    33.585    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X37Y31         MUXF7 (Prop_muxf7_I1_O)      0.106    33.691 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    33.691    clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X37Y31         MUXF8 (Prop_muxf8_I1_O)      0.042    33.733 r  clb_rows[0].clb_cols[1].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.314    34.046    clb_rows[0].clb_cols[1].CLB/genblk1[2].ble_i/data_in[5]
+    SLICE_X40Y33         LUT6 (Prop_lut6_I2_O)        0.123    34.169 r  clb_rows[0].clb_cols[1].CLB/genblk1[2].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.230    34.400    clb_rows[0].clb_cols[1].CLB/genblk1[2].ble_i/lut_out
+    SLICE_X38Y34         LUT3 (Prop_lut3_I1_O)        0.043    34.443 r  clb_rows[0].clb_cols[1].CLB/genblk1[2].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.525    34.968    cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_in[7]
+    SLICE_X33Y35         LUT6 (Prop_lut6_I0_O)        0.043    35.011 r  cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    35.011    cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X33Y35         MUXF7 (Prop_muxf7_I1_O)      0.118    35.129 r  cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    35.129    cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X33Y35         MUXF8 (Prop_muxf8_I0_O)      0.043    35.172 r  cx_cols_bottom_row[1].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.325    35.497    swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_top/mux_i/data_in[1]
+    SLICE_X28Y34         LUT4 (Prop_lut4_I2_O)        0.123    35.620 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.185    35.806    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_in[12]
+    SLICE_X29Y36         LUT6 (Prop_lut6_I5_O)        0.043    35.849 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    35.849    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X29Y36         MUXF7 (Prop_muxf7_I1_O)      0.118    35.967 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.251    36.218    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X28Y36         LUT3 (Prop_lut3_I2_O)        0.118    36.336 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.222    36.558    swbx_rows[1].swbx_cols[2].switch_box/genblk1[4].mux_right/mux_i/data_in[2]
+    SLICE_X27Y36         LUT4 (Prop_lut4_I0_O)        0.043    36.601 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[4].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.303    36.904    cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_in[4]
+    SLICE_X25Y42         LUT6 (Prop_lut6_I5_O)        0.043    36.947 r  cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    36.947    cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X25Y42         MUXF7 (Prop_muxf7_I1_O)      0.118    37.065 r  cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    37.065    cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X25Y42         MUXF8 (Prop_muxf8_I0_O)      0.043    37.108 r  cx_cols_bottom_row[2].connector_box/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.388    37.496    swbx_rows[1].swbx_cols[3].switch_box/genblk1[1].mux_top/mux_i/data_in[1]
+    SLICE_X21Y44         LUT3 (Prop_lut3_I0_O)        0.123    37.619 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[1].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.332    37.952    cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_in[12]
+    SLICE_X16Y44         LUT6 (Prop_lut6_I5_O)        0.043    37.995 r  cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    37.995    cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X16Y44         MUXF7 (Prop_muxf7_I1_O)      0.100    38.095 r  cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    38.095    cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X16Y44         MUXF8 (Prop_muxf8_I1_O)      0.042    38.137 r  cx_rows_right_col[0].connector_box/genblk1[15].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.349    38.486    swbx_rows[1].swbx_cols[3].switch_box/genblk1[4].mux_left/mux_i/data_in[1]
+    SLICE_X20Y42         LUT3 (Prop_lut3_I0_O)        0.120    38.606 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[4].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.396    39.002    cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_in[12]
+    SLICE_X25Y41         LUT6 (Prop_lut6_I5_O)        0.043    39.045 r  cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    39.045    cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X25Y41         MUXF7 (Prop_muxf7_I1_O)      0.106    39.151 r  cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    39.151    cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X25Y41         MUXF8 (Prop_muxf8_I1_O)      0.042    39.193 r  cx_cols_bottom_row[2].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.357    39.550    swbx_rows[1].swbx_cols[3].switch_box/genblk1[0].mux_top/mux_i/data_in[1]
+    SLICE_X22Y43         LUT3 (Prop_lut3_I0_O)        0.123    39.673 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[0].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.354    40.026    cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_in[11]
+    SLICE_X14Y44         LUT6 (Prop_lut6_I0_O)        0.043    40.069 r  cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    40.069    cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X14Y44         MUXF7 (Prop_muxf7_I0_O)      0.098    40.167 r  cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    40.167    cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X14Y44         MUXF8 (Prop_muxf8_I1_O)      0.042    40.209 r  cx_rows_right_col[0].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.424    40.634    swbx_rows[1].swbx_cols[3].switch_box/genblk1[3].mux_left/mux_i/data_in[1]
+    SLICE_X20Y42         LUT3 (Prop_lut3_I0_O)        0.120    40.754 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[3].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.412    41.165    cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_in[11]
+    SLICE_X24Y40         LUT6 (Prop_lut6_I0_O)        0.043    41.208 r  cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    41.208    cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X24Y40         MUXF7 (Prop_muxf7_I0_O)      0.104    41.312 r  cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.222    41.535    cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X24Y39         LUT3 (Prop_lut3_I2_O)        0.120    41.655 r  cx_cols_bottom_row[2].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.413    42.068    swbx_rows[1].swbx_cols[2].switch_box/genblk1[4].mux_top/mux_i/data_in[2]
+    SLICE_X27Y36         LUT4 (Prop_lut4_I0_O)        0.043    42.111 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[4].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.248    42.359    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_in[15]
+    SLICE_X25Y36         LUT6 (Prop_lut6_I0_O)        0.043    42.402 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    42.402    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X25Y36         MUXF7 (Prop_muxf7_I1_O)      0.118    42.520 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.332    42.851    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X27Y36         LUT3 (Prop_lut3_I2_O)        0.118    42.969 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[14].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.309    43.278    swbx_rows[1].swbx_cols[2].switch_box/genblk1[3].mux_right/mux_i/data_in[2]
+    SLICE_X28Y37         LUT4 (Prop_lut4_I0_O)        0.043    43.321 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[3].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.315    43.636    cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_in[3]
+    SLICE_X27Y39         LUT6 (Prop_lut6_I0_O)        0.043    43.679 r  cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    43.679    cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X27Y39         MUXF7 (Prop_muxf7_I0_O)      0.104    43.783 r  cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.305    44.087    cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X28Y39         LUT3 (Prop_lut3_I1_O)        0.120    44.207 r  cx_cols_bottom_row[2].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.227    44.434    swbx_rows[1].swbx_cols[2].switch_box/genblk1[3].mux_top/mux_i/data_in[2]
+    SLICE_X29Y37         LUT4 (Prop_lut4_I0_O)        0.043    44.477 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[3].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.268    44.745    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_in[14]
+    SLICE_X26Y35         LUT6 (Prop_lut6_I1_O)        0.043    44.788 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    44.788    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X26Y35         MUXF7 (Prop_muxf7_I1_O)      0.118    44.906 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.290    45.195    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X27Y36         LUT3 (Prop_lut3_I2_O)        0.118    45.313 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.306    45.619    swbx_rows[1].swbx_cols[2].switch_box/genblk1[2].mux_right/mux_i/data_in[2]
+    SLICE_X30Y36         LUT4 (Prop_lut4_I0_O)        0.043    45.662 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[2].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.262    45.924    cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_in[2]
+    SLICE_X28Y38         LUT6 (Prop_lut6_I1_O)        0.043    45.967 r  cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    45.967    cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X28Y38         MUXF7 (Prop_muxf7_I0_O)      0.104    46.071 r  cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.223    46.294    cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X28Y38         LUT3 (Prop_lut3_I1_O)        0.120    46.414 r  cx_cols_bottom_row[2].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.312    46.727    swbx_rows[1].swbx_cols[2].switch_box/genblk1[2].mux_top/mux_i/data_in[2]
+    SLICE_X30Y36         LUT4 (Prop_lut4_I0_O)        0.043    46.770 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[2].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.295    47.064    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_in[13]
+    SLICE_X26Y33         LUT6 (Prop_lut6_I3_O)        0.043    47.107 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    47.107    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X26Y33         MUXF7 (Prop_muxf7_I1_O)      0.118    47.225 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.243    47.469    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X26Y34         LUT3 (Prop_lut3_I2_O)        0.118    47.587 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.180    47.767    swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_right/mux_i/data_in[2]
+    SLICE_X28Y34         LUT4 (Prop_lut4_I0_O)        0.043    47.810 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.360    48.170    cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_in[1]
+    SLICE_X27Y38         LUT6 (Prop_lut6_I3_O)        0.043    48.213 r  cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    48.213    cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X27Y38         MUXF7 (Prop_muxf7_I0_O)      0.104    48.317 r  cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.184    48.502    cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X28Y37         LUT3 (Prop_lut3_I1_O)        0.120    48.622 r  cx_cols_bottom_row[2].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.410    49.031    swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_left/mux_i/data_in[2]
+    SLICE_X30Y35         LUT4 (Prop_lut4_I0_O)        0.043    49.074 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[1].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.255    49.329    cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_in[9]
+    SLICE_X35Y34         LUT6 (Prop_lut6_I3_O)        0.043    49.372 r  cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    49.372    cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X35Y34         MUXF7 (Prop_muxf7_I0_O)      0.104    49.476 r  cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    49.476    cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X35Y34         MUXF8 (Prop_muxf8_I1_O)      0.042    49.518 r  cx_cols_bottom_row[1].connector_box/genblk1[8].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.236    49.754    swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_top/mux_i/data_in[1]
+    SLICE_X30Y34         LUT4 (Prop_lut4_I2_O)        0.123    49.877 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.306    50.183    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_in[11]
+    SLICE_X29Y33         LUT6 (Prop_lut6_I0_O)        0.043    50.226 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    50.226    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X29Y33         MUXF7 (Prop_muxf7_I0_O)      0.117    50.343 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.212    50.555    cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X29Y34         LUT3 (Prop_lut3_I2_O)        0.118    50.673 r  cx_clb_rows[0].cx_clb_cols[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.310    50.983    swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_right/mux_i/data_in[2]
+    SLICE_X30Y34         LUT4 (Prop_lut4_I0_O)        0.043    51.026 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.454    51.480    cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_in[0]
+    SLICE_X22Y40         LUT6 (Prop_lut6_I5_O)        0.043    51.523 r  cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    51.523    cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X22Y40         MUXF7 (Prop_muxf7_I0_O)      0.112    51.635 r  cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    51.635    cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X22Y40         MUXF8 (Prop_muxf8_I0_O)      0.044    51.679 r  cx_cols_bottom_row[2].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.185    51.865    swbx_rows[1].swbx_cols[3].switch_box/genblk1[4].mux_top/mux_i/data_in[1]
+    SLICE_X21Y41         LUT3 (Prop_lut3_I0_O)        0.120    51.985 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[4].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.426    52.411    cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_in[15]
+    SLICE_X17Y45         LUT6 (Prop_lut6_I0_O)        0.043    52.454 r  cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    52.454    cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X17Y45         MUXF7 (Prop_muxf7_I1_O)      0.106    52.560 r  cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    52.560    cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X17Y45         MUXF8 (Prop_muxf8_I1_O)      0.042    52.602 r  cx_rows_right_col[0].connector_box/genblk1[13].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.264    52.866    swbx_rows[1].swbx_cols[3].switch_box/genblk1[2].mux_left/mux_i/data_in[1]
+    SLICE_X20Y45         LUT3 (Prop_lut3_I0_O)        0.123    52.989 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[2].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.336    53.324    cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_in[10]
+    SLICE_X22Y42         LUT6 (Prop_lut6_I1_O)        0.043    53.367 r  cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    53.367    cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X22Y42         MUXF7 (Prop_muxf7_I0_O)      0.098    53.465 r  cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    53.465    cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X22Y42         MUXF8 (Prop_muxf8_I1_O)      0.042    53.507 r  cx_cols_bottom_row[2].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.236    53.743    swbx_rows[1].swbx_cols[3].switch_box/genblk1[3].mux_top/mux_i/data_in[1]
+    SLICE_X20Y42         LUT3 (Prop_lut3_I0_O)        0.120    53.863 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[3].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.372    54.235    cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_in[14]
+    SLICE_X15Y45         LUT6 (Prop_lut6_I1_O)        0.043    54.278 r  cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    54.278    cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X15Y45         MUXF7 (Prop_muxf7_I1_O)      0.106    54.384 r  cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    54.384    cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X15Y45         MUXF8 (Prop_muxf8_I1_O)      0.042    54.426 r  cx_rows_right_col[0].connector_box/genblk1[12].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.282    54.708    swbx_rows[1].swbx_cols[3].switch_box/genblk1[1].mux_left/mux_i/data_in[1]
+    SLICE_X23Y45         LUT3 (Prop_lut3_I0_O)        0.123    54.831 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[1].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.439    55.270    cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_in[9]
+    SLICE_X24Y42         LUT6 (Prop_lut6_I3_O)        0.043    55.313 r  cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    55.313    cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X24Y42         MUXF7 (Prop_muxf7_I0_O)      0.104    55.417 r  cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    55.417    cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X24Y42         MUXF8 (Prop_muxf8_I1_O)      0.042    55.459 r  cx_cols_bottom_row[2].connector_box/genblk1[10].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.397    55.856    swbx_rows[1].swbx_cols[3].switch_box/genblk1[2].mux_top/mux_i/data_in[1]
+    SLICE_X21Y44         LUT3 (Prop_lut3_I0_O)        0.123    55.979 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[2].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.356    56.335    cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_in[13]
+    SLICE_X17Y42         LUT6 (Prop_lut6_I3_O)        0.043    56.378 r  cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    56.378    cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X17Y42         MUXF7 (Prop_muxf7_I1_O)      0.106    56.484 r  cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    56.484    cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X17Y42         MUXF8 (Prop_muxf8_I1_O)      0.042    56.526 r  cx_rows_right_col[0].connector_box/genblk1[11].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.264    56.790    swbx_rows[1].swbx_cols[3].switch_box/genblk1[0].mux_left/mux_i/data_in[1]
+    SLICE_X20Y42         LUT3 (Prop_lut3_I0_O)        0.123    56.913 r  swbx_rows[1].swbx_cols[3].switch_box/genblk1[0].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.598    57.511    cx_cols_bottom_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_in[8]
+    SLICE_X26Y38         LUT6 (Prop_lut6_I4_O)        0.043    57.554 r  cx_cols_bottom_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.309    57.863    cx_cols_bottom_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X26Y38         LUT6 (Prop_lut6_I1_O)        0.043    57.906 r  cx_cols_bottom_row[2].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.502    58.408    swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_left/mux_i/data_in[2]
+    SLICE_X30Y34         LUT4 (Prop_lut4_I0_O)        0.043    58.451 r  swbx_rows[1].swbx_cols[2].switch_box/genblk1[0].mux_left/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.486    58.937    cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_in[8]
+    SLICE_X34Y31         LUT6 (Prop_lut6_I5_O)        0.043    58.980 r  cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    58.980    cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X34Y31         MUXF7 (Prop_muxf7_I0_O)      0.104    59.084 r  cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.212    59.295    cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X33Y31         LUT3 (Prop_lut3_I2_O)        0.120    59.415 r  cx_cols_bottom_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.420    59.835    swbx_rows[1].swbx_cols[1].switch_box/genblk1[4].mux_top/mux_i/data_in[2]
+    SLICE_X25Y30         LUT4 (Prop_lut4_I0_O)        0.043    59.878 r  swbx_rows[1].swbx_cols[1].switch_box/genblk1[4].mux_top/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.463    60.341    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_in[15]
+    SLICE_X17Y26         LUT6 (Prop_lut6_I0_O)        0.043    60.384 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    60.384    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X17Y26         MUXF7 (Prop_muxf7_I1_O)      0.118    60.502 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.259    60.761    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X16Y26         LUT3 (Prop_lut3_I2_O)        0.118    60.879 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[7].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.171    61.050    swbx_rows[0].swbx_cols[1].switch_box/genblk1[4].mux_right/mux_i/data_in[3]
+    SLICE_X16Y25         LUT4 (Prop_lut4_I1_O)        0.043    61.093 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[4].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.350    61.443    cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_in[4]
+    SLICE_X11Y26         LUT6 (Prop_lut6_I5_O)        0.043    61.486 r  cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    61.486    cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X11Y26         MUXF7 (Prop_muxf7_I1_O)      0.118    61.604 r  cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    61.604    cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X11Y26         MUXF8 (Prop_muxf8_I0_O)      0.043    61.647 r  cx_cols_top_row[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.355    62.002    swbx_rows[0].swbx_cols[1].switch_box/genblk1[4].mux_bottom/mux_i/data_in[3]
+    SLICE_X16Y25         LUT4 (Prop_lut4_I1_O)        0.123    62.125 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[4].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.290    62.414    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_in[7]
+    SLICE_X15Y24         LUT6 (Prop_lut6_I0_O)        0.043    62.457 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    62.457    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X15Y24         MUXF7 (Prop_muxf7_I1_O)      0.106    62.563 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.224    62.787    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X14Y24         LUT3 (Prop_lut3_I1_O)        0.120    62.907 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[6].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.173    63.080    swbx_rows[0].swbx_cols[1].switch_box/genblk1[3].mux_right/mux_i/data_in[3]
+    SLICE_X12Y24         LUT4 (Prop_lut4_I1_O)        0.043    63.123 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[3].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.281    63.403    cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_in[3]
+    SLICE_X12Y27         LUT6 (Prop_lut6_I0_O)        0.043    63.446 r  cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    63.446    cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X12Y27         MUXF7 (Prop_muxf7_I0_O)      0.112    63.558 r  cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    63.558    cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X12Y27         MUXF8 (Prop_muxf8_I0_O)      0.044    63.602 r  cx_cols_top_row[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.388    63.991    swbx_rows[0].swbx_cols[1].switch_box/genblk1[3].mux_bottom/mux_i/data_in[3]
+    SLICE_X13Y24         LUT4 (Prop_lut4_I1_O)        0.120    64.111 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[3].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.239    64.350    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_in[6]
+    SLICE_X16Y24         LUT6 (Prop_lut6_I1_O)        0.043    64.393 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    64.393    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X16Y24         MUXF7 (Prop_muxf7_I1_O)      0.100    64.493 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.251    64.744    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X14Y23         LUT3 (Prop_lut3_I1_O)        0.120    64.864 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.229    65.092    swbx_rows[0].swbx_cols[1].switch_box/genblk1[2].mux_right/mux_i/data_in[3]
+    SLICE_X12Y23         LUT4 (Prop_lut4_I1_O)        0.043    65.135 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[2].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.460    65.595    cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_in[2]
+    SLICE_X10Y28         LUT6 (Prop_lut6_I1_O)        0.043    65.638 r  cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    65.638    cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X10Y28         MUXF7 (Prop_muxf7_I0_O)      0.112    65.750 r  cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    65.750    cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X10Y28         MUXF8 (Prop_muxf8_I0_O)      0.044    65.794 r  cx_cols_top_row[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.376    66.170    swbx_rows[0].swbx_cols[1].switch_box/genblk1[2].mux_bottom/mux_i/data_in[3]
+    SLICE_X12Y23         LUT4 (Prop_lut4_I1_O)        0.120    66.290 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[2].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.183    66.473    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_in[5]
+    SLICE_X17Y23         LUT6 (Prop_lut6_I3_O)        0.043    66.516 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4/O
+                         net (fo=1, routed)           0.000    66.516    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_4_n_0
+    SLICE_X17Y23         MUXF7 (Prop_muxf7_I1_O)      0.106    66.622 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.321    66.943    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X16Y23         LUT3 (Prop_lut3_I1_O)        0.120    67.063 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[4].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.314    67.377    swbx_rows[0].swbx_cols[1].switch_box/genblk1[1].mux_right/mux_i/data_in[3]
+    SLICE_X12Y23         LUT4 (Prop_lut4_I1_O)        0.043    67.420 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[1].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.373    67.793    cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_in[1]
+    SLICE_X10Y26         LUT6 (Prop_lut6_I3_O)        0.043    67.836 r  cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    67.836    cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X10Y26         MUXF7 (Prop_muxf7_I0_O)      0.112    67.948 r  cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    67.948    cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X10Y26         MUXF8 (Prop_muxf8_I0_O)      0.044    67.992 r  cx_cols_top_row[1].connector_box/genblk1[1].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.340    68.332    swbx_rows[0].swbx_cols[1].switch_box/genblk1[1].mux_bottom/mux_i/data_in[3]
+    SLICE_X10Y23         LUT4 (Prop_lut4_I1_O)        0.120    68.452 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[1].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.331    68.783    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_in[4]
+    SLICE_X17Y24         LUT6 (Prop_lut6_I5_O)        0.043    68.826 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    68.826    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X17Y24         MUXF7 (Prop_muxf7_I1_O)      0.106    68.932 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.218    69.150    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X17Y24         LUT5 (Prop_lut5_I4_O)        0.120    69.270 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[3].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.321    69.591    swbx_rows[0].swbx_cols[1].switch_box/genblk1[0].mux_right/mux_i/data_in[3]
+    SLICE_X14Y23         LUT4 (Prop_lut4_I0_O)        0.043    69.634 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[0].mux_right/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.520    70.154    cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_in[0]
+    SLICE_X13Y26         LUT6 (Prop_lut6_I5_O)        0.043    70.197 r  cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    70.197    cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X13Y26         MUXF7 (Prop_muxf7_I0_O)      0.117    70.314 r  cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    70.314    cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X13Y26         MUXF8 (Prop_muxf8_I0_O)      0.043    70.357 r  cx_cols_top_row[1].connector_box/genblk1[0].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=2, routed)           0.401    70.758    swbx_rows[0].swbx_cols[1].switch_box/genblk1[0].mux_bottom/mux_i/data_in[3]
+    SLICE_X14Y23         LUT4 (Prop_lut4_I0_O)        0.123    70.881 r  swbx_rows[0].swbx_cols[1].switch_box/genblk1[0].mux_bottom/mux_i/data_out_INST_0/O
+                         net (fo=16, routed)          0.336    71.217    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_in[3]
+    SLICE_X18Y23         LUT6 (Prop_lut6_I0_O)        0.043    71.260 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3/O
+                         net (fo=1, routed)           0.000    71.260    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_3_n_0
+    SLICE_X18Y23         MUXF7 (Prop_muxf7_I0_O)      0.112    71.372 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    71.372    cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0_i_1_n_0
+    SLICE_X18Y23         MUXF8 (Prop_muxf8_I0_O)      0.044    71.416 r  cx_clb_rows[0].cx_clb_cols[1].connector_box/genblk1[2].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=18, routed)          0.481    71.897    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_in[9]
+    SLICE_X25Y20         LUT6 (Prop_lut6_I3_O)        0.120    72.017 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.000    72.017    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_5_n_0
+    SLICE_X25Y20         MUXF7 (Prop_muxf7_I0_O)      0.104    72.121 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    72.121    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X25Y20         MUXF8 (Prop_muxf8_I1_O)      0.042    72.163 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[9].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=4, routed)           0.458    72.621    clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/data_in[3]
+    SLICE_X38Y19         MUXF8 (Prop_muxf8_S_O)       0.222    72.843 r  clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/data_out_INST_0_i_5/O
+                         net (fo=1, routed)           0.190    73.033    clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/data_out_INST_0_i_5_n_0
+    SLICE_X39Y19         LUT6 (Prop_lut6_I5_O)        0.120    73.153 r  clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.308    73.461    clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/lut_out
+    SLICE_X37Y21         LUT3 (Prop_lut3_I1_O)        0.043    73.504 r  clb_rows[0].clb_cols[0].CLB/genblk1[1].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.393    73.897    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_in[14]
+    SLICE_X30Y16         LUT6 (Prop_lut6_I1_O)        0.043    73.940 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    73.940    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X30Y16         MUXF7 (Prop_muxf7_I1_O)      0.106    74.046 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    74.046    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X30Y16         MUXF8 (Prop_muxf8_I1_O)      0.042    74.088 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[5].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.249    74.337    clb_rows[0].clb_cols[0].CLB/genblk1[0].ble_i/data_in[5]
+    SLICE_X32Y15         LUT6 (Prop_lut6_I2_O)        0.123    74.460 r  clb_rows[0].clb_cols[0].CLB/genblk1[0].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.306    74.766    clb_rows[0].clb_cols[0].CLB/genblk1[0].ble_i/lut_out
+    SLICE_X29Y16         LUT3 (Prop_lut3_I1_O)        0.043    74.809 r  clb_rows[0].clb_cols[0].CLB/genblk1[0].ble_i/data_out_INST_0/O
+                         net (fo=82, routed)          0.309    75.118    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_in[13]
+    SLICE_X31Y18         LUT6 (Prop_lut6_I3_O)        0.043    75.161 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_6/O
+                         net (fo=1, routed)           0.000    75.161    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_6_n_0
+    SLICE_X31Y18         MUXF7 (Prop_muxf7_I1_O)      0.106    75.267 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_2/O
+                         net (fo=1, routed)           0.000    75.267    clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0_i_2_n_0
+    SLICE_X31Y18         MUXF8 (Prop_muxf8_I1_O)      0.042    75.309 r  clb_rows[0].clb_cols[0].CLB/CLB_connector/genblk1[17].programmable_mux/mux_i/data_out_INST_0/O
+                         net (fo=1, routed)           0.341    75.650    clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/data_in[5]
+    SLICE_X32Y21         LUT6 (Prop_lut6_I2_O)        0.123    75.773 r  clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/data_out_INST_0_i_1/O
+                         net (fo=2, routed)           0.000    75.773    clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/lut_out
+    SLICE_X32Y21         FDCE                                         r  clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/flip_flop_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clock rise edge)    100.000   100.000 r  
+    R21                                               0.000   100.000 r  clk (IN)
+                         net (fo=0)                   0.000   100.000    clk
+    R21                  IBUF (Prop_ibuf_I_O)         0.631   100.631 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.694   102.325    clk_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.072   102.397 r  clk_IBUF_BUFG_inst/O
+                         net (fo=9, routed)           1.292   103.689    clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/clk
+    SLICE_X32Y21         FDCE                                         r  clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/flip_flop_reg/C
+                         clock pessimism              0.249   103.938    
+                         clock uncertainty           -0.035   103.902    
+    SLICE_X32Y21         FDCE (Setup_fdce_C_D)        0.032   103.934    clb_rows[0].clb_cols[0].CLB/genblk1[2].ble_i/flip_flop_reg
+  -------------------------------------------------------------------
+                         required time                        103.934    
+                         arrival time                         -75.773    
+  -------------------------------------------------------------------
+                         slack                                 28.161    
+
+
+
+

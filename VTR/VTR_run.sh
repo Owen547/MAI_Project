@@ -27,6 +27,16 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
 --route_chan_width 10 \
 --disp on
 
+# sequential MADD
+echo -n "Starting sequential run...                 "
+$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \
+/home/owen/College/MAI_Project/VTR/target_designs/sequential/pipelined_MADD/top.v \
+~/College/MAI_Project/VTR/Architectures/mesh_arch.xml \
+-temp_dir ~/College/VTR_runs/sequential_run \
+-top_module top \
+-lut_size 6 \
+--route_chan_width 10 \
+--disp on
 
 #run the test arch description on combinational
 echo -n "Starting combinational test run...         "
